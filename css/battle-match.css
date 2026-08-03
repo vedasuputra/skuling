@@ -1,6 +1,4 @@
-/* battle.html — live 1v1 battle quiz. Rebuilt from the Figma frames
-   "Starting Soon", "Battle, Question 1/2", "Continue Confirmation" and
-   "Battle Result" via the DesignAgent Figma bridge. */
+
 
 .device-frame {
     background: linear-gradient(180deg, #d81c1c 0%, #c11919 100%);
@@ -42,16 +40,15 @@
     border: 0;
 }
 
-/* ============ TOP BAR (Starting Soon / Result) ============ */
 .bm-top-bar {
     flex-shrink: 0;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     gap: 8px;
     width: 100%;
-    height: 76px;
-    padding: 16px 15px;
+    height: 56px;
+    padding: 10px 15px;
     box-sizing: border-box;
 }
 
@@ -115,7 +112,6 @@
     object-fit: contain;
 }
 
-/* ============ STARTING SOON ============ */
 .bm-starting {
     display: flex;
     flex-direction: column;
@@ -335,7 +331,6 @@
     color: #500a0a;
 }
 
-/* ============ QUIZ SCREEN ============ */
 .bm-quiz {
     display: flex;
     flex-direction: column;
@@ -478,7 +473,6 @@
 .bm-powerup--hint {
     background: linear-gradient(180deg, #fff4d6 0%, #fee6a4 100%);
     color: #bf6b02;
-    border-right: 1px solid #00283a;
 }
 
 .bm-powerup--fifty {
@@ -529,7 +523,6 @@
     justify-content: center;
     background: linear-gradient(180deg, #f1fbff 0%, #d5f2ff 100%);
     border: 0;
-    border-left: 1px solid #00283a;
     color: #00283a;
     cursor: pointer;
 }
@@ -538,14 +531,13 @@
     font-size: 16px;
 }
 
-/* ============ QUESTION CARD (matches pemanasan.html's pem-card system) ============ */
 .bm-question-area {
     display: flex;
     flex-direction: column;
     gap: 12px;
     width: calc(100% - 30px);
     max-width: 480px;
-    margin: 0 auto;
+    margin: 3px auto 0;
 }
 
 .bm-question-transition {
@@ -704,19 +696,23 @@
     }
 }
 
-/* ============ FOOTER CTA ============ */
 .bm-navbar {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     width: 100%;
-    max-width: 390px;
     margin: 0 auto;
     padding-bottom: max(20px, env(safe-area-inset-bottom));
     background-color: #ffffff;
     box-shadow: 0 -2px 20px rgba(0, 40, 58, 0.15);
     z-index: 10;
+}
+
+@media (min-width: 431px) {
+    .bm-navbar {
+        max-width: 390px;
+    }
 }
 
 .bm-btn-lanjut {
@@ -729,6 +725,7 @@
     padding: 16px;
     box-sizing: border-box;
     border: 0;
+    border-radius: var(--btn-border-radius-sm);
     background: linear-gradient(180deg, #d81a1a 0%, #aa1414 100%);
     font-family: var(--font-family-base);
     font-weight: 700;
@@ -742,7 +739,6 @@
     cursor: not-allowed;
 }
 
-/* ============ RESULT SCREEN ============ */
 .bm-result {
     display: flex;
     flex-direction: column;
@@ -911,6 +907,65 @@
     color: #003b56;
 }
 
+.bm-waiting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    gap: 16px;
+    padding: 40px 30px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.bm-waiting-spinner {
+    width: 46px;
+    height: 46px;
+    border-radius: 500px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+    animation: bm-waiting-spin 0.8s linear infinite;
+}
+
+@keyframes bm-waiting-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.bm-waiting-title {
+    margin: 0;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.bm-waiting-text {
+    margin: 0;
+    max-width: 320px;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+}
+
+.bm-waiting-minimize {
+    width: 100%;
+    max-width: 320px;
+    margin-top: auto;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 14px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
 .bm-result-cta {
     display: flex;
     align-items: center;
@@ -974,8 +1029,6 @@
     color: #d5f2ff;
 }
 
-/* ============ INFO OVERLAY (power-up help, reuses globals.css's
-   .pemanasan-overlay/.pemanasan-card + pemanasan.html's .info-card system) ============ */
 .info-popup-body {
     display: flex;
     flex-direction: column;
@@ -1032,7 +1085,6 @@
     border-color: #fdddc6;
 }
 
-/* ============ OUTCOME OVERLAY (Continue Confirmation) ============ */
 .bm-outcome-overlay {
     position: fixed;
     inset: 0;

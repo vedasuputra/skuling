@@ -560,7 +560,6 @@
   outline: none;
 }
 
-
 .kenalan .sheet-list button[aria-selected="true"] {
   background: var(--variable-collection-xplain-categories-background);
   border-top-color: var(--variable-collection-xplain-categories-stroke);

@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    padding-top: 76px;
+    padding-top: 56px;
     padding-bottom: 78px;
     opacity: 0;
 }
@@ -41,10 +41,6 @@
     line-height: 1;
 }
 
-/* ============ JOIN SCREEN ============ */
-/* Only this screen (before joining anything) gets the blue gradient —
-   SkulBoard/MySquad afterwards use the same neutral background as
-   beranda/peringkat, set on .skulworld itself above. */
 .skulworld-join {
     flex: 1;
     display: flex;
@@ -52,10 +48,6 @@
     box-sizing: border-box;
 }
 
-/* `display: flex` above beats the `[hidden]` attribute's UA `display: none`
-   at equal specificity (author styles win regardless of source order), so
-   toggling `.hidden = true` from JS silently did nothing without this. Same
-   fix applies to .skulworld-tabs below. */
 .skulworld-join[hidden] {
     display: none;
 }
@@ -105,7 +97,6 @@
     cursor: pointer;
 }
 
-/* ============ SQUAD ROW (shared: join screen, MySquad, modal) ============ */
 .squad-row {
     display: flex;
     align-items: center;
@@ -116,6 +107,19 @@
     box-sizing: border-box;
     border: 1px solid var(--variable-collection-stroke);
     border-radius: var(--btn-border-radius-sm);
+    background: var(--variable-collection-white);
+}
+
+.skulworld-join-inner .squad-row[data-squad="undiksha"] {
+    margin-top: 28px;
+}
+
+.squad-row[data-squad="undiksha"] .squad-row-avatar {
+    width: 46px;
+    height: 46px;
+    box-sizing: border-box;
+    padding: 8px;
+    object-fit: contain;
     background: var(--variable-collection-white);
 }
 
@@ -205,10 +209,9 @@
     cursor: default;
 }
 
-/* ============ LANJUTKAN ============ */
 .skulworld-lanjutkan {
     width: 100%;
-    padding: 14px;
+    padding: 18px;
     box-sizing: border-box;
     background: linear-gradient(180deg, #004c6f 0%, #003b56 100%);
     font-family: var(--font-family-base);
@@ -229,7 +232,6 @@
     color: var(--variable-collection-white);
 }
 
-/* ============ TABS (SkulBoard / MySquad) ============ */
 .skulworld-tabs {
     flex: 1;
     display: flex;
@@ -255,7 +257,10 @@
     align-items: center;
     gap: 2px;
     padding: 12px 0;
-    background: linear-gradient(180deg, rgba(161, 226, 255, 0.3) 0%, rgba(161, 226, 255, 0.1) 100%);
+    background: linear-gradient(180deg,
+        rgba(161, 226, 255, 0.3) 0%,
+        rgba(161, 226, 255, 0.1) 25%,
+        rgba(161, 226, 255, 0) 50%);
     cursor: pointer;
 }
 
@@ -292,7 +297,6 @@
     box-sizing: border-box;
 }
 
-/* ============ SKULBOARD EMPTY STATE ============ */
 .skulboard-panel {
     display: flex;
     flex-direction: column;
@@ -325,16 +329,16 @@
 .skulboard-empty-actions {
     display: flex;
     width: 100%;
+    gap: 10px;
     margin-top: 10px;
-    border: 1px solid #0092d3;
-    border-radius: var(--btn-border-radius-sm);
-    overflow: hidden;
 }
 
 .skulboard-empty-btn {
     flex: 1;
     padding: 12px 10px;
     background: var(--variable-collection-white);
+    border: 1px solid #0092d3;
+    border-radius: var(--btn-border-radius-sm);
     font-family: var(--font-family-base);
     font-weight: 600;
     font-size: 14px;
@@ -347,7 +351,6 @@
     color: var(--variable-collection-white);
 }
 
-/* ============ MYSQUAD ============ */
 .mysquad-panel {
     display: flex;
     flex-direction: column;
@@ -375,8 +378,11 @@
 .mysquad-explore-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;
-    padding: 6px 10px;
+    height: 30px;
+    padding: 0 10px;
+    box-sizing: border-box;
     border-radius: var(--btn-border-radius-sm);
     border: 1px solid var(--variable-collection-stroke);
     background: var(--variable-collection-white);
@@ -407,12 +413,6 @@
     cursor: pointer;
 }
 
-/* ============ SQUAD DETAIL POP-UP ============ */
-/* Markup reuses .pemanasan-overlay/.pemanasan-card/.pemanasan-header/
-   .pemanasan-body/.pemanasan-footer from globals.css (same popup shell as
-   pembahasan.html's SkulingPro notice) — only squad-specific content below
-   needs its own rules. The card's default padding/height doesn't fit this
-   popup's longer scrollable content, hence the overrides here. */
 .squad-detail-card {
     width: min(340px, 92vw);
     max-height: 80vh;
@@ -432,6 +432,15 @@
     gap: 10px;
     padding: 0px;
     border-bottom: 1px solid var(--variable-collection-stroke);
+}
+
+.squad-detail-identity .squad-row-avatar {
+    width: 56px;
+    height: 56px;
+}
+
+.squad-detail-identity .squad-row-name {
+    margin-bottom: 6px;
 }
 
 .squad-detail-section {
@@ -456,7 +465,7 @@
     margin: 0;
     font-family: var(--font-family-base);
     font-weight: 400;
-    font-size: 14px;
+    font-size: 12px;
     color: var(--variable-collection-body);
     line-height: 1.4;
     text-align: left;

@@ -38,9 +38,7 @@ async function loadComponent(placeholderId, path) {
 async function initLayout() {
     const streakPlaceholders = ["streakPlaceholder", "streakPlaceholderXplain", "streakPlaceholderBattle"]
         .filter(id => document.getElementById(id));
-    // Pages that show the pill-tab strip under the top bar (Xplain/Battle on
-    // beranda.html, Battle/Freestyle/Tryout on peringkat.html, etc.) share the
-    // same .home-navbar markup/CSS/JS — only which buttons render differs.
+
     const homeNavbarVariant = document.body.dataset.homeNavbar || "home-navbar";
 
     await Promise.all([
@@ -53,6 +51,7 @@ async function initLayout() {
     highlightActiveHomeTab();
     bindMissionCount();
     bindGlobalToastButtons();
+    watchImageLoading();
 
     const deviceFrame = document.querySelector(".device-frame");
     if (deviceFrame) deviceFrame.classList.add("layout-ready");
@@ -79,26 +78,17 @@ function highlightActiveHomeTab() {
 const NOT_IN_SCENARIO_MSG = "Bukan bagian dari skenario tugas, coba lagi.";
 
 function bindGlobalToastButtons() {
-    // Delegated on document so it works no matter when the target element
-    // was added to the DOM (dynamically-rendered cards, async-loaded
-    // topbar/navbar components, etc.) and is safe to call only once.
+
     document.addEventListener("click", (e) => {
         const target = e.target.closest("[data-not-in-scenario], #upgradeBtn, #notifBtn");
         if (target) showToast(NOT_IN_SCENARIO_MSG);
     });
 }
 
-// How many missions are currently claimable (right now just the Xplain
-// module mission, but written to sum over more later if any get added).
-// This drives the "Missions" label text only — NOT the rocket pill number,
-// which shows the power-up/hint count instead (see bindMissionCount).
 function getClaimableMissionsCount() {
     return isXplainMissionClaimable() ? 1 : 0;
 }
 
-// The top bar's rocket pill is a power-up indicator, so its number must
-// match the same power-up count shown on misi.html's own header pill
-// (getHintCount), not the claimable-missions count.
 function bindMissionCount() {
     const countEl = document.getElementById("missionCount");
     if (countEl) countEl.textContent = String(getHintCount());
@@ -108,11 +98,8 @@ function bindMissionCount() {
     if (labelEl) labelEl.textContent = missionsClaimable > 0 ? `Missions (${missionsClaimable})` : "Missions";
 }
 
-// A section stays unlocked forever once visited (via Next, Back, or the
-// dropdown), regardless of how the learner got there or navigated away.
 const MATERI_VISITED_KEY = "skuling_materi_visited_bahasa_indonesia";
-// Set only once the learner finishes section 4 ("Selesai Belajar") — visiting
-// section 4 alone caps progress at 87.5%, matching the "almost full" state.
+
 const MATERI_COMPLETED_KEY = "skuling_materi_completed_bahasa_indonesia";
 
 function getVisitedSections() {
@@ -143,8 +130,6 @@ function markMateriCompleted() {
     localStorage.setItem(MATERI_COMPLETED_KEY, "1");
 }
 
-// Tracks whether the celebratory Summary Screen (streak/rookie/mission cards)
-// has already been shown once — later completions only show the mascot + text.
 const MATERI_SUMMARY_SEEN_KEY = "skuling_materi_summary_seen_bahasa_indonesia";
 
 function hasSeenMateriSummary() {
@@ -162,13 +147,8 @@ function getMateriProgress() {
     return Math.min(87.5, 50 + (Math.max(...visited) - 1) * 12.5);
 }
 
-// ============ DAILY MISSIONS / POWER-UPS ============
-// New user, power-ups all start at 0 (registration-time power-ups are not
-// carried over into this flow).
 const HINT_COUNT_KEY = "skuling_hint_count";
-// Claiming resets the "Menyelesaikan Modul Xplain 50%" mission back to a
-// locked 0/1 state — independent of the underlying materi progress, which
-// stays completed.
+
 const XPLAIN_MISSION_CLAIMED_KEY = "skuling_xplain_mission_claimed";
 
 function getHintCount() {
@@ -193,4 +173,240 @@ function isXplainMissionClaimable() {
     return isMateriCompleted() && !hasClaimedXplainMission();
 }
 
+function watchImageLoading(root = document) {
+    root.querySelectorAll("img").forEach((img) => {
+        if (img.dataset.skelBound) return;
+        img.dataset.skelBound = "1";
+        if (img.complete && img.naturalWidth > 0) return;
+        img.classList.add("img-skeleton");
+        const clear = () => img.classList.remove("img-skeleton");
+        img.addEventListener("load", clear, { once: true });
+        img.addEventListener("error", clear, { once: true });
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => watchImageLoading());
 document.addEventListener("DOMContentLoaded", initLayout);
+
+document.addEventListener("contextmenu", (e) => {
+    if (e.target.closest("img, video, canvas")) e.preventDefault();
+});
+document.addEventListener("dragstart", (e) => {
+    if (e.target.closest("img, video, canvas")) e.preventDefault();
+});
+
+(function () {
+    function getBar() {
+        let bar = document.querySelector(".page-loading-bar");
+        if (!bar) {
+            bar = document.createElement("div");
+            bar.className = "page-loading-bar";
+            document.body.appendChild(bar);
+        }
+        return bar;
+    }
+
+    function showPageLoadingBar() {
+        const bar = getBar();
+        bar.classList.remove("active");
+        void bar.offsetWidth;
+        bar.classList.add("active");
+    }
+
+    window.addEventListener("pagehide", showPageLoadingBar);
+    window.addEventListener("beforeunload", showPageLoadingBar);
+
+    document.addEventListener("click", (e) => {
+        const link = e.target.closest("a[href]");
+        if (!link) return;
+        const href = link.getAttribute("href");
+        if (!href || href.startsWith("#") || href.startsWith("javascript:")) return;
+        if (link.target === "_blank" || e.defaultPrevented || e.metaKey || e.ctrlKey) return;
+
+        const destination = new URL(href, window.location.href);
+        if (destination.pathname === window.location.pathname && destination.search === window.location.search) {
+            e.preventDefault();
+            return;
+        }
+
+        showPageLoadingBar();
+    });
+})();
+
+(function () {
+    const BATTLE_STATE_KEY = "skuling_battle_state";
+    const BATTLE_HISTORY_KEY = "skuling_battle_last_result";
+    const BATTLE_RESULT_READY_KEY = "skuling_battle_result_ready";
+    const OPPONENT_MIN_DELAY_MS = 15000;
+    const OPPONENT_MAX_DELAY_MS = 40000;
+    const RESULT_DELTAS = { win: 110, lose: -65, draw: 23 };
+    const USER_RATING = 1500;
+    const OPPONENT_RATING = 2142;
+    const INDO_MONTHS = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
+
+    function loadPendingBattleState() {
+        try {
+            const raw = sessionStorage.getItem(BATTLE_STATE_KEY);
+            return raw ? JSON.parse(raw) : null;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function savePendingBattleState(state) {
+        try {
+            sessionStorage.setItem(BATTLE_STATE_KEY, JSON.stringify(state));
+        } catch (e) {  }
+    }
+
+    function isDone(results) {
+        return results.every(r => r !== null);
+    }
+
+    function computeGuaranteedVerdict(state) {
+        const total = state.userResults.length;
+        const userAnswered = state.userResults.filter(r => r !== null).length;
+        const userCorrect = state.userResults.filter(r => r === "correct").length;
+        const opponentAnswered = state.opponentResults.filter(r => r !== null).length;
+        const opponentCorrect = state.opponentResults.filter(r => r === "correct").length;
+        const userMaxPossible = userCorrect + (total - userAnswered);
+        const opponentMaxPossible = opponentCorrect + (total - opponentAnswered);
+        if (opponentMaxPossible < userCorrect) return "win";
+        if (userMaxPossible < opponentCorrect) return "lose";
+        return null;
+    }
+
+    function elapsedLabel(timestamps, quizStart) {
+        if (!timestamps || !timestamps.length || !quizStart) return "00:00";
+        const last = timestamps[timestamps.length - 1];
+        const s = Math.max(0, Math.round((last - quizStart) / 1000));
+        const m = Math.floor(s / 60);
+        const sec = s % 60;
+        return `${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
+    }
+
+    function getRespondent() {
+        try {
+            const draft = JSON.parse(localStorage.getItem("skuling_kenalan_draft") || "{}");
+            return {
+                name: draft["full-name"] && draft["full-name"].trim() ? draft["full-name"].trim() : "Responden",
+                school: draft["school"] && draft["school"].trim() ? draft["school"].trim() : "-",
+            };
+        } catch (e) {
+            return { name: "Responden", school: "-" };
+        }
+    }
+
+    function finalizePendingBattle(state) {
+        state.finished = true;
+        savePendingBattleState(state);
+
+        const total = state.userResults.length;
+        const userCorrect = state.userResults.filter(r => r === "correct").length;
+        const userWrong = state.userResults.filter(r => r === "wrong").length;
+        const userSkipped = total - userCorrect - userWrong;
+        const opponentCorrect = state.opponentResults.filter(r => r === "correct").length;
+        const opponentWrong = state.opponentResults.filter(r => r === "wrong").length;
+        const opponentSkipped = total - opponentCorrect - opponentWrong;
+
+        let outcome = "draw";
+        if (userCorrect > opponentCorrect) outcome = "win";
+        else if (userCorrect < opponentCorrect) outcome = "lose";
+
+        const userDelta = outcome === "draw" ? RESULT_DELTAS.draw : (outcome === "win" ? RESULT_DELTAS.win : RESULT_DELTAS.lose);
+        const opponentDelta = outcome === "draw" ? RESULT_DELTAS.draw : (outcome === "win" ? RESULT_DELTAS.lose : RESULT_DELTAS.win);
+
+        const respondent = getRespondent();
+        const now = new Date();
+        const record = {
+            dateISO: now.toISOString(),
+            dateLabel: `${INDO_MONTHS[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`,
+            opponentName: "Kak Aji",
+            opponentRating: OPPONENT_RATING,
+            userRating: USER_RATING,
+            respondentName: respondent.name,
+            respondentSchool: respondent.school,
+            outcome, userCorrect, userWrong, userSkipped,
+            opponentCorrect, opponentWrong, opponentSkipped,
+            userDelta, opponentDelta,
+            userTime: elapsedLabel(state.userTimestamps, state.quizStart),
+            opponentTime: elapsedLabel(state.opponentTimestamps, state.quizStart),
+            questions: (state.userChoices || []).map((choice, i) => ({
+                subtest: "",
+                userChoice: choice,
+                userResult: state.userResults[i],
+            })),
+        };
+
+        try { localStorage.setItem(BATTLE_HISTORY_KEY, JSON.stringify(record)); } catch (e) {  }
+        try { localStorage.setItem(BATTLE_RESULT_READY_KEY, "1"); } catch (e) {  }
+        renderBattleResultNotice();
+    }
+
+    function advancePendingBattle() {
+        const page = document.body.dataset.page;
+        if (page === "battle" || page === "battle-hasil") return;
+
+        const state = loadPendingBattleState();
+        if (!state || state.finished || !isDone(state.userResults)) return;
+
+        let changed = false;
+        while (true) {
+            const oppIndex = state.opponentResults.findIndex(r => r === null);
+            if (oppIndex === -1) break;
+            if (!state.opponentNextDue || Date.now() < state.opponentNextDue) break;
+
+            state.opponentResults[oppIndex] = state.opponentCorrectPattern[oppIndex] ? "correct" : "wrong";
+            state.opponentTimestamps = state.opponentTimestamps || [];
+            state.opponentTimestamps.push(state.opponentNextDue);
+            changed = true;
+
+            if (oppIndex + 1 >= state.opponentResults.length) {
+                state.opponentNextDue = null;
+                break;
+            }
+            state.opponentNextDue += OPPONENT_MIN_DELAY_MS + Math.random() * (OPPONENT_MAX_DELAY_MS - OPPONENT_MIN_DELAY_MS);
+        }
+
+        if (!changed) return;
+
+        if (computeGuaranteedVerdict(state) || isDone(state.opponentResults)) {
+            finalizePendingBattle(state);
+        } else {
+            savePendingBattleState(state);
+        }
+    }
+
+    function renderBattleResultNotice() {
+        const page = document.body.dataset.page;
+        if (page === "battle" || page === "battle-hasil") return;
+
+        let notice = document.querySelector(".battle-result-notice");
+        if (localStorage.getItem(BATTLE_RESULT_READY_KEY) !== "1") {
+            if (notice) notice.remove();
+            return;
+        }
+        if (notice) return;
+
+        notice = document.createElement("button");
+        notice.type = "button";
+        notice.className = "battle-result-notice";
+        notice.innerHTML =
+            '<span class="material-symbols-outlined" aria-hidden="true">emoji_events</span>' +
+            '<span>Hasil Battle sudah keluar! Ketuk untuk lihat.</span>';
+        notice.addEventListener("click", () => {
+            try { localStorage.removeItem(BATTLE_RESULT_READY_KEY); } catch (e) {  }
+            window.location.href = "battle-hasil.html";
+        });
+        document.body.appendChild(notice);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        advancePendingBattle();
+        renderBattleResultNotice();
+        setInterval(() => {
+            advancePendingBattle();
+            renderBattleResultNotice();
+        }, 7000);
+    });
+})();

@@ -46,7 +46,6 @@
     line-height: 1;
 }
 
-/* ============ GLOBAL RANK BANNER ============ */
 .rank-banner {
     display: flex;
     width: calc(100% - 30px);
@@ -87,7 +86,6 @@
     white-space: nowrap;
 }
 
-/* ============ FILTER ROW ============ */
 .rank-filters {
     display: flex;
     width: calc(100% - 30px);
@@ -161,7 +159,6 @@
     color: var(--variable-collection-accent);
 }
 
-/* ============ PERIOD LABEL ============ */
 .rank-period {
     margin: 24px 0 12px;
     width: 100%;
@@ -173,7 +170,6 @@
     letter-spacing: 0;
 }
 
-/* ============ LEADERBOARD LIST ============ */
 .rank-list {
     display: flex;
     flex-direction: column;
@@ -381,7 +377,6 @@
     outline: 2px solid var(--variable-collection-body);
     outline-offset: -2px;
 }
-
 
 .rank-row--top1 .rank-row-trend--up,
 .rank-row--top1 .rank-row-trend--down {

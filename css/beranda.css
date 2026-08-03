@@ -22,8 +22,6 @@
     animation: none;
 }
 
-/* Hold the main content until the top bar and nav bar (loaded async
-   via scripts.js) are actually in the DOM, so all three fade in together. */
 .device-frame.layout-ready .xplain {
     opacity: 1;
     animation: page-fade-in 0.2s ease-out;
@@ -229,7 +227,6 @@
 .xplain .materi-lock-badge .pro-text {
     color: var(--variable-collection-red);
 }
-
 
 .xplain .text-wrapper-2 {
     position: relative;

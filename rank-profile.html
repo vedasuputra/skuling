@@ -20,11 +20,11 @@
         <main class="rp">
 
             <header class="app-top-bar app-top-bar--simple">
-                <button class="back-btn btn-reset" type="button" aria-label="Kembali" onclick="history.back()">
-                    <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_back</span>
-                </button>
                 <div class="app-top-bar-row">
                     <div class="app-top-bar-left">
+                        <button class="back-btn btn-reset" type="button" aria-label="Kembali" onclick="history.back()">
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_back</span>
+                        </button>
                         <h1 class="page-title">@adyyt</h1>
                     </div>
                     <span class="rp-status">
@@ -78,7 +78,7 @@
                     <span class="profile-rank-footer">Lihat Semua Rank</span>
                 </a>
 
-                <div class="profile-badges-card">
+                <a class="profile-badges-card" href="badges.html">
                     <div class="profile-badges-header">
                         <span>Badges</span>
                         <span>10/20</span>
@@ -88,8 +88,8 @@
                         <img src="./img/badge-thumb-2.png" alt="">
                         <img src="./img/badge-thumb-3.png" alt="">
                     </div>
-                    <a class="profile-badges-footer" href="badges.html">Lihat Semua Badges</a>
-                </div>
+                    <span class="profile-badges-footer">Lihat Semua Badges</span>
+                </a>
             </section>
 
             <section class="profile-kampus-card" aria-label="Kampus tujuan">
@@ -117,42 +117,42 @@
 
                 <div class="profile-stat-group">
                     <div class="profile-stat-group-title">Try Out</div>
-                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                    <div class="profile-stat-row">
                         <span>Try Out Diselesaikan</span>
                         <span>4</span>
-                    </button>
-                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                    </div>
+                    <div class="profile-stat-row">
                         <span>Rata-Rata 4 TO Terakhir</span>
                         <span>562</span>
-                    </button>
+                    </div>
                 </div>
 
                 <div class="profile-stat-group">
                     <div class="profile-stat-group-title">Freestyle</div>
-                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                    <div class="profile-stat-row">
                         <span>Best Survival Streak</span>
                         <span>18</span>
-                    </button>
-                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                    </div>
+                    <div class="profile-stat-row">
                         <span>Soal Dikerjakan</span>
                         <span>2359</span>
-                    </button>
-                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                    </div>
+                    <div class="profile-stat-row">
                         <span>Benar/Salah</span>
                         <span>1980/379</span>
-                    </button>
+                    </div>
                 </div>
 
                 <div class="profile-stat-group">
                     <div class="profile-stat-group-title">Battle</div>
-                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                    <div class="profile-stat-row">
                         <span>Total Battle</span>
                         <span>34</span>
-                    </button>
-                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                    </div>
+                    <div class="profile-stat-row">
                         <span>Win/Lose/Draw</span>
                         <span>26/6/2</span>
-                    </button>
+                    </div>
                 </div>
             </section>
 

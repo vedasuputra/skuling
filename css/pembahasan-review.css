@@ -39,18 +39,17 @@
     border: 0;
 }
 
-/* ============ TOP BAR ============ */
 .pmb-top-bar {
     position: sticky;
     top: 0;
     z-index: 5;
     flex-shrink: 0;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     gap: 10px;
     width: 100%;
-    height: 76px;
-    padding: 10px 15px 16px;
+    height: 56px;
+    padding: 10px 15px;
     box-sizing: border-box;
     background-color: #ffffff;
     box-shadow: var(--topbar-shadow);
@@ -110,7 +109,6 @@
     object-fit: contain;
 }
 
-/* ============ SECTION LABEL ============ */
 .pmb-section-label {
     margin: 0;
     width: calc(100% - 30px);
@@ -122,7 +120,6 @@
     color: var(--variable-collection-body);
 }
 
-/* ============ QUESTION CARD ============ */
 .pmb-card {
     display: block;
     width: calc(100% - 30px);
@@ -171,7 +168,8 @@
     min-width: 0;
     font-family: var(--font-family-base);
     font-weight: 600;
-    font-size: 13px;    color: var(--variable-collection-red);
+    font-size: 13px;
+    color: var(--variable-collection-green-accent);
 }
 
 .pmb-card__number {
@@ -179,6 +177,11 @@
     font-family: var(--font-family-base);
     font-weight: 400;
     font-size: 13px;
+    color: var(--variable-collection-green-accent);
+}
+
+.pmb-card.is-wrong .pmb-card__title,
+.pmb-card.is-wrong .pmb-card__number {
     color: var(--variable-collection-red);
 }
 
@@ -204,7 +207,6 @@
     line-height: 18.2px;
 }
 
-/* ============ CHOICES ============ */
 .pmb-choices fieldset {
     display: flex;
     flex-direction: column;
@@ -274,7 +276,6 @@
     color: #ffffff;
 }
 
-/* ============ EXPLANATION ============ */
 .pmb-explanation {
     width: calc(100% - 30px);
     max-width: 480px;
@@ -291,14 +292,12 @@
     line-height: 1.4;
 }
 
-/* ============ BOTTOM NAV ============ */
 .pmb-navbar {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     width: 100%;
-    max-width: 390px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -308,6 +307,12 @@
     background-color: #ffffff;
     box-shadow: 0 -2px 20px rgba(0, 40, 58, 0.1);
     z-index: 10;
+}
+
+@media (min-width: 431px) {
+    .pmb-navbar {
+        max-width: 390px;
+    }
 }
 
 .pmb-nav-arrow {

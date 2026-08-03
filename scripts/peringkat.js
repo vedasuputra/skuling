@@ -36,7 +36,7 @@ function renderLeaderboard() {
                 <span class="rank-row-name-row">
                  <img class="rank-row-tier" src="./img/leaderboard-badge-${p.tier}.png" alt="">
                     <span class="rank-row-name">${p.name}</span>
-                   
+
                 </span>
                 <span class="rank-row-school">${p.school}</span>
             </span>

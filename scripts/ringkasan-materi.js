@@ -33,9 +33,6 @@ function renderFilterDropdown() {
     const dropdown = document.getElementById("filterDropdown");
     if (!dropdown) return;
 
-    // The overview page's badge always reads "#0 Ringkasan Tiap Materi", so
-    // that row is the permanently active one here (badge only changes once
-    // the learner actually navigates to a section page).
     const overviewRow = `
         <button type="button" class="filter-dropdown-row is-active" data-jump-index="0">
             <span>#0 Ringkasan Tiap Materi</span>

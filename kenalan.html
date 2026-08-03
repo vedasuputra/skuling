@@ -3,6 +3,11 @@
 
 <head>
     <meta charset="utf-8">
+    <script>
+        if (localStorage.getItem("skuling_registered") === "1") {
+            location.replace("beranda.html");
+        }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#00A5EB">
@@ -184,7 +189,7 @@
     });
 
     form.addEventListener("submit", (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     checkFormValidity();
 
@@ -193,6 +198,7 @@
         return;
     }
 
+    localStorage.setItem("skuling_registered", "1");
     window.location.href = "tujuan.html";
 });
 </script>

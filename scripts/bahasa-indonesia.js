@@ -37,10 +37,6 @@ function renderModules() {
     const container = document.getElementById("moduleList");
     if (!container) return;
 
-    // Module 0 ("Mengenal Bahasa Indonesia di TKA") is the only one with a
-    // real lesson flow (ringkasan-materi.html + materi-section.html), so its
-    // card should reflect actual saved progress in case the learner comes
-    // back here mid-way through.
     MODULES[0].progress = getMateriProgress();
 
     container.innerHTML = MODULES.map(module => {

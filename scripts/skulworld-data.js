@@ -1,6 +1,4 @@
-// Shared localStorage-backed state for the SkulWorld flow (join -> squad
-// page -> post -> comments), used by skulworld.html, squad-page.html and
-// post.html so the same data stays in sync across page navigations.
+
 
 const SKULWORLD_JOINED_KEY = "skuling_skulworld_joined";
 const SKULWORLD_POST_LIKED_KEY = "skuling_skulworld_post_liked";
@@ -52,7 +50,6 @@ function deleteComment(index) {
     return comments;
 }
 
-// Same "skuling_kenalan_draft" draft used by battle-match.js/profile.js.
 function getRespondent() {
     try {
         const draft = JSON.parse(localStorage.getItem("skuling_kenalan_draft") || "{}");

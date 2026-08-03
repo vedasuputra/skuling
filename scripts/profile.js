@@ -1,6 +1,5 @@
-// Same "skuling_kenalan_draft" localStorage draft used by battle-match.js's
-// getRespondent() — reused here so the profile reflects whatever the
-// respondent actually filled in during Kenalan, instead of static copy.
+
+
 function getRespondent() {
     try {
         const draft = JSON.parse(localStorage.getItem("skuling_kenalan_draft") || "{}");

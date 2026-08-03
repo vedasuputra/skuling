@@ -118,12 +118,8 @@
                             <span class="material-symbols-outlined icon-xs" aria-hidden="true">format_quote</span>
                         </button>
                         <button type="button" class="composer-tool-btn btn-reset" data-not-in-scenario
-                            aria-label="Sebelumnya">
-                            <span class="material-symbols-outlined icon-xs" aria-hidden="true">chevron_left</span>
-                        </button>
-                        <button type="button" class="composer-tool-btn btn-reset" data-not-in-scenario
-                            aria-label="Selanjutnya">
-                            <span class="material-symbols-outlined icon-xs" aria-hidden="true">chevron_right</span>
+                            aria-label="Sisipkan kode">
+                            <span class="material-symbols-outlined icon-xs" aria-hidden="true">code</span>
                         </button>
                         <button type="button" class="composer-submit-btn btn-reset" id="submitCommentBtn">Balas</button>
                     </div>
@@ -133,7 +129,6 @@
         </main>
     </div>
 
-    <!-- ============ DELETE COMMENT POP-UP (same pemanasan-overlay pattern used across the app) ============ -->
     <div class="pemanasan-overlay" id="commentDeleteOverlay" role="dialog" aria-modal="true"
         aria-labelledby="commentDeleteTitle">
         <div class="pemanasan-card">
@@ -149,7 +144,8 @@
             </div>
             <div class="pemanasan-footer">
                 <button type="button" class="pemanasan-skip btn-reset" id="commentDeleteCancelBtn">Kembali</button>
-                <button type="button" class="pemanasan-cta btn-reset" id="commentDeleteConfirmBtn">Ya, Hapus</button>
+                <button type="button" class="pemanasan-cta pemanasan-cta--danger btn-reset"
+                    id="commentDeleteConfirmBtn">Ya, Hapus</button>
             </div>
         </div>
     </div>

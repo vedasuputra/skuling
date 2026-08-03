@@ -173,7 +173,7 @@ function selectProvince(p) {
     provinceErrorEl.classList.remove("visible");
     closeSheet();
     checkFormValidity();
-    saveToStorage();   // tambahan
+    saveToStorage();
 
 }
 

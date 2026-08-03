@@ -7,6 +7,7 @@
 
 .post-scroll {
     flex: 1;
+    min-height: 0;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -16,7 +17,6 @@
     display: none;
 }
 
-/* ============ COMMENTS ============ */
 .comments-section {
     padding: 15px;
 }
@@ -155,13 +155,12 @@
     line-height: 1.4;
 }
 
-/* ============ COMMENT COMPOSER ============ */
 .comment-composer {
     display: flex;
     align-items: flex-start;
     gap: 10px;
     width: 100%;
-    padding: 10px 15px;
+    padding: 10px 15px max(10px, env(safe-area-inset-bottom));
     box-sizing: border-box;
     background: var(--variable-collection-white);
     border-top: 1px solid var(--variable-collection-stroke);
@@ -245,7 +244,3 @@
     cursor: pointer;
 }
 
-/* Delete-comment pop-up now reuses .pemanasan-overlay/.pemanasan-card/
-   .pemanasan-footer (.pemanasan-skip + .pemanasan-cta) from globals.css —
-   same shell as every other confirmation pop-up in the app, so no
-   page-specific overlay/modal rules are needed here anymore. */

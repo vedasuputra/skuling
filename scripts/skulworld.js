@@ -10,7 +10,6 @@ function enterTabsView() {
     tabsSection.hidden = false;
 }
 
-// ============ SQUAD DETAIL POP-UP ============
 const squadDetailOverlay = document.getElementById("squadDetailOverlay");
 const squadDetailJoinBtn = document.getElementById("squadDetailJoinBtn");
 
@@ -33,7 +32,6 @@ squadDetailOverlay?.addEventListener("click", (e) => {
     if (e.target === squadDetailOverlay) closeSquadDetail();
 });
 
-// ============ JOIN ACTION ============
 function markUndikshaJoined() {
     joinSquad();
 
@@ -49,8 +47,6 @@ function markUndikshaJoined() {
     lanjutkanBtn.classList.add("skulworld-lanjutkan--enabled");
 }
 
-// Join can only actually happen from inside the squad detail pop-up — the
-// row's own "Join" button just opens that pop-up instead of joining directly.
 document.getElementById("joinUndikshaBtn")?.addEventListener("click", openSquadDetail);
 squadDetailJoinBtn?.addEventListener("click", () => {
     markUndikshaJoined();
@@ -62,7 +58,6 @@ lanjutkanBtn?.addEventListener("click", () => {
     enterTabsView();
 });
 
-// ============ SKULBOARD / MYSQUAD SWIPE ============
 (function () {
     const TABS = ["skulboard", "mysquad"];
     const SWIPE_THRESHOLD_RATIO = 0.18;
@@ -167,7 +162,6 @@ document.getElementById("mySquadRow")?.addEventListener("click", () => {
     window.location.href = "squad-page.html";
 });
 
-// ============ INITIAL STATE ============
 if (isSquadJoined()) {
     enterTabsView();
 } else {

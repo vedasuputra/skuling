@@ -41,7 +41,6 @@
     line-height: 1;
 }
 
-/* ============ FILTERS ============ */
 .insight-filters {
     display: flex;
     gap: 10px;
@@ -78,7 +77,6 @@
     flex-shrink: 0;
 }
 
-/* ============ INFO BANNER ============ */
 .insight-banner {
     display: flex;
     align-items: center;
@@ -101,7 +99,6 @@
     color: var(--variable-collection-body);
 }
 
-/* ============ BATTLE HISTORY CARD ============ */
 .insight-history {
     display: flex;
     flex-direction: column;

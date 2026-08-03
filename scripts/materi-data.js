@@ -1,6 +1,5 @@
-// The prerequisite of section N is always section N-1 (or the "#0" overview
-// for N=1) — independent of which page the learner is currently browsing
-// from or how far they've otherwise progressed.
+
+
 function getPrerequisiteLabel(targetIndex) {
     if (targetIndex <= 1) return "#0: Ringkasan Tiap Materi";
     const prereq = MATERI_SECTIONS[targetIndex - 2];
@@ -52,14 +51,6 @@ const MATERI_SECTIONS = [
     },
 ];
 
-// Full per-section lesson content, from the "Materi, Section N" Figma frames
-// (distinct from the short MATERI_SECTIONS summaries used on the overview page).
-//
-// Each block/tip has a `lines` array mixing two line kinds, matching the bold
-// lead-in + regular description pattern used throughout the Figma text:
-//   { type: "p", text }                  -> plain paragraph
-//   { type: "bullet", label?, text }     -> bullet list item, label bolded if present
-// Consecutive "bullet" lines are grouped into one <ul> at render time.
 const MATERI_LESSONS = [
     {
         number: 1,

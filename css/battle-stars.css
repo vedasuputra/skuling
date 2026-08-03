@@ -2,7 +2,6 @@
   background: linear-gradient(180deg, #d81c1c 0%, #c11919 100%);
 }
 
-/* ============ TOAST (page-scoped override) ============ */
 body[data-page="battle-stars"] .toast {
   background: #670d0d;
   border: 1px solid #941212;
@@ -33,18 +32,17 @@ body[data-page="battle-stars"] .toast {
   line-height: 1;
 }
 
-/* ============ TOP BAR ============ */
 .battlestars-top-bar {
   position: sticky;
   top: 0;
   flex-shrink: 0;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 8px;
   width: 100%;
-  height: 76px;
-  padding: 16px 15px;
+  height: 56px;
+  padding: 10px 15px;
   box-sizing: border-box;
   box-shadow: var(--topbar-shadow);
   z-index: 10;
@@ -109,7 +107,6 @@ body[data-page="battle-stars"] .toast {
   object-fit: contain;
 }
 
-/* ============ TABS ============ */
 .battlestars-tabs {
   flex-shrink: 0;
   display: flex;
@@ -144,7 +141,6 @@ body[data-page="battle-stars"] .toast {
   color: #500a0a;
 }
 
-/* ============ STAR GRID ============ */
 .star-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -210,7 +206,6 @@ body[data-page="battle-stars"] .toast {
   line-height: 1.2;
 }
 
-/* ============ HISTORY BUTTON ============ */
 .battlestars-history-btn {
   flex-shrink: 0;
   display: block;
@@ -227,7 +222,6 @@ body[data-page="battle-stars"] .toast {
   cursor: pointer;
 }
 
-/* ============ OVERLAY / MODALS ============ */
 .battlestars-overlay {
   position: fixed;
   inset: 0;
@@ -312,7 +306,6 @@ body[data-page="battle-stars"] .toast {
   cursor: pointer;
 }
 
-/* ============ STAR PROFILE POPUP ============ */
 .star-profile-body {
   position: relative;
   display: flex;
@@ -440,7 +433,6 @@ body[data-page="battle-stars"] .toast {
   line-height: 1.4;
 }
 
-/* ============ ADJUST BATTLE POPUP ============ */
 .adjust-battle-body {
   display: flex;
   flex-direction: column;

@@ -40,7 +40,6 @@
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    padding-bottom: 4px;
     font-family: var(--font-family-base);
     font-weight: 500;
     font-size: 12px;
@@ -55,7 +54,6 @@
     background-color: #ff9900;
 }
 
-/* ============ PROFILE CARD (reused from profile.css, photo instead of initial) ============ */
 .profile-card {
     display: flex;
     width: calc(100% - 30px);
@@ -138,7 +136,6 @@
     white-space: nowrap;
 }
 
-/* ============ ACTIONS ROW (Tambah Teman / Chat / Battle) ============ */
 .rp-actions {
     display: flex;
     align-items: stretch;
@@ -177,7 +174,6 @@
     cursor: pointer;
 }
 
-/* ============ RANK + BADGES ROW ============ */
 .profile-mid-row {
     display: flex;
     align-items: stretch;
@@ -297,7 +293,6 @@
     text-decoration: none;
 }
 
-/* ============ KAMPUS TUJUAN ============ */
 .profile-kampus-card {
     width: calc(100% - 30px);
     max-width: 480px;
@@ -360,7 +355,6 @@
     color: rgba(0, 40, 58, 0.6);
 }
 
-/* ============ STATISTIK ============ */
 .profile-statistik {
     width: calc(100% - 30px);
     max-width: 480px;
@@ -401,7 +395,7 @@
     background: var(--variable-collection-white);
     border-top: 1px solid var(--variable-collection-stroke);
     text-align: left;
-    cursor: pointer;
+    cursor: default;
     font-family: var(--font-family-base);
     font-weight: 400;
     font-size: 13px;

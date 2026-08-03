@@ -39,7 +39,6 @@
     line-height: 1;
 }
 
-/* ============ TOP BAR ============ */
 .profile-header-actions {
     display: flex;
     align-items: center;
@@ -53,7 +52,6 @@
     color: var(--variable-collection-body);
 }
 
-/* ============ PROFILE CARD ============ */
 .profile-card {
     display: flex;
     width: calc(100% - 30px);
@@ -146,7 +144,6 @@
     white-space: nowrap;
 }
 
-/* ============ RANK + BADGES ROW ============ */
 .profile-mid-row {
     display: flex;
     align-items: stretch;
@@ -259,7 +256,6 @@
     border-top: 1px solid var(--variable-collection-stroke);
 }
 
-/* ============ KAMPUS TUJUAN ============ */
 .profile-kampus-card {
     width: calc(100% - 30px);
     max-width: 480px;
@@ -327,7 +323,6 @@
     color: rgba(0, 40, 58, 0.6);
 }
 
-/* ============ STATISTIK ============ */
 .profile-statistik {
     width: calc(100% - 30px);
     max-width: 480px;
@@ -368,7 +363,7 @@
     background: var(--variable-collection-white);
     border-top: 1px solid var(--variable-collection-stroke);
     text-align: left;
-    cursor: pointer;
+    cursor: default;
     font-family: var(--font-family-base);
     font-weight: 400;
     font-size: 13px;

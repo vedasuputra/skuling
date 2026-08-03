@@ -2,9 +2,6 @@ document.getElementById("afBackBtn")?.addEventListener("click", () => {
     window.history.back();
 });
 
-// Same roster used across chat/leaderboard — kept in sync there.
-// Veda Suputra only appears once actually searched for, matching the
-// chat "Buat Chat Baru" flow.
 const FRIENDS = [
     { name: "Reni Hasanah", username: "renihasanah", school: "SMA TERPADU RIYADLUL HUDA", tier: "purple", img: "./img/leaderboard-3-reni-hasanah.png" },
     { name: "A.A. Gede Pramananda Kusuma Yasa", username: "agedepramananda", school: "SMAN 1 DENPASAR", tier: "gold", img: "./img/leaderboard-4-aa-gede-pramananda-kusuma-yasa.png" },
@@ -32,26 +29,16 @@ function addFriendButtonMarkup(username) {
     </button>`;
 }
 
-function renderFriendList(query) {
+function buildFriendRows() {
     const list = document.getElementById("friendList");
     if (!list) return;
 
-    const q = query.trim().toLowerCase();
-    const filtered = q
-        ? FRIENDS.filter(f => f.name.toLowerCase().includes(q) || f.username.toLowerCase().includes(q))
-        : FRIENDS.filter(f => f.username !== "vedasuputra");
-
-    if (!filtered.length) {
-        list.innerHTML = `<p class="friend-row-empty">Tidak ada teman yang ditemukan.</p>`;
-        return;
-    }
-
-    list.innerHTML = filtered.map(f => {
+    list.innerHTML = FRIENDS.map(f => {
         const avatar = f.initials
             ? `<span class="friend-row-avatar friend-row-avatar--initials">${f.initials}</span>`
             : `<img class="friend-row-avatar" src="${f.img}" alt="">`;
         return `
-        <div class="friend-row" data-not-in-scenario aria-label="${f.name}">
+        <div class="friend-row" data-username="${f.username}" data-not-in-scenario aria-label="${f.name}">
             ${avatar}
             <span class="friend-row-info">
                 <span class="friend-row-name-row">
@@ -62,11 +49,8 @@ function renderFriendList(query) {
             </span>
             ${addFriendButtonMarkup(f.username)}
         </div>`;
-    }).join("");
+    }).join("") + `<p class="friend-row-empty" id="friendListEmpty" hidden>Tidak ada teman yang ditemukan.</p>`;
 
-    // Only the add button on Veda Suputra's row performs the real
-    // add-friend action; everything else (the row itself, other rows'
-    // add buttons) falls through to the global not-in-scenario toast.
     list.querySelector("[data-add-btn]")?.addEventListener("click", (e) => {
         e.stopPropagation();
         const btn = e.currentTarget;
@@ -77,7 +61,29 @@ function renderFriendList(query) {
     });
 }
 
-const searchInput = document.getElementById("friendSearchInput");
-searchInput?.addEventListener("input", (e) => renderFriendList(e.target.value));
+function filterFriendList(query) {
+    const list = document.getElementById("friendList");
+    if (!list) return;
 
-renderFriendList("");
+    const q = query.trim().toLowerCase();
+    let anyVisible = false;
+
+    FRIENDS.forEach((f) => {
+        const row = list.querySelector(`.friend-row[data-username="${f.username}"]`);
+        if (!row) return;
+        const matches = q
+            ? f.name.toLowerCase().includes(q) || f.username.toLowerCase().includes(q)
+            : f.username !== "vedasuputra";
+        row.hidden = !matches;
+        if (matches) anyVisible = true;
+    });
+
+    const emptyMsg = document.getElementById("friendListEmpty");
+    if (emptyMsg) emptyMsg.hidden = anyVisible;
+}
+
+const searchInput = document.getElementById("friendSearchInput");
+searchInput?.addEventListener("input", (e) => filterFriendList(e.target.value));
+
+buildFriendRows();
+filterFriendList("");

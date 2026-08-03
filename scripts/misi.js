@@ -109,7 +109,6 @@ function renderAll() {
     bindMissionCount();
 }
 
-// ============ COUNTDOWN (time left until local midnight) ============
 function updateCountdown() {
     const el = document.getElementById("countdownTimer");
     if (!el) return;
@@ -122,7 +121,6 @@ function updateCountdown() {
     el.textContent = `${h}:${m}:${s}`;
 }
 
-// ============ SPIN OVERLAY ============
 function renderSpinGrid() {
     const grid = document.getElementById("spinGrid");
     if (!grid) return;
@@ -136,8 +134,7 @@ function renderSpinGrid() {
 
 function showOverlay(overlay) {
     overlay.hidden = false;
-    // Force layout so the browser registers the pre-transition state before
-    // the class flips, otherwise the opacity/transform jump with no fade.
+
     void overlay.offsetWidth;
     overlay.classList.add("is-visible");
 }
@@ -170,7 +167,7 @@ function runSpinAnimation() {
 
     const tiles = Array.from(document.querySelectorAll(".spin-tile"));
     const hintTile = tiles.find(t => t.dataset.key === "hint");
-    const duration = 1400 + Math.random() * 800; // fast: ~1.4-2.2s
+    const duration = 1400 + Math.random() * 800;
     const start = Date.now();
     let activeTile = null;
 
@@ -201,11 +198,6 @@ function runSpinAnimation() {
     tick();
 }
 
-// ============ SPIN COMPLETE OVERLAY ============
-// Swaps content inside the already-open spin overlay/modal instead of
-// closing it and opening a second one, so only the result card (kotak)
-// plays a fade/scale-in animation — the popup itself stays put and never
-// re-fades.
 function openSpinCompleteOverlay() {
     const result = document.getElementById("spinResult");
     result.innerHTML = `
@@ -233,7 +225,7 @@ function grantHintReward() {
 }
 
 function bindEvents() {
-    // The header X closes whichever stage (spin or result) is currently showing.
+
     document.getElementById("spinCloseBtn").addEventListener("click", () => {
         const resultShowing = !document.getElementById("spinResultStage").hidden;
         if (resultShowing) closeSpinCompleteOverlay();
@@ -241,6 +233,14 @@ function bindEvents() {
     });
     document.getElementById("spinBtn").addEventListener("click", runSpinAnimation);
     document.getElementById("spinOkBtn").addEventListener("click", closeSpinCompleteOverlay);
+
+    const spinOverlay = document.getElementById("spinOverlay");
+    spinOverlay.addEventListener("click", (e) => {
+        if (e.target !== spinOverlay) return;
+        const resultShowing = !document.getElementById("spinResultStage").hidden;
+        if (resultShowing) closeSpinCompleteOverlay();
+        else closeSpinOverlay();
+    });
 
     const backBtn = document.querySelector(".back-btn");
     if (backBtn) {

@@ -1,5 +1,5 @@
 document.getElementById("chatroomBackBtn")?.addEventListener("click", () => {
-    window.location.href = "beranda.html";
+    window.location.href = "buat-chat-baru.html";
 });
 
 const body = document.getElementById("chatroomBody");
@@ -37,6 +37,8 @@ function sendMessage() {
     row.querySelector(".chatroom-message-bubble").textContent = text;
     row.querySelector(".chatroom-message-time").textContent = formatNow();
     messages.appendChild(row);
+
+    localStorage.setItem("skuling_chat_vedasuputra_last", text);
 
     input.value = "";
     body.scrollTop = body.scrollHeight;

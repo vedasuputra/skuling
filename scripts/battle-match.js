@@ -1,17 +1,12 @@
 document.body.dataset.page = "battle";
 
-// QUESTIONS comes from scripts/battle-questions.js (loaded before this file),
-// shared with pembahasan.html so both pages show identical question content.
 const TOTAL_QUESTIONS = QUESTIONS.length;
 const BATTLE_DURATION_S = 6 * 60;
 const USER_RATING = 1500;
 const OPPONENT_RATING = 2142;
 
-// Exact stakes shown on the "Starting Soon" screen in Figma — not computed
-// Elo, just fixed design values applied to whichever side wins/loses/draws.
 const RESULT_DELTAS = { win: 110, lose: -65, draw: 23 };
 
-// ============ RESPONDENT (from kenalan.html registration) ============
 function getRespondent() {
     try {
         const draft = JSON.parse(localStorage.getItem("skuling_kenalan_draft") || "{}");
@@ -24,31 +19,26 @@ function getRespondent() {
     }
 }
 
-// ============ STATE ============
 const state = {
     currentIndex: 0,
-    userResults: new Array(TOTAL_QUESTIONS).fill(null), // 'correct' | 'wrong' | null
-    userChoices: new Array(TOTAL_QUESTIONS).fill(null), // which letter (A-E) the user picked, for pembahasan.html
+    userResults: new Array(TOTAL_QUESTIONS).fill(null),
+    userChoices: new Array(TOTAL_QUESTIONS).fill(null),
     opponentResults: new Array(TOTAL_QUESTIONS).fill(null),
     userTimestamps: [],
     opponentTimestamps: [],
     hintCount: typeof getHintCount === "function" ? getHintCount() : 0,
-    fiftyCount: 0, // matches misi.js's BOOSTERS placeholder — 50:50 isn't live yet.
+    fiftyCount: 0,
     timeLeft: BATTLE_DURATION_S,
     quizStart: null,
     finished: false,
     outcomeShown: false,
-    outcomeDismissed: false, // true once the user picks "Jawab Sisa Soal" — never prompt again this battle
+    outcomeDismissed: false,
     timerInterval: null,
     opponentTimeoutId: null,
-    opponentNextDue: null, // absolute timestamp Kak Aji's next answer is due
-    opponentCorrectPattern: [], // which of the 10 questions Kak Aji gets right, decided upfront
+    opponentNextDue: null,
+    opponentCorrectPattern: [],
 };
 
-// ============ PERSISTENCE (resume an in-progress battle after a refresh) ============
-// sessionStorage (not localStorage) on purpose — a refresh mid-battle should
-// resume exactly where it was, but a battle should never silently reappear
-// in a brand-new tab/session days later.
 const BATTLE_STATE_KEY = "skuling_battle_state";
 const PERSISTED_FIELDS = [
     "currentIndex", "userResults", "userChoices", "opponentResults", "userTimestamps",
@@ -61,7 +51,7 @@ function saveBattleState() {
         const snapshot = {};
         PERSISTED_FIELDS.forEach(key => { snapshot[key] = state[key]; });
         sessionStorage.setItem(BATTLE_STATE_KEY, JSON.stringify(snapshot));
-    } catch (e) { /* storage unavailable — battle just won't survive a refresh */ }
+    } catch (e) {  }
 }
 
 function loadBattleState() {
@@ -74,12 +64,12 @@ function loadBattleState() {
 }
 
 function clearBattleState() {
-    try { sessionStorage.removeItem(BATTLE_STATE_KEY); } catch (e) { /* ignore */ }
+    try { sessionStorage.removeItem(BATTLE_STATE_KEY); } catch (e) {  }
 }
 
-// ============ DOM REFS ============
 const screenStarting = document.getElementById("screenStarting");
 const screenQuiz = document.getElementById("screenQuiz");
+const screenWaiting = document.getElementById("screenWaiting");
 const screenResult = document.getElementById("screenResult");
 const timerText = document.getElementById("timerText");
 
@@ -104,7 +94,6 @@ const outcomeOverlay = document.getElementById("outcome-overlay");
 const outcomeCard = document.getElementById("outcomeCard");
 const outcomeText = document.getElementById("outcomeText");
 
-// ============ OVERLAY HELPERS ============
 function showOverlay(overlay) {
     overlay.style.display = "flex";
     overlay.classList.remove("hiding");
@@ -119,7 +108,6 @@ function hideOverlay(overlay) {
     }, { once: true });
 }
 
-// ============ STARTING SOON — subtes roll ============
 const ALL_SUBTES = [
     "Penalaran Umum",
     "Pengetahuan Kuantitatif",
@@ -140,8 +128,6 @@ function initStartingScreen() {
     runSubjectRoll();
 }
 
-// Flashes rapidly through every SNBT subtest for ~2s (accelerating tick,
-// slowing right before it lands), then locks onto finalValue.
 function rollOneSubtes(targetEl, finalValue, onDone) {
     const start = Date.now();
 
@@ -172,7 +158,6 @@ function runSubjectRoll() {
     });
 }
 
-// ============ QUIZ ============
 function beginQuiz() {
     screenStarting.setAttribute("hidden", "");
     screenQuiz.removeAttribute("hidden");
@@ -190,8 +175,6 @@ function beginQuiz() {
     saveBattleState();
 }
 
-// Restores an in-progress (or just-finished) battle after a page refresh,
-// skipping the starting-soon screen and jumping straight back in.
 function resumeFromSaved(saved) {
     PERSISTED_FIELDS.forEach(key => { state[key] = saved[key]; });
 
@@ -206,9 +189,25 @@ function resumeFromSaved(saved) {
         return;
     }
 
-    screenQuiz.removeAttribute("hidden");
     const nextIndex = state.userResults.findIndex(r => r === null);
-    renderQuestion(nextIndex === -1 ? TOTAL_QUESTIONS - 1 : nextIndex);
+
+    const opponentIndex = state.opponentResults.findIndex(r => r === null);
+    if (opponentIndex !== -1) {
+        const remainingDelay = Math.max(0, (state.opponentNextDue || Date.now()) - Date.now());
+        scheduleOpponentAnswer(opponentIndex, remainingDelay);
+    }
+
+    if (nextIndex === -1) {
+        if (computeGuaranteedVerdict() || isOpponentDone()) {
+            finishBattle();
+        } else {
+            showWaitingScreen();
+        }
+        return;
+    }
+
+    screenQuiz.removeAttribute("hidden");
+    renderQuestion(nextIndex);
     setPowerupCount(btnHint, state.hintCount);
     setPowerupCount(btnFifty, state.fiftyCount);
 
@@ -221,14 +220,6 @@ function resumeFromSaved(saved) {
     timerText.textContent = formatTime(state.timeLeft);
     state.timerInterval = setInterval(tickTimer, 1000);
 
-    const opponentIndex = state.opponentResults.findIndex(r => r === null);
-    if (opponentIndex !== -1) {
-        const remainingDelay = Math.max(0, (state.opponentNextDue || Date.now()) - Date.now());
-        scheduleOpponentAnswer(opponentIndex, remainingDelay);
-    }
-
-    // The early-end popup itself doesn't survive a refresh — just let the
-    // check re-run on the next answer so it can resurface if still true.
     checkGuaranteedOutcome();
 }
 
@@ -295,16 +286,44 @@ btnLanjut.addEventListener("click", () => {
     saveBattleState();
 
     const nextIndex = state.userResults.findIndex(r => r === null);
-    if (checkGuaranteedOutcome()) return; // overlay takes over; don't auto-advance yet
 
     if (nextIndex === -1) {
-        finishBattle();
-    } else {
-        renderQuestion(nextIndex);
+        if (computeGuaranteedVerdict() || isOpponentDone()) {
+            finishBattle();
+        } else {
+            showWaitingScreen();
+        }
+        return;
     }
+
+    if (checkGuaranteedOutcome()) return;
+    renderQuestion(nextIndex);
 });
 
-// ============ POWER-UPS ============
+function isUserDone() {
+    return state.userResults.every(r => r !== null);
+}
+
+function isOpponentDone() {
+    return state.opponentResults.every(r => r !== null);
+}
+
+function showWaitingScreen() {
+    screenQuiz.setAttribute("hidden", "");
+    screenWaiting.removeAttribute("hidden");
+}
+
+function tryResolveWhileWaiting() {
+    if (!isUserDone() || state.finished) return;
+    if (computeGuaranteedVerdict() || isOpponentDone()) {
+        finishBattle();
+    }
+}
+
+document.getElementById("btnMinimizeBattle").addEventListener("click", () => {
+    window.location.href = "beranda.html";
+});
+
 function disablePowerup(btn) {
     btn.classList.add("is-used");
     btn.disabled = true;
@@ -349,12 +368,10 @@ btnHelp.addEventListener("click", () => {
 });
 document.getElementById("info-close").addEventListener("click", () => hideOverlay(infoOverlay));
 document.getElementById("info-close-x").addEventListener("click", () => hideOverlay(infoOverlay));
+infoOverlay.addEventListener("click", (e) => {
+    if (e.target === infoOverlay) hideOverlay(infoOverlay);
+});
 
-// ============ OPPONENT AI ============
-// Kak Aji answers fast (15-40s) and is still biased to get more wrong than
-// right — so the battle has a good chance of resolving itself before the
-// clock runs out — but he's a 2142-rated "star", so he's guaranteed a floor
-// of correct answers rather than being able to roll near-zero.
 const OPPONENT_MIN_CORRECT = 4;
 const OPPONENT_MAX_CORRECT = 6;
 
@@ -371,7 +388,7 @@ function buildOpponentCorrectPattern() {
 
 function scheduleOpponentAnswer(index, overrideDelay) {
     if (index >= TOTAL_QUESTIONS || state.finished) return;
-    const delay = overrideDelay != null ? overrideDelay : 15000 + Math.random() * 25000; // 15-40s
+    const delay = overrideDelay != null ? overrideDelay : 15000 + Math.random() * 25000;
     state.opponentNextDue = Date.now() + delay;
     saveBattleState();
     state.opponentTimeoutId = setTimeout(() => {
@@ -381,9 +398,13 @@ function scheduleOpponentAnswer(index, overrideDelay) {
         state.opponentTimestamps.push(Date.now());
         renderOpponentSquares();
         saveBattleState();
-        checkGuaranteedOutcome();
-        // Kak Aji keeps answering in the background even while the outcome
-        // popup is up — it only blocks the user's own input, not the sim.
+
+        if (isUserDone()) {
+            tryResolveWhileWaiting();
+        } else {
+            checkGuaranteedOutcome();
+        }
+
         scheduleOpponentAnswer(index + 1);
     }, delay);
 }
@@ -406,14 +427,7 @@ function renderOpponentSquares() {
     renderSquares(opponentSquaresEl, opponentProgressTextEl, state.opponentResults);
 }
 
-// ============ GUARANTEED-OUTCOME CHECK ============
-// If one side's maximum possible final score can no longer catch up to the
-// other side's current score, the result is already decided — offer to end
-// the battle early instead of grinding through the remaining questions.
-function checkGuaranteedOutcome() {
-    if (state.outcomeDismissed || state.finished) return false;
-    if (state.outcomeShown) return true; // popup already open, waiting on the user's choice
-
+function computeGuaranteedVerdict() {
     const userAnswered = state.userResults.filter(r => r !== null).length;
     const userCorrect = state.userResults.filter(r => r === "correct").length;
     const opponentAnswered = state.opponentResults.filter(r => r !== null).length;
@@ -422,11 +436,21 @@ function checkGuaranteedOutcome() {
     const userMaxPossible = userCorrect + (TOTAL_QUESTIONS - userAnswered);
     const opponentMaxPossible = opponentCorrect + (TOTAL_QUESTIONS - opponentAnswered);
 
-    let verdict = null;
-    if (opponentMaxPossible < userCorrect) verdict = "win";
-    else if (userMaxPossible < opponentCorrect) verdict = "lose";
+    if (opponentMaxPossible < userCorrect) return "win";
+    if (userMaxPossible < opponentCorrect) return "lose";
+    return null;
+}
 
+function checkGuaranteedOutcome() {
+    if (state.outcomeDismissed || state.finished) return false;
+    if (state.outcomeShown) return true;
+
+    const verdict = computeGuaranteedVerdict();
     if (!verdict) return false;
+
+    const userAnswered = state.userResults.filter(r => r !== null).length;
+    const userCorrect = state.userResults.filter(r => r === "correct").length;
+    const opponentCorrect = state.opponentResults.filter(r => r === "correct").length;
 
     state.outcomeShown = true;
     showOutcomeOverlay(verdict, userCorrect, opponentCorrect, userAnswered);
@@ -441,8 +465,6 @@ function showOutcomeOverlay(verdict, userCorrect, opponentCorrect, userAnswered)
     const youWrong = state.userResults.filter(r => r === "wrong").length;
     const opponentWrong = state.opponentResults.filter(r => r === "wrong").length;
 
-    // Mirrors the exact Figma copy: "Sejauh ini, lawan kamu salah 7 soal,
-    // sedangkan kamu sudah benar 4 soal. Jadi, kamu otomatis menang."
     if (verdict === "win") {
         outcomeText.innerHTML =
             `Sejauh ini, lawan kamu <strong class="bm-bad">salah ${opponentWrong} soal</strong>, ` +
@@ -459,37 +481,45 @@ function showOutcomeOverlay(verdict, userCorrect, opponentCorrect, userAnswered)
     showOverlay(outcomeOverlay);
 }
 
-document.getElementById("btnContinuePlaying").addEventListener("click", () => {
+function continuePlaying() {
     hideOverlay(outcomeOverlay);
     state.outcomeShown = false;
-    state.outcomeDismissed = true; // the outcome is already decided — don't ask again
+    state.outcomeDismissed = true;
     saveBattleState();
     const nextIndex = state.userResults.findIndex(r => r === null);
     if (nextIndex === -1) finishBattle();
     else renderQuestion(nextIndex);
-});
+}
+
+document.getElementById("btnContinuePlaying").addEventListener("click", continuePlaying);
 
 document.getElementById("btnFinishNow").addEventListener("click", () => {
     hideOverlay(outcomeOverlay);
     finishBattle();
 });
 
-// ============ FINISH / RESULT ============
+// Dismissing via backdrop click has no destructive consequence — same as
+// picking "Jawab Sisa Soal" (the battle just continues, nothing is finalized).
+outcomeOverlay.addEventListener("click", (e) => {
+    if (e.target === outcomeOverlay) continuePlaying();
+});
+
 function finishBattle() {
     if (state.finished) return;
     state.finished = true;
     clearInterval(state.timerInterval);
     if (state.opponentTimeoutId) clearTimeout(state.opponentTimeoutId);
-    // Defensive: the timer can hit 0 while the outcome popup is still open.
+
     [outcomeOverlay, infoOverlay].forEach(o => {
         o.classList.remove("visible", "hiding");
         o.style.display = "none";
     });
 
     screenQuiz.setAttribute("hidden", "");
+    screenWaiting.setAttribute("hidden", "");
     screenResult.removeAttribute("hidden");
     renderResult();
-    saveBattleState(); // keep the finished snapshot so a refresh shows the same result
+    saveBattleState();
 }
 
 function elapsedLabel(timestamps) {
@@ -525,7 +555,6 @@ function renderResult() {
     const titleMap = { win: "You WIN!", lose: "You LOSE!", draw: "Draw!" };
     document.getElementById("resultTitle").textContent = titleMap[outcome];
 
-    // Cards are colored by fixed identity: user is always green, opponent always red.
     const userCard = document.getElementById("resultUserCard");
     const opponentCard = document.getElementById("resultOpponentCard");
     [userCard, opponentCard].forEach(c => c.classList.remove("bm-result-card--green", "bm-result-card--red", "bm-result-card--blue"));
@@ -558,10 +587,6 @@ function renderResult() {
     });
 }
 
-// ============ HISTORY PERSISTENCE (for insight.html / battle-hasil.html / pembahasan.html) ============
-// localStorage (not sessionStorage) on purpose — unlike the in-progress
-// battle state, a completed battle's result should still show up on the
-// Insight page in a brand-new tab/session, not just this one.
 const BATTLE_HISTORY_KEY = "skuling_battle_last_result";
 const INDO_MONTHS = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
 
@@ -590,7 +615,7 @@ function persistBattleHistory(summary) {
         opponentDelta: summary.opponentDelta,
         userTime: summary.userTime,
         opponentTime: summary.opponentTime,
-        // Enough per-question detail for pembahasan.html to review each soal.
+
         questions: QUESTIONS.map((q, i) => ({
             subtest: q.subtest,
             userChoice: state.userChoices[i],
@@ -599,7 +624,7 @@ function persistBattleHistory(summary) {
     };
     try {
         localStorage.setItem(BATTLE_HISTORY_KEY, JSON.stringify(record));
-    } catch (e) { /* storage unavailable — history just won't be recorded */ }
+    } catch (e) {  }
 }
 
 document.getElementById("btnBattleAgain").addEventListener("click", () => {
@@ -607,9 +632,6 @@ document.getElementById("btnBattleAgain").addEventListener("click", () => {
     window.location.href = "battle-stars.html";
 });
 
-// ============ INIT ============
-// A refresh mid-battle (or right after finishing) resumes instead of
-// restarting from the starting-soon screen.
 const savedBattle = loadBattleState();
 if (savedBattle && savedBattle.quizStart) {
     resumeFromSaved(savedBattle);

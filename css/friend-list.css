@@ -30,10 +30,9 @@
 }
 
 .friend-list-page .app-top-bar--simple {
-    align-items: flex-end;
+    align-items: center;
 }
 
-/* ============ TAMBAH TEMAN BUTTON (top bar) ============ */
 .tambah-teman-btn {
     display: inline-flex;
     align-items: center;
@@ -73,7 +72,6 @@
     font-size: 16px;
 }
 
-/* ============ TABS ============ */
 .friend-list-tabs {
     display: flex;
     width: 100%;
@@ -98,7 +96,6 @@
     color: var(--variable-collection-accent);
 }
 
-/* ============ EMPTY STATE ============ */
 .friend-list-empty {
     flex: 1;
     display: flex;

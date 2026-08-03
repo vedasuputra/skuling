@@ -30,12 +30,10 @@
 }
 
 .buat-chat-baru .app-top-bar--simple {
-    align-items: flex-end;
+    align-items: center;
     gap: 8px;
-    padding-bottom: 12px;
 }
 
-/* ============ SCHOOL FILTER CHIP ============ */
 .school-filter-btn {
     display: inline-flex;
     align-items: center;
@@ -62,7 +60,6 @@
     background: var(--variable-collection-xplain-categories-stroke);
 }
 
-/* ============ SEARCH BAR ============ */
 .search-bar {
     position: relative;
     display: flex;
@@ -103,7 +100,6 @@
     pointer-events: none;
 }
 
-/* ============ FRIEND LIST ============ */
 .friend-list {
     display: flex;
     flex-direction: column;
@@ -117,7 +113,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 0px 0px 0px 15px;
+    padding: 10px 15px;
     box-sizing: border-box;
     border: 0;
     border-bottom: 1px solid var(--variable-collection-stroke);
@@ -128,6 +124,10 @@
     -webkit-appearance: none;
     font: inherit;
     gap: 12px;
+}
+
+.friend-row[hidden] {
+    display: none;
 }
 
 .friend-row:hover {
@@ -199,6 +199,31 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.friend-row-message-row {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    min-width: 0;
+}
+
+.friend-row-check {
+    flex-shrink: 0;
+    font-size: 13px;
+    color: var(--variable-collection-accent);
+}
+
+.friend-row-message {
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.2px;
+    color: var(--variable-collection-disabled);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
 }
 
 .friend-row-date {

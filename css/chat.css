@@ -20,7 +20,7 @@
 }
 
 .chat .app-top-bar--simple {
-    align-items: flex-end;
+    align-items: center;
 }
 
 .device-frame.layout-ready .chat {
@@ -33,7 +33,6 @@
     display: none;
 }
 
-/* ============ TOP BAR ADDITION: Buat Chat Baru button ============ */
 .app-top-bar-left {
     display: flex;
     align-items: bottom;
@@ -81,7 +80,6 @@
     outline-offset: 2px;
 }
 
-/* ============ EMPTY STATE ============ */
 .chat-empty {
     flex: 1;
     display: flex;

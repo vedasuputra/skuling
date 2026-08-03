@@ -21,9 +21,6 @@ function formatIndoDate(date) {
     return `${INDO_MONTHS[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 }
 
-// "Checker": use the date the battle was actually recorded on, falling back
-// to today's date (in the same "Agu 1, 2026" format) if an older record is
-// missing it.
 function resolveResultDateLabel(record) {
     return record.dateLabel || formatIndoDate(new Date());
 }
@@ -31,7 +28,7 @@ function resolveResultDateLabel(record) {
 function renderResult() {
     const record = getLastBattleResult();
     if (!record) {
-        // Nothing to show yet — this page only makes sense after a battle.
+
         window.location.href = "insight.html";
         return;
     }
@@ -67,4 +64,7 @@ document.getElementById("btnBattleAgain").addEventListener("click", () => {
     window.location.href = "battle-stars.html";
 });
 
-document.addEventListener("DOMContentLoaded", renderResult);
+document.addEventListener("DOMContentLoaded", () => {
+    renderResult();
+    try { localStorage.removeItem("skuling_battle_result_ready"); } catch (e) {  }
+});

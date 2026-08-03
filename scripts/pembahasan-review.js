@@ -11,11 +11,6 @@ function getLastBattleResult() {
     }
 }
 
-// Free users only ever get to review Soal 1 — everything else (2-5, "...",
-// and the next arrow) is behind the SkulingPro paywall notice. Soal 1's
-// question/choices/pembahasan are hardcoded directly in pembahasan.html (only
-// one question ever shows here), so this just layers the actual
-// correct/wrong state from the stored battle result on top of that.
 function renderReview() {
     const record = getLastBattleResult();
     if (!record) {
@@ -23,8 +18,6 @@ function renderReview() {
         return;
     }
 
-    // Falls back gracefully if an older record (saved before per-question
-    // detail was tracked) is missing the `questions` array.
     const qRecord = (record.questions && record.questions[0]) || { userChoice: null, userResult: null };
     const isCorrect = qRecord.userResult === "correct";
 
@@ -37,7 +30,6 @@ function renderReview() {
     }
 }
 
-// ============ SKULINGPRO PAYWALL OVERLAY ============
 const proOverlay = document.getElementById("pro-overlay");
 
 function showProOverlay() {
@@ -55,11 +47,14 @@ function hideProOverlay() {
 }
 
 document.getElementById("pro-close-x").addEventListener("click", hideProOverlay);
+proOverlay.addEventListener("click", (e) => {
+    if (e.target === proOverlay) hideProOverlay();
+});
 
 ["pmbNav2", "pmbNav3", "pmbNav4", "pmbNav5", "pmbNavMore", "pmbNextBtn"].forEach(id => {
     document.getElementById(id).addEventListener("click", showProOverlay);
 });
-// Soal 1 is the one already showing — clicking it again is a no-op.
+
 document.getElementById("pmbNav1").addEventListener("click", () => { });
 
 document.addEventListener("DOMContentLoaded", renderReview);

@@ -23,7 +23,6 @@
     animation: page-fade-in 0.2s ease-out;
 }
 
-/* ============ TOP BAR ============ */
 .chatroom .app-top-bar--simple {
     align-items: center;
     gap: 10px;
@@ -91,7 +90,6 @@
     text-overflow: ellipsis;
 }
 
-/* ============ MESSAGE BODY ============ */
 .chatroom-body {
     flex: 1;
     overflow-y: auto;
@@ -176,13 +174,12 @@
     padding-right: 2px;
 }
 
-/* ============ INPUT BAR ============ */
 .chatroom-input-bar {
     display: flex;
     align-items: center;
     gap: 10px;
     width: 100%;
-    padding: 10px 15px;
+    padding: 12px 15px calc(12px + env(safe-area-inset-bottom));
     box-sizing: border-box;
     background: var(--variable-collection-white);
     border-top: 1px solid var(--variable-collection-stroke);

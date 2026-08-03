@@ -24,7 +24,6 @@
   display: none;
 }
 
-/* ============ FILTER ROW ============ */
 .filter-row {
   display: flex;
   flex-shrink: 0;
@@ -60,7 +59,6 @@
   margin-right: 4px;
 }
 
-/* ============ MODULE LIST ============ */
 .module-list {
   display: flex;
   flex-direction: column;

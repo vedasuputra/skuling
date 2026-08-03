@@ -36,7 +36,6 @@
   line-height: 1;
 }
 
-/* ============ JENIS BATTLE CHIPS ============ */
 .battle-chips-row {
   display: flex;
   align-items: center;
@@ -141,7 +140,6 @@
   object-fit: contain;
 }
 
-/* ============ MODE CARDS ============ */
 .battle-modes {
   display: flex;
   flex-direction: column;
@@ -174,7 +172,6 @@
   object-fit: cover;
 }
 
-/* Random Battle — full width, tinggi sama seperti sebelumnya (158px) */
 .battle-card--random .battle-card-photo {
   height: 158px;
   object-fit: cover;

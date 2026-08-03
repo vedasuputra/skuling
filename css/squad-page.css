@@ -30,7 +30,6 @@
     line-height: 1;
 }
 
-/* ============ HEADER ============ */
 .squad-page-header.app-top-bar--simple {
     align-items: center;
     gap: 10px;
@@ -92,7 +91,6 @@
     flex-shrink: 0;
 }
 
-/* ============ SUB TABS ============ */
 .squad-page-tabs {
     display: flex;
     width: 100%;
@@ -125,7 +123,6 @@
     background: var(--variable-collection-accent);
 }
 
-/* ============ POST CARD ============ */
 .squad-post-card {
     margin: 15px;
     border: 1px solid var(--variable-collection-stroke);

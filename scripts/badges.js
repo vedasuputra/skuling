@@ -1,6 +1,5 @@
 document.body.dataset.page = "badges";
 
-// ============ FILTER DROPDOWN (same open/close pattern as materi-section.js) ============
 const filterBtn = document.getElementById("bdgFilterBtn");
 const filterDropdown = document.getElementById("bdgFilterDropdown");
 const filterLabel = document.getElementById("bdgFilterLabel");
@@ -25,9 +24,7 @@ filterBtn.addEventListener("click", (e) => {
 filterDropdown.addEventListener("click", (e) => {
     const row = e.target.closest(".bdg-filter-row");
     if (!row) return;
-    // Battle/Freestyle/General/Social/Streak are out of scenario — the global
-    // data-not-in-scenario toast handles those; only actually filter for the
-    // two that are in scope (Semua, Tryout).
+
     if (row.hasAttribute("data-not-in-scenario")) return;
 
     filterDropdown.querySelectorAll(".bdg-filter-row").forEach(r => r.classList.remove("is-active"));
@@ -42,14 +39,12 @@ filterDropdown.addEventListener("click", (e) => {
     closeFilterDropdown();
 });
 
-// click-outside-to-close
 document.addEventListener("click", (e) => {
     if (!filterDropdown.hidden && !filterDropdown.contains(e.target) && !filterBtn.contains(e.target)) {
         closeFilterDropdown();
     }
 });
 
-// ============ TRYOUT IMPROVEMENT STAR BADGE OVERLAY ============
 const tryoutOverlay = document.getElementById("tryout-overlay");
 
 function showTryoutOverlay() {
@@ -68,3 +63,6 @@ function hideTryoutOverlay() {
 
 document.getElementById("tryoutImprovementStarBtn").addEventListener("click", showTryoutOverlay);
 document.getElementById("tryout-close-x").addEventListener("click", hideTryoutOverlay);
+tryoutOverlay.addEventListener("click", (e) => {
+    if (e.target === tryoutOverlay) hideTryoutOverlay();
+});

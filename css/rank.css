@@ -25,7 +25,6 @@
     display: none;
 }
 
-/* ============ TOP BAR ============ */
 .rk-top-bar {
     position: sticky;
     top: 0;
@@ -61,7 +60,6 @@
     color: var(--variable-collection-body);
 }
 
-/* ============ HERO + ROWS — pre-designed frames exported straight from Figma ============ */
 .rk-hero-img {
     display: block;
     flex-shrink: 0;
@@ -69,7 +67,6 @@
     height: auto;
 }
 
-/* ============ SECTION LABEL ============ */
 .rk-section-label {
     flex-shrink: 0;
     margin: 0;

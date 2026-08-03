@@ -20,6 +20,9 @@ document.querySelector('.pemanasan-cta').addEventListener('click', () => {
 
 document.getElementById('btn-lanjutkan').addEventListener('click', showOverlay);
 document.getElementById('pemanasan-close').addEventListener('click', hideOverlay);
+overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) hideOverlay();
+});
 document.getElementById('pemanasan-skip').addEventListener('click', () => {
     window.location.href = 'fitur.html';
 });

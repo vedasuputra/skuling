@@ -31,7 +31,6 @@
     display: none;
 }
 
-/* ============ TOP BAR ============ */
 .bdg-top-bar {
     position: sticky;
     top: 0;
@@ -67,7 +66,6 @@
     color: var(--variable-collection-body);
 }
 
-/* ============ FILTER DROPDOWN (same pattern as materi-section.html) ============ */
 .bdg-filter-wrap {
     position: sticky;
     top: 52px;
@@ -81,7 +79,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 14px 15px;
+    padding: 10px 15px;
     box-sizing: border-box;
     background-color: var(--variable-collection-white);
     border-bottom: 1px solid var(--variable-collection-stroke);
@@ -132,7 +130,6 @@
     font-weight: 600;
 }
 
-/* ============ CATEGORY SECTIONS ============ */
 .bdg-category {
     flex-shrink: 0;
     width: calc(100% - 30px);
@@ -144,7 +141,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 8px;
+    margin-bottom: 14px;
     font-family: var(--font-family-base);
     font-weight: 600;
     font-size: 12px;
@@ -188,7 +185,6 @@
     line-height: 1.3;
 }
 
-/* ============ TRYOUT BADGE OVERLAY ============ */
 .bdg-overlay-body {
     align-items: center;
     text-align: center;
@@ -207,6 +203,7 @@
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
+    margin-bottom: 16px;
     border-radius: var(--btn-border-radius-sm);
     background-color: var(--variable-collection-xplain-categories-background);
     border: 1px solid var(--variable-collection-stroke);

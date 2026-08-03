@@ -2,9 +2,6 @@ document.getElementById("bcbBackBtn")?.addEventListener("click", () => {
     window.history.back();
 });
 
-// Same roster as the leaderboard, minus the signed-in user — reused so the
-// avatars/schools stay consistent across the app instead of inventing a
-// second fake dataset. Only vedasuputra is part of the chat scenario.
 const FRIENDS = [
     { name: "Reni Hasanah", username: "renihasanah", school: "SMA TERPADU RIYADLUL HUDA", tier: "purple", img: "./img/leaderboard-3-reni-hasanah.png" },
     { name: "A.A. Gede Pramananda Kusuma Yasa", username: "agedepramananda", school: "SMAN 1 DENPASAR", tier: "gold", img: "./img/leaderboard-4-aa-gede-pramananda-kusuma-yasa.png" },
@@ -22,27 +19,31 @@ const FRIENDS = [
 
 const LAST_ACTIVE_DATE = "Jul 31, 2026";
 
-function renderFriendList(query) {
+function escapeHtml(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+function buildFriendRows() {
     const list = document.getElementById("friendList");
     if (!list) return;
 
-    const q = query.trim().toLowerCase();
-    // Veda Suputra only shows up once actually searched for — not in the
-    // default/unfiltered list — so the flow only reveals him through search.
-    const filtered = q
-        ? FRIENDS.filter(f => f.name.toLowerCase().includes(q) || f.username.toLowerCase().includes(q))
-        : FRIENDS.filter(f => f.username !== "vedasuputra");
-
-    if (!filtered.length) {
-        list.innerHTML = `<p class="friend-row-empty">Tidak ada teman yang ditemukan.</p>`;
-        return;
-    }
-
-    list.innerHTML = filtered.map(f => {
+    list.innerHTML = FRIENDS.map(f => {
         const isScenario = f.username === "vedasuputra";
         const avatar = f.initials
             ? `<span class="friend-row-avatar friend-row-avatar--initials">${f.initials}</span>`
             : `<img class="friend-row-avatar" src="${f.img}" alt="">`;
+
+        const lastMessage = f.username === "vedasuputra"
+            ? localStorage.getItem("skuling_chat_vedasuputra_last")
+            : null;
+        const secondLine = lastMessage
+            ? `<span class="friend-row-message-row">
+                    <span class="material-symbols-outlined friend-row-check" aria-hidden="true">done_all</span>
+                    <span class="friend-row-message">${escapeHtml(lastMessage)}</span>
+                </span>`
+            : `<span class="friend-row-school">${f.school}</span>`;
         return `
         <button type="button" class="friend-row" data-username="${f.username}" ${isScenario ? "" : "data-not-in-scenario"} aria-label="${f.name}">
             ${avatar}
@@ -51,11 +52,11 @@ function renderFriendList(query) {
                     <img class="friend-row-badge" src="./img/leaderboard-badge-${f.tier}.png" alt="">
                     <span class="friend-row-name">${f.name}</span>
                 </span>
-                <span class="friend-row-school">${f.school}</span>
+                ${secondLine}
             </span>
             <span class="friend-row-date">${LAST_ACTIVE_DATE}</span>
         </button>`;
-    }).join("");
+    }).join("") + `<p class="friend-row-empty" id="friendListEmpty" hidden>Tidak ada teman yang ditemukan.</p>`;
 
     list.querySelectorAll("[data-username='vedasuputra']").forEach(row => {
         row.addEventListener("click", () => {
@@ -64,7 +65,29 @@ function renderFriendList(query) {
     });
 }
 
-const searchInput = document.getElementById("friendSearchInput");
-searchInput?.addEventListener("input", (e) => renderFriendList(e.target.value));
+function filterFriendList(query) {
+    const list = document.getElementById("friendList");
+    if (!list) return;
 
-renderFriendList("");
+    const q = query.trim().toLowerCase();
+    let anyVisible = false;
+
+    FRIENDS.forEach((f) => {
+        const row = list.querySelector(`.friend-row[data-username="${f.username}"]`);
+        if (!row) return;
+        const matches = q
+            ? f.name.toLowerCase().includes(q) || f.username.toLowerCase().includes(q)
+            : f.username !== "vedasuputra";
+        row.hidden = !matches;
+        if (matches) anyVisible = true;
+    });
+
+    const emptyMsg = document.getElementById("friendListEmpty");
+    if (emptyMsg) emptyMsg.hidden = anyVisible;
+}
+
+const searchInput = document.getElementById("friendSearchInput");
+searchInput?.addEventListener("input", (e) => filterFriendList(e.target.value));
+
+buildFriendRows();
+filterFriendList("");

@@ -37,7 +37,6 @@
     width: calc(100% - 30px);
 }
 
-/* ── Power-ups bar ── */
 .pem-powerups {
     display: flex;
     align-items: center;
@@ -349,7 +348,6 @@
     animation: fadeSlideIn 0.25s ease both;
 }
 
-/* ── Power-up used/disabled state (matches 50:50-disabled in Figma "Battle, Question 2") ── */
 .pem-powerup:disabled,
 .pem-powerup.is-used {
     background: linear-gradient(180deg, rgba(247, 246, 244, 0.9) 0%, rgba(231, 227, 219, 0.9) 78%);
@@ -363,7 +361,6 @@
     opacity: 0.55;
 }
 
-/* ── Info popup (power-up help) ── */
 .info-popup-body {
     display: flex;
     flex-direction: column;

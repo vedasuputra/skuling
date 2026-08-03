@@ -4,13 +4,11 @@ document.getElementById("postBackBtn")?.addEventListener("click", () => {
     window.location.href = "squad-page.html";
 });
 
-// ============ AVATAR (respondent initials, shared with profile.js pattern) ============
 const respondent = getRespondent();
 const initial = respondent.name.trim().charAt(0).toUpperCase() || "R";
 const composerAvatar = document.getElementById("composerAvatar");
 if (composerAvatar) composerAvatar.textContent = initial;
 
-// ============ LIKE ============
 function renderLike() {
     const liked = isPostLiked();
     const likeBtn = document.getElementById("postLikeBtn");
@@ -25,7 +23,6 @@ document.getElementById("postLikeBtn")?.addEventListener("click", () => {
 
 renderLike();
 
-// ============ COMMENTS ============
 const commentsList = document.getElementById("commentsList");
 const commentsEmpty = document.getElementById("commentsEmpty");
 const commentsTitle = document.getElementById("commentsTitle");
@@ -75,7 +72,6 @@ function renderComments() {
 
 renderComments();
 
-// ============ COMPOSER ============
 const commentInput = document.getElementById("commentInput");
 const composerToolbar = document.getElementById("composerToolbar");
 
@@ -97,7 +93,6 @@ document.getElementById("submitCommentBtn")?.addEventListener("click", () => {
     renderComments();
 });
 
-// ============ DELETE COMMENT POP-UP ============
 function closeDeleteOverlay() {
     deleteOverlay.classList.add("hiding");
     deleteOverlay.addEventListener("animationend", () => {

@@ -1,5 +1,4 @@
-/* Reuses .buat-chat-baru / .friend-row / .search-bar layout from
-   buat-chat-baru.css — only the add-friend action icon is page-specific. */
+
 
 .add-friend-btn {
     position: relative;
@@ -36,9 +35,6 @@
     cursor: default;
 }
 
-/* Pending state: no combined "person + clock" glyph exists in Material
-   Symbols, so swap to a single clock icon instead of stacking a tiny
-   badge onto the person icon — reads clearly as "waiting for approval". */
 .add-friend-btn--pending .add-friend-icon-plus,
 .add-friend-btn--pending .add-friend-icon-person {
     display: none;

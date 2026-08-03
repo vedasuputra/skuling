@@ -184,3 +184,6 @@ function hideInfo() {
 btnHelp.addEventListener('click', showInfo);
 document.getElementById('info-close').addEventListener('click', hideInfo);
 document.getElementById('info-close-x').addEventListener('click', hideInfo);
+infoOverlay.addEventListener('click', (e) => {
+    if (e.target === infoOverlay) hideInfo();
+});

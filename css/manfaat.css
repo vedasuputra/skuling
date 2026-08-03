@@ -83,13 +83,18 @@
     right: 0;
     display: flex;
     width: 100%;
-    max-width: 390px;
     margin: 0 auto;
     height: auto;
     min-height: 80px;
     align-items: center;
     padding: 12px 30px calc(30px + env(safe-area-inset-bottom));
     z-index: 10;
+}
+
+@media (min-width: 431px) {
+    .device-frame>.navbar {
+        max-width: 390px;
+    }
 }
 
 .imagine~.navbar .streak-wrapper {

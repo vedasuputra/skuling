@@ -20,7 +20,6 @@
     <div class="device-frame">
         <main class="battle-match">
 
-            <!-- ============ STARTING SOON ============ -->
             <section class="bm-starting" id="screenStarting">
                 <header class="bm-top-bar">
                     <span class="bm-top-bar-title">Get ready for battle!</span>
@@ -81,7 +80,6 @@
                 </div>
             </section>
 
-            <!-- ============ QUIZ SCREEN ============ -->
             <section class="bm-quiz" id="screenQuiz" hidden>
 
                 <div class="bm-sticky-top">
@@ -152,7 +150,17 @@
                 </footer>
             </section>
 
-            <!-- ============ RESULT SCREEN ============ -->
+            <section class="bm-waiting" id="screenWaiting" hidden>
+                <header class="bm-top-bar bm-top-bar--result">
+                    <span class="bm-top-bar-title">Menunggu Lawan</span>
+                </header>
+                <span class="bm-waiting-spinner" aria-hidden="true"></span>
+                <h1 class="bm-waiting-title">Soal kamu sudah selesai!</h1>
+                <p class="bm-waiting-text">Kak Aji masih mengerjakan soalnya. Hasil Battle baru bisa keluar setelah
+                    dia selesai atau hasilnya sudah pasti.</p>
+                <button class="bm-waiting-minimize btn-reset" type="button" id="btnMinimizeBattle">Minimize Battle</button>
+            </section>
+
             <section class="bm-result" id="screenResult" hidden>
                 <header class="bm-top-bar bm-top-bar--result">
                     <span class="bm-top-bar-title">Hasil Battle Star</span>
@@ -199,7 +207,6 @@
                 </div>
             </section>
 
-            <!-- ============ INFO OVERLAY (power-up help) ============ -->
             <div class="pemanasan-overlay" id="info-overlay" role="dialog" aria-modal="true"
                 aria-labelledby="info-title">
                 <div class="pemanasan-card">
@@ -238,7 +245,6 @@
                 </div>
             </div>
 
-            <!-- ============ OUTCOME OVERLAY (Continue Confirmation) ============ -->
             <div class="bm-outcome-overlay" id="outcome-overlay" role="dialog" aria-modal="true"
                 aria-labelledby="outcome-title">
                 <div class="bm-outcome-card" id="outcomeCard">

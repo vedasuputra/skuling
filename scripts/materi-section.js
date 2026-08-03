@@ -5,8 +5,6 @@ function getSectionNumberFromUrl() {
     return n;
 }
 
-// Groups a flat `lines` array (plain paragraphs + bullet items) into
-// rendered HTML, collapsing consecutive bullet lines into one <ul>.
 function renderLines(lines) {
     let html = "";
     let bulletBuffer = [];

@@ -35,8 +35,6 @@ function renderBattleHistory() {
     else if (record.outcome === "draw") resultBtn.classList.add("is-draw");
 }
 
-// The whole row opens the review page — battle-hasil.html is only reachable
-// from the "Hasil Battle" pill inside pembahasan.html's own top bar.
 ["historyReviewBtn", "historyResultBtn"].forEach(id => {
     document.getElementById(id)?.addEventListener("click", () => {
         window.location.href = "pembahasan.html";

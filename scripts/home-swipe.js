@@ -1,7 +1,5 @@
-// Drives the Xplain <-> Battle panel switcher on beranda.html: tapping a
-// home-navbar tab or swiping horizontally slides the .home-swipe-track
-// instead of a full page navigation, matching the mobile app feel this is
-// heading towards as a PWA.
+
+
 (function () {
     const TABS = ["xplain", "battle"];
     const SWIPE_THRESHOLD_RATIO = 0.18;
@@ -43,7 +41,7 @@
             const tabBtn = e.target.closest(".home-navbar [data-tab]");
             if (!tabBtn) return;
             const index = TABS.indexOf(tabBtn.dataset.tab);
-            if (index === -1) return; // Freestyle/Tryout are handled by the global toast binding.
+            if (index === -1) return;
             if (index !== current) goToTab(index);
         });
 

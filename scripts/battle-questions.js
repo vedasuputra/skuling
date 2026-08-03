@@ -1,8 +1,5 @@
-// ============ QUESTION BANK ============
-// 5 Penalaran Umum (2 dari Xplain/pemanasan.html + 3 baru) + 5 Literasi
-// Bahasa Inggris cadangan — total 10 soal untuk satu battle penuh.
-// Shared between battle.html (live quiz) and pembahasan.html (review), so
-// both pages always show the exact same question text/choices/answer.
+
+
 const QUESTIONS = [
     {
         subtest: "Penalaran Umum",

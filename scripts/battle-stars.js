@@ -37,18 +37,12 @@ function renderStarGrid() {
 
 renderStarGrid();
 
-// ============ STAR PROFILE POPUP (Kak Aji) ============
-// "All Stars" is the only selectable tab — "Skuling Team" can't be picked and
-// always shows the "di luar skenario tugas" toast (via [data-not-in-scenario]
-// on the button itself, handled globally in scripts.js).
 const starProfileOverlay = document.getElementById("starProfileOverlay");
 
 function openOverlay(overlay) {
     if (!overlay) return;
     overlay.hidden = false;
-    // Force layout so the browser registers the pre-transition state before
-    // the class flips, otherwise the opacity jumps straight to 1 with no fade
-    // (matches the pattern used by misi.js's daily missions popup).
+
     void overlay.offsetWidth;
     overlay.classList.add("is-visible");
 }
@@ -65,7 +59,6 @@ starProfileOverlay?.addEventListener("click", (e) => {
     if (e.target === starProfileOverlay) closeOverlay(starProfileOverlay);
 });
 
-// ============ ADJUST BATTLE POPUP ============
 const adjustBattleOverlay = document.getElementById("adjustBattleOverlay");
 const SOAL_MIN = 5;
 const SOAL_MAX = 10;
@@ -97,9 +90,6 @@ function renderStepperValues() {
     updateStepperButtons();
 }
 
-// Lets the user type a value directly, digits only, clamped to [min, max]
-// once they're done (blur / Enter) so mid-typing states like "1" (on the way
-// to "10") aren't forced back to the bound immediately.
 function bindTypableStepper(input, min, max, setCount) {
     if (!input) return;
 
