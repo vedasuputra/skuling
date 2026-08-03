@@ -1,0 +1,55 @@
+/* Reuses .buat-chat-baru / .friend-row / .search-bar layout from
+   buat-chat-baru.css — only the add-friend action icon is page-specific. */
+
+.add-friend-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 67px;
+    height: 67px;
+    border-radius: 0;
+    background: transparent;
+    color: var(--variable-collection-accent);
+    cursor: pointer;
+    border-left: 1px solid var(--variable-collection-stroke);
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.add-friend-btn .material-symbols-outlined {
+    font-size: 36px;
+    color: var(--variable-collection-accent);
+}
+
+.add-friend-btn .add-friend-icon-plus {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    font-size: 18px;
+}
+
+.add-friend-btn--pending {
+    background: var(--variable-collection-xplain-categories-background);
+    cursor: default;
+}
+
+/* Pending state: no combined "person + clock" glyph exists in Material
+   Symbols, so swap to a single clock icon instead of stacking a tiny
+   badge onto the person icon — reads clearly as "waiting for approval". */
+.add-friend-btn--pending .add-friend-icon-plus,
+.add-friend-btn--pending .add-friend-icon-person {
+    display: none;
+}
+
+.add-friend-btn .add-friend-icon-clock {
+    display: none;
+}
+
+.add-friend-btn--pending .add-friend-icon-clock {
+    display: inline-flex;
+    font-size: 30px;
+    color: var(--variable-collection-disabled);
+}

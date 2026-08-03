@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skuling: Chat</title>
+    <link rel="stylesheet" href="./css/globals.css">
+    <link rel="stylesheet" href="./css/guide.css">
+    <link rel="stylesheet" href="./css/chat.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0"
+        rel="stylesheet">
+</head>
+
+<body data-page="chat">
+    <div class="device-frame">
+        <main class="chat">
+
+            <header class="app-top-bar app-top-bar--simple">
+                <div class="app-top-bar-row">
+                    <div class="app-top-bar-left">
+                        <button class="back-btn btn-reset" type="button" aria-label="Kembali">
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_back</span>
+                        </button>
+                        <h1 class="page-title">Chat</h1>
+                    </div>
+                    <button class="chat-new-btn btn-reset" type="button" id="buatChatTopBtn"
+                        aria-label="Buat chat baru">
+                        <span class="material-symbols-outlined icon-xs" aria-hidden="true">add</span>
+                        <span>Buat Chat Baru</span>
+                    </button>
+                </div>
+            </header>
+
+            <section class="chat-empty" aria-labelledby="chat-empty-title">
+                <img class="chat-empty-illustration" src="./img/chat-empty.png" alt="Ilustrasi chat kosong">
+                <p id="chat-empty-title" class="chat-empty-text">
+                    Chat masih kosong.<br>
+                    Ajak teman ngobrol dari profil mereka, atau klik <strong>Buat Chat Baru</strong> di bawah!
+                </p>
+                <button class="chat-new-btn chat-new-btn--large" type="button" id="buatChatBodyBtn"
+                    aria-label="Buat chat baru">
+                    <span class="material-symbols-outlined icon-sm" aria-hidden="true">add</span>
+                    <span>Buat Chat Baru</span>
+                </button>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="./scripts/scripts.js"></script>
+    <script>
+        document.body.dataset.page = "chat";
+
+        document.getElementById("buatChatTopBtn")?.addEventListener("click", () => {
+            window.location.href = "buat-chat-baru.html";
+        });
+
+        document.getElementById("buatChatBodyBtn")?.addEventListener("click", () => {
+            window.location.href = "buat-chat-baru.html";
+        });
+
+        document.querySelector(".back-btn")?.addEventListener("click", () => {
+            window.history.back();
+        });
+    </script>
+</body>
+
+</html>

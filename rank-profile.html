@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skuling: Profil Peringkat</title>
+    <link rel="stylesheet" href="./css/globals.css">
+    <link rel="stylesheet" href="./css/guide.css">
+    <link rel="stylesheet" href="./css/rank-profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0"
+        rel="stylesheet">
+</head>
+
+<body data-page="rank-profile">
+    <div class="device-frame">
+        <main class="rp">
+
+            <header class="app-top-bar app-top-bar--simple">
+                <button class="back-btn btn-reset" type="button" aria-label="Kembali" onclick="history.back()">
+                    <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_back</span>
+                </button>
+                <div class="app-top-bar-row">
+                    <div class="app-top-bar-left">
+                        <h1 class="page-title">@adyyt</h1>
+                    </div>
+                    <span class="rp-status">
+                        <span class="rp-status-dot" aria-hidden="true"></span>
+                        Aktif 5 jam lalu
+                    </span>
+                </div>
+            </header>
+
+            <section class="profile-card" aria-label="Info profil">
+                <img class="profile-avatar rp-avatar-photo" src="./img/rank1-photo.png" alt="Miftah Adyatma Halim">
+                <div class="profile-card-info">
+                    <h2 class="profile-name">Miftah Adyatma Halim</h2>
+                    <p class="profile-school">SMAN JOGOROTO</p>
+                    <div class="profile-stats">
+                        <span class="profile-stat">
+                            <span class="profile-stat-value">19</span>
+                            <span class="profile-stat-label">Teman</span>
+                        </span>
+                        <span class="profile-stat">
+                            <span class="profile-stat-value">Jan 2025</span>
+                            <span class="profile-stat-label">Bergabung</span>
+                        </span>
+                        <button type="button" class="profile-stat btn-reset" data-not-in-scenario>
+                            <span class="profile-stat-value">#3 <span class="material-symbols-outlined icon-xxs"
+                                    aria-hidden="true">help</span></span>
+                            <span class="profile-stat-label">Global Rank</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="rp-actions">
+                <button type="button" class="rp-add-friend btn-reset" data-not-in-scenario>
+                    <span class="material-symbols-outlined icon-sm" aria-hidden="true">person_add</span>
+                    Tambah Teman
+                </button>
+                <button type="button" class="rp-icon-btn btn-reset" aria-label="Chat" data-not-in-scenario>
+                    <span class="material-symbols-outlined icon-sm" aria-hidden="true">chat_bubble</span>
+                </button>
+                <button type="button" class="rp-icon-btn btn-reset" aria-label="Battle" data-not-in-scenario>
+                    <span class="material-symbols-outlined icon-sm" aria-hidden="true">swords</span>
+                </button>
+            </div>
+
+            <section class="profile-mid-row" aria-label="Rank dan badges">
+                <a class="profile-rank-card rp-rank-card" href="rank.html">
+                    <span class="profile-rank-label">Rank</span>
+                    <span class="profile-rank-value">Contender</span>
+                    <img class="profile-rank-mascot" src="./img/rank-mascot-contender.png" alt="">
+                    <span class="profile-rank-footer">Lihat Semua Rank</span>
+                </a>
+
+                <div class="profile-badges-card">
+                    <div class="profile-badges-header">
+                        <span>Badges</span>
+                        <span>10/20</span>
+                    </div>
+                    <div class="rp-badges-preview">
+                        <img src="./img/badge-thumb-1.png" alt="">
+                        <img src="./img/badge-thumb-2.png" alt="">
+                        <img src="./img/badge-thumb-3.png" alt="">
+                    </div>
+                    <a class="profile-badges-footer" href="badges.html">Lihat Semua Badges</a>
+                </div>
+            </section>
+
+            <section class="profile-kampus-card" aria-label="Kampus tujuan">
+                <div class="profile-kampus-header">
+                    <span>Kampus Tujuan</span>
+                </div>
+                <button type="button" class="profile-kampus-body btn-reset" data-not-in-scenario>
+                    <img class="profile-kampus-logo" src="./img/kampus-brawijaya-logo.png" alt="">
+                    <span class="profile-kampus-info">
+                        <span class="profile-kampus-name">Universitas Brawijaya</span>
+                        <span class="profile-kampus-jurusan">Instrumentasi</span>
+                    </span>
+                </button>
+                <button type="button" class="profile-kampus-body btn-reset" data-not-in-scenario>
+                    <img class="profile-kampus-logo" src="./img/kampus-brawijaya-logo.png" alt="">
+                    <span class="profile-kampus-info">
+                        <span class="profile-kampus-name">Universitas Brawijaya</span>
+                        <span class="profile-kampus-jurusan">Agroekoteknologi</span>
+                    </span>
+                </button>
+            </section>
+
+            <section class="profile-statistik" aria-label="Statistik">
+                <h2 class="profile-statistik-title">Statistik</h2>
+
+                <div class="profile-stat-group">
+                    <div class="profile-stat-group-title">Try Out</div>
+                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                        <span>Try Out Diselesaikan</span>
+                        <span>4</span>
+                    </button>
+                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                        <span>Rata-Rata 4 TO Terakhir</span>
+                        <span>562</span>
+                    </button>
+                </div>
+
+                <div class="profile-stat-group">
+                    <div class="profile-stat-group-title">Freestyle</div>
+                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                        <span>Best Survival Streak</span>
+                        <span>18</span>
+                    </button>
+                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                        <span>Soal Dikerjakan</span>
+                        <span>2359</span>
+                    </button>
+                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                        <span>Benar/Salah</span>
+                        <span>1980/379</span>
+                    </button>
+                </div>
+
+                <div class="profile-stat-group">
+                    <div class="profile-stat-group-title">Battle</div>
+                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                        <span>Total Battle</span>
+                        <span>34</span>
+                    </button>
+                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                        <span>Win/Lose/Draw</span>
+                        <span>26/6/2</span>
+                    </button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/rank-profile.js"></script>
+</body>
+
+</html>

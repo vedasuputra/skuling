@@ -1,0 +1,135 @@
+.device-frame {
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(243, 251, 255, 1) 100%);
+}
+
+.friend-list-page {
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(243, 251, 255, 1) 100%);
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    opacity: 0;
+}
+
+.device-frame.layout-ready .friend-list-page {
+    opacity: 1;
+    animation: page-fade-in 0.2s ease-out;
+}
+
+.friend-list-page::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+
+.friend-list-page .app-top-bar--simple {
+    align-items: flex-end;
+}
+
+/* ============ TAMBAH TEMAN BUTTON (top bar) ============ */
+.tambah-teman-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: var(--btn-border-radius-sm);
+    border: 1px solid #0092d3;
+    background: linear-gradient(180deg,
+            rgba(33, 186, 255, 1) 0%,
+            rgba(0, 164, 237, 1) 100%);
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--variable-collection-white);
+    white-space: nowrap;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.tambah-teman-btn .material-symbols-outlined {
+    color: var(--variable-collection-white);
+    font-size: 12px;
+}
+
+.tambah-teman-btn:hover {
+    background: linear-gradient(180deg,
+            rgba(18, 176, 245, 1) 0%,
+            rgba(0, 145, 216, 1) 100%);
+}
+
+.tambah-teman-btn--large {
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.tambah-teman-btn--large .material-symbols-outlined {
+    font-size: 16px;
+}
+
+/* ============ TABS ============ */
+.friend-list-tabs {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid var(--variable-collection-stroke);
+    flex-shrink: 0;
+}
+
+.friend-list-tab {
+    flex: 1;
+    padding: 14px 0;
+    border: 0;
+    background: transparent;
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--variable-collection-disabled);
+    cursor: pointer;
+    position: relative;
+}
+
+.friend-list-tab--active {
+    color: var(--variable-collection-accent);
+}
+
+/* ============ EMPTY STATE ============ */
+.friend-list-empty {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    padding: 24px 44px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.friend-list-illustration {
+    width: 138px;
+    height: 138px;
+    object-fit: contain;
+}
+
+.friend-list-empty-text {
+    margin: 0;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--variable-collection-body);
+    letter-spacing: 0;
+    line-height: 18.2px;
+}
+
+.friend-list-empty-text strong {
+    font-weight: 600;
+}

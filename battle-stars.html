@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skuling: Battle Stars</title>
+    <link rel="stylesheet" href="./css/globals.css">
+    <link rel="stylesheet" href="./css/guide.css">
+    <link rel="stylesheet" href="./css/battle-stars.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0"
+        rel="stylesheet">
+</head>
+
+<body data-page="battle-stars">
+    <div class="device-frame">
+        <main class="battle-stars">
+
+            <header class="battlestars-top-bar">
+                <button class="back-btn btn-reset" type="button" aria-label="Kembali" onclick="history.back()">
+                    <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_back</span>
+                </button>
+                <h1 class="battlestars-title">Battle Stars</h1>
+                <div class="battlestars-pills">
+                    <a class="battlestars-pill" href="misi.html" aria-label="Lihat missions">
+                        <span class="material-symbols-outlined icon-xs" aria-hidden="true">rocket_launch</span>
+                        <span id="missionCount">0</span>
+                    </a>
+                    <button type="button" class="battlestars-pill battlestars-pill--energy" data-not-in-scenario
+                        aria-label="SmartEnergy">
+                        <img src="./img/battle-energy-icon.png" alt="">
+                        <span>3</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="battlestars-tabs" role="tablist" aria-label="Filter Battle Stars">
+                <button type="button" class="battlestars-tab is-active" id="allStarsTab" role="tab"
+                    aria-selected="true">All Stars</button>
+                <button type="button" class="battlestars-tab" id="skulingTeamTab" role="tab"
+                    aria-selected="false" aria-disabled="true" data-not-in-scenario>Skuling Team</button>
+            </div>
+
+            <section class="star-grid" id="starGrid" aria-label="Daftar Star"></section>
+
+            <a class="battlestars-history-btn btn-reset" href="insight.html">View Battle
+                History</a>
+
+            <!-- ============ KAK AJI PROFILE POPUP ============ -->
+            <div class="battlestars-overlay" id="starProfileOverlay" hidden>
+                <div class="battlestars-modal battlestars-modal--profile">
+                    <header class="battlestars-modal-header">
+                        <h2 class="battlestars-modal-title">Star Profile</h2>
+                        <button class="battlestars-modal-close btn-reset" type="button" id="profileCloseBtn"
+                            aria-label="Tutup">
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">close</span>
+                        </button>
+                    </header>
+
+                    <div class="star-profile-body">
+                        <button class="star-profile-arrow star-profile-arrow--left btn-reset"
+                            type="button" data-not-in-scenario aria-label="Star sebelumnya">
+                            <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+                        </button>
+
+                        <div class="star-profile-main">
+                            <img class="star-profile-photo" src="./img/battle-star-kak-aji-profile.png"
+                                alt="Kak Aji">
+                            <div class="star-profile-name-row">
+                                <span class="star-profile-name">Kak Aji</span>
+                                <span class="star-profile-rating">2142</span>
+                            </div>
+                            <span class="star-profile-role">Head of Education, Skuling</span>
+                        </div>
+
+                        <button class="star-profile-arrow star-profile-arrow--right btn-reset"
+                            type="button" data-not-in-scenario aria-label="Star berikutnya">
+                            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                        </button>
+                    </div>
+
+                    <div class="star-profile-info">
+                        <div class="star-profile-info-col star-profile-info-col--edukasi">
+                            <span class="star-profile-info-label">Edukasi</span>
+                            <span class="star-profile-info-value">Geodesi, UGM</span>
+                        </div>
+                        <div class="star-profile-info-col star-profile-info-col--subtes">
+                            <span class="star-profile-info-label">Subtes Favorit</span>
+                            <span class="star-profile-info-value">Pengetahuan dan Pemahaman Umum<br>Penalaran
+                                Matematika</span>
+                        </div>
+                    </div>
+
+                    <button class="battlestars-cta btn-reset" type="button" id="tantangBtn">Tantang</button>
+                </div>
+            </div>
+
+            <!-- ============ ADJUST BATTLE POPUP ============ -->
+            <div class="battlestars-overlay" id="adjustBattleOverlay" hidden>
+                <div class="battlestars-modal battlestars-modal--adjust">
+                    <header class="battlestars-modal-header">
+                        <h2 class="battlestars-modal-title">Atur Battle</h2>
+                        <button class="battlestars-modal-close btn-reset" type="button" id="adjustCloseBtn"
+                            aria-label="Tutup">
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">close</span>
+                        </button>
+                    </header>
+
+                    <div class="adjust-battle-body">
+                        <div class="adjust-field">
+                            <span class="adjust-field-label">Jumlah Soal</span>
+                            <div class="adjust-stepper">
+                                <button class="adjust-stepper-btn btn-reset" type="button" id="soalMinusBtn"
+                                    aria-label="Kurangi jumlah soal">
+                                    <span class="material-symbols-outlined" aria-hidden="true">remove</span>
+                                </button>
+                                <input class="adjust-stepper-value" id="soalValue" type="text" inputmode="numeric"
+                                    pattern="[0-9]*" maxlength="2" value="10" aria-label="Jumlah soal">
+                                <button class="adjust-stepper-btn btn-reset" type="button" id="soalPlusBtn"
+                                    aria-label="Tambah jumlah soal">
+                                    <span class="material-symbols-outlined" aria-hidden="true">add</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="adjust-field">
+                            <span class="adjust-field-label">Batas Waktu (Menit)</span>
+                            <div class="adjust-stepper">
+                                <button class="adjust-stepper-btn btn-reset" type="button" id="waktuMinusBtn"
+                                    aria-label="Kurangi batas waktu">
+                                    <span class="material-symbols-outlined" aria-hidden="true">remove</span>
+                                </button>
+                                <input class="adjust-stepper-value" id="waktuValue" type="text" inputmode="numeric"
+                                    pattern="[0-9]*" maxlength="2" value="6" aria-label="Batas waktu menit">
+                                <button class="adjust-stepper-btn btn-reset" type="button" id="waktuPlusBtn"
+                                    aria-label="Tambah batas waktu">
+                                    <span class="material-symbols-outlined" aria-hidden="true">add</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="adjust-field">
+                            <span class="adjust-field-label">Subtes</span>
+                            <button type="button" class="adjust-dropdown btn-reset" data-not-in-scenario>
+                                <span>Dua Subtes Random SNBT</span>
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">expand_more</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button class="battlestars-cta btn-reset" type="button" id="mulaiBattleBtn">Mulai Battle</button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/battle-stars.js"></script>
+</body>
+
+</html>

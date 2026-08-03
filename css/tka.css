@@ -1,0 +1,118 @@
+.device-frame {
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(243, 251, 255, 1) 100%);
+}
+
+.sekolah-tka {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(243, 251, 255, 1) 100%);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sekolah-tka::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+/* ============ SUBJECT GROUPS ============ */
+.subject-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  width: calc(100% - 30px);
+  max-width: 480px;
+  margin: 15px auto 0;
+  padding: 0 0 40px;
+  box-sizing: border-box;
+}
+
+.subject-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.subject-group-title {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  color: var(--variable-collection-body);
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 100%;
+}
+
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 15px;
+}
+
+.subject-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.subject-card-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 4px;
+  border: 1px solid var(--variable-collection-stroke);
+  background-color: var(--variable-collection-xplain-categories-background);
+  overflow: hidden;
+}
+
+.subject-card-thumb img {
+  display: block;
+  width: 82%;
+  height: 82%;
+  object-fit: contain;
+}
+
+.subject-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: 100%;
+}
+
+.subject-card-name {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  color: var(--variable-collection-body);
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 100%;
+}
+
+.subject-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.subject-card-count {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  color: #00577e;
+  font-size: 10px;
+  letter-spacing: 0.2px;
+  line-height: 1;
+}

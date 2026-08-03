@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skuling: Ringkasan Materi</title>
+    <link rel="stylesheet" href="./css/globals.css">
+    <link rel="stylesheet" href="./css/guide.css">
+    <link rel="stylesheet" href="./css/ringkasan-materi.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0"
+        rel="stylesheet">
+</head>
+
+<body data-page="ringkasan-materi">
+    <div class="device-frame">
+        <main class="ringkasan-materi">
+
+            <header class="app-top-bar app-top-bar--simple ringkasan-top-bar">
+                <button class="back-btn btn-reset" type="button" aria-label="Kembali">
+                    <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_back</span>
+                </button>
+                <div class="ringkasan-title-block">
+                    <h1 class="ringkasan-title">Mengenal Bahasa Indonesia di TKA</h1>
+                    <p class="ringkasan-subtitle">Bahasa Indonesia</p>
+                </div>
+                <div class="ringkasan-actions">
+                    <button class="tanya-skully-btn btn-reset" type="button" data-not-in-scenario>
+                        <span class="tanya-skully-icon">
+                            <img src="./img/mascot-skully-icon.png" alt="">
+                        </span>
+                        <span class="tanya-skully-text">Tanya Skully</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="progress-strip" role="progressbar" aria-label="Progres materi" aria-valuenow="0"
+                aria-valuemin="0" aria-valuemax="100">
+                <span class="progress-strip-fill" style="width: 0%"></span>
+            </div>
+
+            <div class="filter-wrap">
+                <button class="filter-bar btn-reset" type="button" id="filterBarBtn" aria-haspopup="listbox"
+                    aria-expanded="false">
+                    <span class="filter-bar-label">
+                        <span class="section-breadcrumb-index">#0</span>
+                        Ringkasan Tiap Materi
+                    </span>
+                    <span class="material-symbols-outlined icon-sm" aria-hidden="true">expand_more</span>
+                </button>
+                <div class="filter-dropdown" id="filterDropdown" role="listbox" hidden></div>
+            </div>
+
+            <section class="summary-list" id="summaryList" aria-label="Ringkasan materi"></section>
+
+            <nav class="ringkasan-navbar" aria-label="Aksi materi">
+                <div class="ringkasan-navbar-row">
+                    <button class="ringkasan-cta ringkasan-cta--secondary btn-reset" type="button" data-not-in-scenario>
+                        Selesai Belajar
+                    </button>
+                    <button class="ringkasan-cta ringkasan-cta--primary btn-reset" type="button" id="startLearningBtn">
+                        Belajar Lebih Dalam
+                    </button>
+                </div>
+            </nav>
+
+        </main>
+    </div>
+
+    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/materi-data.js"></script>
+    <script src="./scripts/ringkasan-materi.js"></script>
+</body>
+
+</html>

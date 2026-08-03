@@ -1,0 +1,187 @@
+.device-frame {
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(243, 251, 255, 1) 100%);
+}
+
+.battle {
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(243, 251, 255, 1) 100%);
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-top: 126px;
+  padding-bottom: 100px;
+  opacity: 0;
+}
+
+.device-frame.layout-ready .battle {
+  opacity: 1;
+  animation: page-fade-in 0.2s ease-out;
+}
+
+.battle::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+.icon-xxs {
+  font-size: 8px;
+  line-height: 1;
+}
+
+/* ============ JENIS BATTLE CHIPS ============ */
+.battle-chips-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: calc(100% - 30px);
+  max-width: 480px;
+  margin: 20px auto 0;
+  gap: 10px;
+}
+
+.battle-section-title {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--variable-collection-body);
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.battle-chips {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+}
+
+.battle-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: stretch;
+  border-radius: 100px;
+  overflow: hidden;
+  font-family: var(--font-family-base);
+  cursor: pointer;
+  padding: 0;
+}
+
+.battle-chip-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.battle-chip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px 6px;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  white-space: nowrap;
+  border-radius: var(--btn-border-radius-pill);
+}
+
+.battle-chip--pro {
+  background: linear-gradient(180deg, #fbdbdb 0%, #f5adad 100%);
+  border: 1px solid #4f0a0a;
+}
+
+.battle-chip--pro .battle-chip-label {
+  color: #4f0a0a;
+}
+
+.battle-chip--pro .battle-chip-badge {
+  background: linear-gradient(180deg, #d81a1a 0%, #aa1414 100%);
+  border-right: 1px solid #4f0a0a;
+}
+
+.battle-chip--pro .battle-chip-badge .material-symbols-outlined {
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.battle-chip--energy {
+  background: linear-gradient(180deg, #b1efe2 0%, #5cdec2 100%);
+  border: 1px solid #0a3027;
+}
+
+.battle-chip--energy .battle-chip-label {
+  color: #0a3027;
+}
+
+.battle-chip-badge--energy {
+  background: linear-gradient(180deg, #176f5c 0%, #0e4539 100%);
+  border-right: 1px solid #0a3027;
+  text-transform: none;
+}
+
+.battle-chip-badge--energy img {
+  display: block;
+  width: 8px;
+  height: 10px;
+  object-fit: contain;
+}
+
+/* ============ MODE CARDS ============ */
+.battle-modes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: calc(100% - 30px);
+  max-width: 480px;
+  margin: 15px auto 0;
+}
+
+.battle-card {
+  position: relative;
+  display: block;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 40, 58, 0.08);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  background: transparent;
+}
+
+.battle-card-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Random Battle — full width, tinggi sama seperti sebelumnya (158px) */
+.battle-card--random .battle-card-photo {
+  height: 158px;
+  object-fit: cover;
+}
+
+.battle-card-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#d81c1c">
+    <title>Skuling: Battle</title>
+    <link rel="stylesheet" href="./css/globals.css">
+    <link rel="stylesheet" href="./css/guide.css">
+    <link rel="stylesheet" href="./css/battle-match.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0"
+        rel="stylesheet">
+</head>
+
+<body data-page="battle">
+    <div class="device-frame">
+        <main class="battle-match">
+
+            <!-- ============ STARTING SOON ============ -->
+            <section class="bm-starting" id="screenStarting">
+                <header class="bm-top-bar">
+                    <span class="bm-top-bar-title">Get ready for battle!</span>
+                    <div class="bm-top-bar-pills">
+                        <a class="bm-top-bar-pill" href="misi.html" aria-label="Lihat missions">
+                            <span class="material-symbols-outlined icon-xs" aria-hidden="true">rocket_launch</span>
+                            <span id="missionCount">0</span>
+                        </a>
+                        <button type="button" class="bm-top-bar-pill" data-not-in-scenario aria-label="SmartEnergy">
+                            <img src="./img/battle-energy-icon.png" alt="">
+                            <span>3</span>
+                        </button>
+                    </div>
+                </header>
+
+                <h1 class="bm-starting-title">Starting Soon</h1>
+
+                <div class="bm-vs-row">
+                    <div class="bm-vs-side bm-vs-side--user">
+                        <span class="bm-vs-rating">1500</span>
+                        <span class="bm-vs-avatar bm-vs-avatar--user" id="userAvatar">R</span>
+                        <span class="bm-vs-name" id="userNameLabel">Responden</span>
+                        <span class="bm-vs-sub" id="userSchoolLabel">SMA LAB UNDIKSHA</span>
+                    </div>
+                    <span class="bm-vs-badge">vs</span>
+                    <div class="bm-vs-side bm-vs-side--opponent">
+                        <span class="bm-vs-rating">2142</span>
+                        <img class="bm-vs-avatar" src="./img/battle-star-kak-aji-profile.png" alt="Kak Aji">
+                        <span class="bm-vs-name">Kak Aji</span>
+                        <span class="bm-vs-sub">Skuling</span>
+                    </div>
+                </div>
+
+                <div class="bm-stakes-row">
+                    <div class="bm-stakes-card">
+                        <span class="bm-stakes-label">Win</span>
+                        <span class="bm-stakes-value bm-stakes-value--win">+110</span>
+                    </div>
+                    <div class="bm-stakes-card">
+                        <span class="bm-stakes-label">Lose</span>
+                        <span class="bm-stakes-value bm-stakes-value--lose">-65</span>
+                    </div>
+                    <div class="bm-stakes-card">
+                        <span class="bm-stakes-label">Draw</span>
+                        <span class="bm-stakes-value bm-stakes-value--win">+23</span>
+                    </div>
+                </div>
+
+                <div class="bm-subtes-list">
+                    <div class="bm-subtes-row">
+                        <span class="bm-subtes-num">1</span>
+                        <span class="bm-subtes-name" id="subtesName1">Menentukan...</span>
+                    </div>
+                    <div class="bm-subtes-row">
+                        <span class="bm-subtes-num">2</span>
+                        <span class="bm-subtes-name" id="subtesName2">&nbsp;</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ QUIZ SCREEN ============ -->
+            <section class="bm-quiz" id="screenQuiz" hidden>
+
+                <div class="bm-sticky-top">
+                    <div class="bm-quiz-top">
+                        <div class="bm-side-panel bm-side-panel--user">
+                            <div class="bm-side-panel-head">
+                                <span>You</span>
+                                <span id="userProgressText">0/10</span>
+                            </div>
+                            <div class="bm-squares" id="userSquares"></div>
+                        </div>
+                        <div class="bm-timer-panel">
+                            <span class="material-symbols-outlined bm-timer-icon" aria-hidden="true">timer</span>
+                            <span id="timerText">06:00</span>
+                        </div>
+                        <div class="bm-side-panel bm-side-panel--opponent">
+                            <div class="bm-side-panel-head">
+                                <span>Opponent</span>
+                                <span id="opponentProgressText">0/10</span>
+                            </div>
+                            <div class="bm-squares" id="opponentSquares"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="bm-powerups" aria-label="Bantuan soal">
+                    <button class="bm-powerup bm-powerup--hint" type="button" id="btn-hint">
+                        <img class="bm-powerup__icon"
+                            src="https://assets.skuling.id/static/images/feature/power-up/potion/hint.png" alt="">
+                        <span class="bm-powerup__label">Hint</span>
+                        <span class="bm-powerup__count">0</span>
+                    </button>
+                    <button class="bm-powerup bm-powerup--fifty" type="button" id="btn-fifty">
+                        <img class="bm-powerup__icon"
+                            src="https://assets.skuling.id/static/images/feature/power-up/potion/50-50.png" alt="">
+                        <span class="bm-powerup__label">50:50</span>
+                        <span class="bm-powerup__count">0</span>
+                    </button>
+                    <button class="bm-powerup-help" type="button" aria-label="Bantuan" id="btn-help">
+                        <span class="material-symbols-outlined">help</span>
+                    </button>
+                </section>
+
+                <section class="pem-question-area bm-question-area" id="questionArea" aria-labelledby="question-title">
+                    <article class="pem-card">
+                        <header class="pem-card__header">
+                            <div class="pem-card__label">
+                                <h2 class="pem-card__title" id="question-title">Soal SNBT</h2>
+                            </div>
+                            <span class="bm-question-number" id="questionNumber">#1</span>
+                        </header>
+                        <div class="pem-card__body">
+                            <div class="pem-question-text" id="questionText">
+                                <p class="pem-hint-text" id="hintText" hidden></p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <form class="pem-choices" id="choiceForm" aria-label="Pilihan jawaban">
+                        <fieldset id="choiceFieldset">
+                            <legend class="sr-only">Pilih jawaban yang benar</legend>
+                        </fieldset>
+                    </form>
+                </section>
+
+                <footer class="bm-navbar">
+                    <button class="bm-btn-lanjut" type="button" id="btnLanjutBattle" disabled>Selanjutnya</button>
+                </footer>
+            </section>
+
+            <!-- ============ RESULT SCREEN ============ -->
+            <section class="bm-result" id="screenResult" hidden>
+                <header class="bm-top-bar bm-top-bar--result">
+                    <span class="bm-top-bar-title">Hasil Battle Star</span>
+                </header>
+
+                <h1 class="bm-result-title" id="resultTitle">You WIN!</h1>
+
+                <div class="bm-result-card" id="resultUserCard">
+                    <div class="bm-result-card-head">
+                        <span id="resultUserName">Responden</span>
+                        <span id="resultUserTime">00:00</span>
+                    </div>
+                    <div class="bm-result-card-body">
+                        <span class="bm-result-avatar bm-result-avatar--user" id="resultUserAvatar">R</span>
+                        <div class="bm-result-stat-grid">
+                            <span class="bm-result-stat"><strong id="resultUserCorrect">0</strong><small>Benar</small></span>
+                            <span class="bm-result-stat"><strong id="resultUserWrong">0</strong><small>Salah</small></span>
+                            <span class="bm-result-stat"><strong id="resultUserSkipped">0</strong><small>Dilewati</small></span>
+                            <span class="bm-result-stat"><strong id="resultUserRating">1500 (+0)</strong><small>Rating</small></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bm-result-card" id="resultOpponentCard">
+                    <div class="bm-result-card-head">
+                        <span>Kak Aji</span>
+                        <span id="resultOpponentTime">00:00</span>
+                    </div>
+                    <div class="bm-result-card-body">
+                        <img class="bm-result-avatar" src="https://dyn-assets.skuling.id/skuling-storage/uploaded/file/3c0bb941-4c36-4a2d-b73c-6e4a217fc902-1754636847004" alt="">
+                        <div class="bm-result-stat-grid">
+                            <span class="bm-result-stat"><strong id="resultOpponentCorrect">0</strong><small>Benar</small></span>
+                            <span class="bm-result-stat"><strong id="resultOpponentWrong">0</strong><small>Salah</small></span>
+                            <span class="bm-result-stat"><strong id="resultOpponentSkipped">0</strong><small>Dilewati</small></span>
+                            <span class="bm-result-stat"><strong id="resultOpponentRating">2142 (+0)</strong><small>Rating</small></span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="bm-result-cta btn-reset" type="button" id="btnBattleAgain">Battle Ulang</button>
+                <div class="bm-result-secondary">
+                    <a class="bm-result-ghost" href="pembahasan.html">Lihat Pembahasan</a>
+                    <a class="bm-result-ghost" href="beranda.html">Kembali ke Beranda</a>
+                </div>
+            </section>
+
+            <!-- ============ INFO OVERLAY (power-up help) ============ -->
+            <div class="pemanasan-overlay" id="info-overlay" role="dialog" aria-modal="true"
+                aria-labelledby="info-title">
+                <div class="pemanasan-card">
+                    <div class="pemanasan-header">
+                        <span id="info-title" class="pemanasan-title">Bantuan Power-Up</span>
+                        <button class="pemanasan-close btn-reset" type="button" id="info-close-x" aria-label="Tutup">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+                    <div class="pemanasan-body info-popup-body">
+                        <div class="info-card info-card--hint">
+                            <span class="info-card__icon">
+                                <img src="https://assets.skuling.id/static/images/feature/power-up/potion/hint.png"
+                                    alt="">
+                            </span>
+                            <div class="info-card__text">
+                                <p class="info-card__title">Hint (<span id="info-count-hint">0</span>)</p>
+                                <p class="info-card__desc">Buka kisi-kisi untuk dapat jawaban tepat!</p>
+                            </div>
+                        </div>
+                        <div class="info-card info-card--fifty">
+                            <span class="info-card__icon">
+                                <img src="https://assets.skuling.id/static/images/feature/power-up/potion/50-50.png"
+                                    alt="">
+                            </span>
+                            <div class="info-card__text">
+                                <p class="info-card__title">50:50 (<span id="info-count-fifty">0</span>)</p>
+                                <p class="info-card__desc">Hapus jawaban salah. Peluang benar 50%!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pemanasan-footer">
+                        <button class="pemanasan-cta pemanasan-cta--full btn-reset" type="button"
+                            id="info-close">OK</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ OUTCOME OVERLAY (Continue Confirmation) ============ -->
+            <div class="bm-outcome-overlay" id="outcome-overlay" role="dialog" aria-modal="true"
+                aria-labelledby="outcome-title">
+                <div class="bm-outcome-card" id="outcomeCard">
+                    <div class="bm-outcome-header">
+                        <span id="outcome-title">Lanjutkan Battle?</span>
+                    </div>
+                    <div class="bm-outcome-body">
+                        <p id="outcomeText"></p>
+                    </div>
+                    <div class="bm-outcome-footer">
+                        <button class="bm-outcome-btn bm-outcome-btn--ghost" type="button"
+                            id="btnContinuePlaying">Jawab Sisa Soal</button>
+                        <button class="bm-outcome-btn bm-outcome-btn--solid" type="button"
+                            id="btnFinishNow">Selesaikan Battle</button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/battle-questions.js"></script>
+    <script src="./scripts/battle-match.js"></script>
+</body>
+
+</html>

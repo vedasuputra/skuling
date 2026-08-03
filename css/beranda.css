@@ -1,0 +1,296 @@
+.device-frame {
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(243, 251, 255, 1) 100%);
+}
+
+.xplain {
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(243, 251, 255, 1) 100%);
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-top: 126px;
+    padding-bottom: 100px;
+    opacity: 0;
+    animation: none;
+}
+
+/* Hold the main content until the top bar and nav bar (loaded async
+   via scripts.js) are actually in the DOM, so all three fade in together. */
+.device-frame.layout-ready .xplain {
+    opacity: 1;
+    animation: page-fade-in 0.2s ease-out;
+}
+
+.xplain>* {
+    flex-shrink: 0;
+}
+
+.xplain .category-row {
+    display: flex;
+    width: calc(100% - 30px);
+    max-width: 480px;
+    align-items: stretch;
+    gap: 10px;
+    margin: 10px auto 0;
+}
+
+.xplain .category-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    padding: 10px 0 0;
+    position: relative;
+    flex: 1;
+    align-self: stretch;
+    flex-grow: 1;
+    background-color: var(--variable-collection-xplain-categories-background);
+    border-radius: var(--btn-border-radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--variable-collection-xplain-categories-stroke);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    font: inherit;
+}
+
+.xplain .materi-card {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    padding: 0;
+    background: var(--variable-collection-white);
+    border: 1px solid var(--variable-collection-xplain-categories-stroke);
+    border-radius: var(--btn-border-radius-sm);
+    cursor: pointer;
+    text-align: left;
+    appearance: none;
+    -webkit-appearance: none;
+    font: inherit;
+    overflow: hidden;
+}
+
+.xplain .materi-card-title {
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--variable-collection-body);
+    line-height: 1.3;
+}
+
+.xplain .materi-card-subtitle {
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 10px;
+    color: var(--variable-collection-disabled);
+}
+
+.xplain .materi-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-family: var(--font-family-base);
+    font-size: 10px;
+    color: var(--variable-collection-disabled);
+    white-space: nowrap;
+}
+
+.xplain .icon-xs {
+    font-size: 12px;
+    line-height: 1;
+}
+
+.xplain .materi-progress-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.xplain .materi-progress-label {
+  font-family: var(--font-family-base);
+  font-size: 10px;
+  color: var(--variable-collection-disabled);
+  flex-shrink: 0;
+}
+
+.xplain .materi-progress-label {
+    font-family: var(--font-family-base);
+    font-size: 10px;
+    color: var(--variable-collection-disabled);
+    flex-shrink: 0;
+}
+
+.xplain .materi-progress-track {
+  width: 60px;
+  height: 10px;
+  background: #BBEAFF;
+  border-radius: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.xplain .materi-progress-fill {
+  height: 100%;
+  background: var(--variable-collection-accent);
+  border-radius: var(--btn-border-radius-pill);
+}
+
+.xplain .materi-card-img {
+  width: 84px;
+  height: 84px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border: 0;
+  border-right: 1px solid var(--variable-collection-xplain-categories-stroke);
+}
+
+.xplain .materi-card-thumb {
+  width: 84px;
+  height: 84px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border: 0;
+  border-right: 1px solid var(--variable-collection-xplain-categories-stroke);
+}
+
+.xplain .materi-card-thumb .materi-card-img {
+  border: 0;
+  border-right: 0;
+}
+
+.xplain .materi-card-blur-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background-color: var(--variable-collection-white-60);
+    backdrop-filter: blur(4.9px);
+    -webkit-backdrop-filter: blur(4.9px);
+}
+
+.xplain .icon-lock-sm {
+    font-size: 20px;
+    color: var(--variable-collection-body);
+}
+
+.xplain .materi-lock-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 6px;
+    border-radius: var(--btn-border-radius-pill);
+    border: 1px solid var(--variable-collection-body);
+    background: linear-gradient(180deg,
+            rgba(213, 242, 255, 1) 50%,
+            rgba(161, 226, 255, 1) 100%);
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 9px;
+    color: var(--variable-collection-body);
+    white-space: nowrap;
+}
+
+.xplain .materi-lock-badge .pro-text {
+    color: var(--variable-collection-red);
+}
+
+.xplain .materi-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+    padding: 0px 12px;
+}
+
+.xplain .materi-card-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.xplain .materi-lock-badge .pro-text {
+    color: var(--variable-collection-red);
+}
+
+
+.xplain .text-wrapper-2 {
+    position: relative;
+    align-self: stretch;
+    flex-shrink: 0;
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    color: var(--variable-collection-body);
+    font-size: 11px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 11px;
+}
+
+.xplain .image-wrap {
+    width: 100%;
+    height: 66px;
+    flex: 0 0 auto;
+    padding: 0 0px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.xplain .category-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom center;
+}
+
+.xplain .materi-section {
+    width: calc(100% - 30px);
+    max-width: 480px;
+    margin: 20px auto 0;
+}
+
+.xplain .text-wrapper {
+    font-family: var(--font-family-base);
+    font-weight: var(--section-title-font-weight);
+    color: var(--variable-collection-body);
+    font-size: var(--section-title-font-size);
+    letter-spacing: var(--section-title-letter-spacing);
+    line-height: var(--section-title-line-height);
+}
+
+.xplain .materi-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.xplain button:focus-visible,
+.xplain a:focus-visible {
+    outline: 2px solid var(--variable-collection-body);
+    outline-offset: 2px;
+}
+
+.xplain::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}

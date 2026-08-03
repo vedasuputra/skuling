@@ -1,0 +1,414 @@
+.device-frame {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(243, 251, 255, 1) 100%);
+}
+
+.rp {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(243, 251, 255, 1) 100%);
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    box-sizing: border-box;
+    padding-bottom: 30px;
+    opacity: 0;
+}
+
+.device-frame.layout-ready .rp {
+    opacity: 1;
+    animation: page-fade-in 0.2s ease-out;
+}
+
+.rp>* {
+    flex-shrink: 0;
+}
+
+.rp::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+
+.rp .icon-xxs {
+    font-size: 12px;
+    line-height: 1;
+}
+
+.rp-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding-bottom: 4px;
+    font-family: var(--font-family-base);
+    font-weight: 500;
+    font-size: 12px;
+    color: #e08a00;
+    white-space: nowrap;
+}
+
+.rp-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 500px;
+    background-color: #ff9900;
+}
+
+/* ============ PROFILE CARD (reused from profile.css, photo instead of initial) ============ */
+.profile-card {
+    display: flex;
+    width: calc(100% - 30px);
+    max-width: 480px;
+    margin: 15px auto 0;
+    border-radius: var(--btn-border-radius-sm);
+    border: 1px solid var(--variable-collection-stroke);
+    background: var(--variable-collection-xplain-categories-background);
+    overflow: hidden;
+}
+
+.rp-avatar-photo {
+    flex-shrink: 0;
+    width: 115px;
+    height: auto;
+    object-fit: cover;
+}
+
+.profile-card-info {
+    flex: 1;
+    min-width: 0;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-name {
+    margin: 0;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--variable-collection-body);
+    margin-bottom: 4px;
+}
+
+.profile-school {
+    margin: 0 0 10px;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 11px;
+    color: rgba(0, 40, 58, 0.6);
+    letter-spacing: 0.2px;
+}
+
+.profile-stats {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.profile-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.profile-stat-value {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--variable-collection-body);
+    white-space: nowrap;
+}
+
+.profile-stat-value .material-symbols-outlined {
+    color: var(--variable-collection-disabled);
+}
+
+.profile-stat-label {
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 11px;
+    color: var(--variable-collection-disabled);
+    white-space: nowrap;
+}
+
+/* ============ ACTIONS ROW (Tambah Teman / Chat / Battle) ============ */
+.rp-actions {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    width: calc(100% - 30px);
+    max-width: 480px;
+    margin: 12px auto 0;
+}
+
+.rp-add-friend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+    padding: 8px;
+    border-radius: var(--btn-border-radius-sm);
+    background: linear-gradient(180deg, rgba(33, 186, 255, 1) 0%, rgba(0, 164, 237, 1) 100%);
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 14px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.rp-icon-btn {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    border-radius: var(--btn-border-radius-sm);
+    border: 1px solid var(--variable-collection-stroke);
+    background-color: var(--variable-collection-xplain-categories-background);
+    color: var(--variable-collection-accent);
+    cursor: pointer;
+}
+
+/* ============ RANK + BADGES ROW ============ */
+.profile-mid-row {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    width: calc(100% - 30px);
+    max-width: 480px;
+    margin: 16px auto 0;
+}
+
+.rp-rank-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    flex-shrink: 0;
+    border: 1px solid #e0a800;
+    border-radius: var(--btn-border-radius-sm);
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(180deg, #fff4c2 0%, #ffe27a 100%);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.profile-rank-label {
+    margin-top: 12px;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 12px;
+    color: #8f4900;
+}
+
+.profile-rank-value {
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 16px;
+    color: #8f4900;
+}
+
+.profile-rank-mascot {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin: 6px 0;
+}
+
+.profile-rank-footer {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 12px;
+    color: #8f4900;
+    background: var(--variable-collection-white);
+    border-top: 1px solid #e0a800;
+}
+
+.profile-badges-card {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--variable-collection-stroke);
+    border-radius: var(--btn-border-radius-sm);
+    overflow: hidden;
+    background: var(--variable-collection-xplain-categories-background);
+}
+
+.profile-badges-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--variable-collection-body);
+}
+
+.rp-badges-preview {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 6px;
+    margin: 0 10px 10px;
+    padding: 10px 6px;
+    box-sizing: border-box;
+    border: 0;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid var(--variable-collection-stroke);
+}
+
+.rp-badges-preview img {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    object-fit: contain;
+}
+
+.profile-badges-footer {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--variable-collection-body);
+    background: var(--variable-collection-white);
+    border-top: 1px solid var(--variable-collection-stroke);
+    text-decoration: none;
+}
+
+/* ============ KAMPUS TUJUAN ============ */
+.profile-kampus-card {
+    width: calc(100% - 30px);
+    max-width: 480px;
+    margin: 16px auto 0;
+    border: 1px solid var(--variable-collection-stroke);
+    border-radius: var(--btn-border-radius-sm);
+    overflow: hidden;
+}
+
+.profile-kampus-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background: var(--variable-collection-xplain-categories-background);
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--variable-collection-body);
+}
+
+.profile-kampus-body {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    background: var(--variable-collection-white);
+    border-top: 1px solid var(--variable-collection-stroke);
+    text-align: left;
+    cursor: pointer;
+}
+
+.profile-kampus-logo {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.profile-kampus-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.profile-kampus-name {
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--variable-collection-body);
+}
+
+.profile-kampus-jurusan {
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 11px;
+    color: rgba(0, 40, 58, 0.6);
+}
+
+/* ============ STATISTIK ============ */
+.profile-statistik {
+    width: calc(100% - 30px);
+    max-width: 480px;
+    margin: 24px auto 0;
+}
+
+.profile-statistik-title {
+    margin: 0 0 12px;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--variable-collection-body);
+}
+
+.profile-stat-group {
+    border: 1px solid var(--variable-collection-stroke);
+    border-radius: var(--btn-border-radius-sm);
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.profile-stat-group-title {
+    padding: 10px 14px;
+    background: var(--variable-collection-xplain-categories-background);
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--variable-collection-body);
+}
+
+.profile-stat-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 14px;
+    box-sizing: border-box;
+    background: var(--variable-collection-white);
+    border-top: 1px solid var(--variable-collection-stroke);
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--variable-collection-body);
+}
+
+.profile-stat-row span:last-child {
+    color: var(--variable-collection-disabled);
+    font-weight: 600;
+}

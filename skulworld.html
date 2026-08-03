@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skuling: SkulWorld</title>
+    <link rel="stylesheet" href="./css/globals.css">
+    <link rel="stylesheet" href="./css/guide.css">
+    <link rel="stylesheet" href="./css/skulworld.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0"
+        rel="stylesheet">
+</head>
+
+<body data-page="skulworld">
+    <div class="device-frame">
+        <div id="topbarPlaceholder"></div>
+
+        <main class="skulworld">
+
+            <!-- ============ JOIN SCREEN (before joining any squad) ============ -->
+            <section class="skulworld-join" id="skulworldJoin" aria-label="Gabung squad">
+                <div class="skulworld-join-inner">
+                    <img class="skulworld-join-mascot" src="./img/skulworld-join-mascot.png" alt="">
+                    <p class="skulworld-join-text">
+                        Kamu belum join ke squad mana pun.<br>
+                        Yuk, gabung ke squad untuk melihat informasi dan berdiskusi dengan pengguna lain!
+                    </p>
+
+                    <div class="squad-row" data-squad="undiksha">
+                        <button type="button" class="squad-row-main btn-reset" data-open-squad-detail="undiksha">
+                            <img class="squad-row-avatar" src="./img/undiksha.png" alt="">
+                            <span class="squad-row-info">
+                                <span class="squad-row-name">Universitas Pendidikan Ganesha</span>
+                                <span class="squad-row-meta">
+                                    <span class="material-symbols-outlined icon-xxs" aria-hidden="true">public</span>
+                                    Public
+                                    <span class="material-symbols-outlined icon-xxs" aria-hidden="true">group</span>
+                                    30 Anggota
+                                </span>
+                            </span>
+                        </button>
+                        <button type="button" class="squad-join-btn btn-reset" id="joinUndikshaBtn">Join</button>
+                    </div>
+
+                    <div class="squad-row" data-squad="sekolah-lainnya">
+                        <button type="button" class="squad-row-main btn-reset" data-not-in-scenario>
+                            <span class="squad-row-avatar squad-row-avatar--initials">S</span>
+                            <span class="squad-row-info">
+                                <span class="squad-row-name">Sekolah Lainnya</span>
+                                <span class="squad-row-meta">
+                                    <span class="material-symbols-outlined icon-xxs" aria-hidden="true">public</span>
+                                    Public
+                                    <span class="material-symbols-outlined icon-xxs" aria-hidden="true">group</span>
+                                    24 Anggota
+                                </span>
+                            </span>
+                        </button>
+                        <button type="button" class="squad-join-btn btn-reset" data-not-in-scenario>Join</button>
+                    </div>
+
+                    <button type="button" class="skulworld-explore-chip btn-reset" data-not-in-scenario>
+                        <span class="material-symbols-outlined icon-xs" aria-hidden="true">search</span>
+                        Eksplor Squad Lain
+                    </button>
+                </div>
+            </section>
+
+            <button type="button" class="skulworld-lanjutkan btn-reset" id="lanjutkanBtn" disabled>Lanjutkan</button>
+
+            <!-- ============ SKULBOARD / MYSQUAD (after joining) ============ -->
+            <section class="skulworld-tabs" id="skulworldTabs" aria-label="SkulBoard dan MySquad" hidden>
+                <div class="skulworld-tabbar" role="tablist">
+                    <button type="button" class="skulworld-tab btn-reset" data-swipe-tab="skulboard" role="tab">
+                        <span class="skulworld-tab-title">SkulBoard</span>
+                        <span class="skulworld-tab-subtitle">Kumpulan Diskusi</span>
+                    </button>
+                    <button type="button" class="skulworld-tab btn-reset" data-swipe-tab="mysquad" role="tab">
+                        <span class="skulworld-tab-title">MySquad</span>
+                        <span class="skulworld-tab-subtitle">Squad yang Diikuti</span>
+                    </button>
+                </div>
+
+                <div class="home-swipe" id="skulworldSwipeViewport">
+                    <div class="home-swipe-track" id="skulworldSwipeTrack">
+
+                        <div class="skulboard-panel" data-home-panel="skulboard">
+                            <img class="skulboard-empty-mascot" src="./img/skulboard-empty-mascot.png" alt="">
+                            <p class="skulboard-empty-text">
+                                Belum ada diskusi.<br>
+                                Yuk, <strong>eksplor squad</strong> atau cek squad <br>yang diikuti untuk mulai diskusi!
+                            </p>
+                            <div class="skulboard-empty-actions">
+                                <button type="button" class="skulboard-empty-btn btn-reset" id="lihatSquadDiikutiBtn">Lihat
+                                    Squad Diikuti</button>
+                                <button type="button"
+                                    class="skulboard-empty-btn skulboard-empty-btn--accent btn-reset"
+                                    data-not-in-scenario>Eksplor Squad</button>
+                            </div>
+                        </div>
+
+                        <div class="mysquad-panel" data-home-panel="mysquad">
+                            <div class="mysquad-header">
+                                <span>Mengikuti <strong>1</strong> squad</span>
+                                <div class="mysquad-header-actions">
+                                    <button type="button" class="mysquad-explore-btn btn-reset"
+                                        data-not-in-scenario>
+                                        <span class="material-symbols-outlined icon-xxs" aria-hidden="true">search</span>
+                                        Eksplor Squad
+                                    </button>
+                                    <button type="button" class="mysquad-add-btn btn-reset" data-not-in-scenario
+                                        aria-label="Tambah squad">
+                                        <span class="material-symbols-outlined icon-xs" aria-hidden="true">add</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="button" class="squad-row squad-row--mysquad btn-reset" id="mySquadRow">
+                                <span class="squad-row-main">
+                                    <img class="squad-row-avatar" src="./img/undiksha.png" alt="">
+                                    <span class="squad-row-info">
+                                        <span class="squad-row-name">Universitas Pendidikan Ganesha</span>
+                                        <span class="squad-row-meta">
+                                            <span class="material-symbols-outlined icon-xxs"
+                                                aria-hidden="true">public</span>
+                                            Public
+                                            <span class="material-symbols-outlined icon-xxs"
+                                                aria-hidden="true">group</span>
+                                            30 Anggota
+                                        </span>
+                                    </span>
+                                </span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <div id="navbarPlaceholder"></div>
+
+        </main>
+    </div>
+
+    <!-- ============ SQUAD DETAIL POP-UP (same pemanasan-overlay pattern used across the app, e.g. pembahasan.html's SkulingPro notice) ============ -->
+    <div class="pemanasan-overlay squad-detail-overlay" id="squadDetailOverlay" role="dialog" aria-modal="true"
+        aria-labelledby="squadDetailTitle">
+        <div class="pemanasan-card squad-detail-card">
+            <div class="pemanasan-header">
+                <span class="pemanasan-title" id="squadDetailTitle">Detail Squad</span>
+                <button type="button" class="pemanasan-close btn-reset" id="squadDetailCloseBtn" aria-label="Tutup">
+                    <span class="material-symbols-outlined" aria-hidden="true">close</span>
+                </button>
+            </div>
+
+            <div class="pemanasan-body squad-detail-body">
+                <div class="squad-detail-identity">
+                    <img class="squad-row-avatar" src="./img/undiksha.png" alt="">
+                    <span class="squad-row-info">
+                        <span class="squad-row-name">Universitas Pendidikan Ganesha</span>
+                        <span class="squad-row-meta">
+                            <span class="material-symbols-outlined icon-xxs" aria-hidden="true">public</span>
+                            Public
+                            <span class="material-symbols-outlined icon-xxs" aria-hidden="true">group</span>
+                            30 Anggota
+                        </span>
+                    </span>
+                </div>
+
+                <div class="squad-detail-section">
+                    <h3 class="squad-detail-label">Tentang Squad</h3>
+                    <p class="squad-detail-text">
+                        Selamat datang di grup Universitas Pendidikan Ganesha 👋 Di sini kita bisa sharing info
+                        kuliah, berdiskusi, belajar bareng, atau sekadar ngobrol santai. Saling bantu, saling
+                        support — biar target kuliah kita terasa lebih ringan!
+                    </p>
+                </div>
+
+                <div class="squad-detail-section">
+                    <h3 class="squad-detail-label">Aturan</h3>
+                    <ul class="squad-detail-rules">
+                        <li>Jaga sopan santun dan saling menghargai.</li>
+                        <li>Dilarang spam, promosi, atau SARA.</li>
+                        <li>Gunakan bahasa yang baik dan relevan.</li>
+                        <li>Boleh bercanda, tapi tetap tahu batas.</li>
+                        <li>Gunakan grup ini untuk hal bermanfaat.</li>
+                    </ul>
+                </div>
+
+                <div class="squad-detail-section">
+                    <h3 class="squad-detail-label">Squad Captain</h3>
+                    <div class="squad-captain-card">
+                        <img class="squad-captain-avatar" src="./img/mascot-skully-icon.png" alt="">
+                        <span class="squad-captain-info">
+                            <span class="squad-captain-name">
+                                <span class="material-symbols-outlined icon-xs squad-captain-verified"
+                                    aria-hidden="true">verified</span>
+                                Squad Manager
+                            </span>
+                            <span class="squad-captain-org">Skuling</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pemanasan-footer">
+                <button type="button" class="pemanasan-cta pemanasan-cta--full btn-reset"
+                    id="squadDetailJoinBtn">Join</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/skulworld-data.js"></script>
+    <script src="./scripts/skulworld.js"></script>
+</body>
+
+</html>

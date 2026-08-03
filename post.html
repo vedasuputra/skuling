@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skuling: Postingan</title>
+    <link rel="stylesheet" href="./css/globals.css">
+    <link rel="stylesheet" href="./css/guide.css">
+    <link rel="stylesheet" href="./css/squad-page.css">
+    <link rel="stylesheet" href="./css/post.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0"
+        rel="stylesheet">
+</head>
+
+<body data-page="skulworld">
+    <div class="device-frame">
+        <main class="post-page">
+
+            <header class="app-top-bar app-top-bar--simple squad-page-header">
+                <div class="app-top-bar-row">
+                    <div class="app-top-bar-left">
+                        <button class="back-btn btn-reset" type="button" aria-label="Kembali" id="postBackBtn">
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_back</span>
+                        </button>
+                        <img class="squad-page-avatar" src="./img/undiksha.png" alt="">
+                        <span class="squad-page-info">
+                            <span class="squad-page-name">Universitas Pendidikan Ganesha</span>
+                            <span class="squad-page-meta">
+                                <span class="material-symbols-outlined icon-xxs" aria-hidden="true">public</span>
+                                Public
+                                <span class="material-symbols-outlined icon-xxs" aria-hidden="true">group</span>
+                                30 Anggota
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="post-scroll">
+                <div class="squad-post-card squad-post-card--flat">
+                    <button type="button" class="squad-post-author btn-reset" data-not-in-scenario>
+                        <img class="squad-post-author-avatar" src="./img/mascot-skully-icon.png" alt="">
+                        <span class="squad-post-author-info">
+                            <span class="squad-post-author-name">
+                                <span class="material-symbols-outlined icon-xs squad-captain-verified"
+                                    aria-hidden="true">verified</span>
+                                Squad Manager
+                            </span>
+                            <span class="squad-post-author-org">Skuling</span>
+                        </span>
+                        <span class="material-symbols-outlined icon-sm squad-post-more" aria-hidden="true"
+                            data-not-in-scenario>more_vert</span>
+                    </button>
+
+                    <div class="squad-post-body squad-post-body--full">
+                        <p class="squad-post-text">
+                            <strong>Hi SkulChamps! Selamat datang di Skuling Squad! 🎉</strong><br><br>
+                            Di sini, kita bukan cuma belajar, tapi tumbuh bareng, saling dukung, dan sama-sama ngejar
+                            PTN impian! Setiap pertanyaan, perjuangan, dan semangat kamu itu penting. 💪<br><br>
+                            ✨ <strong>Manfaatkan fitur di Squad kamu</strong><br>
+                            • <strong>Discussion:</strong> Buat [ASK], [Sharing], atau bahasan panjang biar semua
+                            bisa ikut belajar bareng.<br>
+                            • <strong>Chat:</strong> Tempat diskusi cepat, kenalan, share info singkat, atau ajak
+                            teman battle seru!<br><br>
+                            🚫 <strong>Hal yang gak boleh dilakukan:</strong><br>
+                            • Promosi atau jualan<br>
+                            • Postingan yang mengandung hal negatif, SARA, atau melanggar etika komunitas<br><br>
+                            Ingat, <strong>Skuling Squad adalah ruang positif buat berkembang bareng.</strong> Ayo
+                            semangat, saling support, dan jadi bagian dari perjalanan seru menuju PTN impian! 🚀
+                        </p>
+                    </div>
+
+                    <div class="squad-post-footer">
+                        <button type="button" class="squad-post-action" id="postLikeBtn" aria-label="Suka postingan">
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">thumb_up</span>
+                            <span id="postLikeCount">16</span>
+                        </button>
+                        <button type="button" class="squad-post-action" aria-label="Lihat komentar" disabled>
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">chat_bubble</span>
+                            <span id="postCommentCount">0 Komentar</span>
+                        </button>
+                        <span class="squad-post-date">02 Feb 2026, 20:11 WITA</span>
+                        <button type="button" class="squad-post-share btn-reset" aria-label="Bagikan"
+                            data-not-in-scenario>
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">ios_share</span>
+                        </button>
+                    </div>
+                </div>
+
+                <section class="comments-section" aria-label="Komentar">
+                    <h2 class="comments-title" id="commentsTitle">Komentar</h2>
+
+                    <p class="comments-empty" id="commentsEmpty">
+                        <img class="comments-empty-mascot" src="./img/mascot-skully-icon.png" alt="">
+                        <span>Belum ada komentar.<br>Jadilah yang pertama berkomentar!</span>
+                    </p>
+
+                    <div class="comments-list" id="commentsList"></div>
+                </section>
+            </div>
+
+            <footer class="comment-composer">
+                <span class="comment-composer-avatar" id="composerAvatar" aria-hidden="true">R</span>
+                <div class="comment-composer-main">
+                    <textarea class="comment-composer-input" id="commentInput" rows="1"
+                        placeholder="Tulis komentar..."></textarea>
+                    <div class="comment-composer-toolbar" id="composerToolbar" hidden>
+                        <button type="button" class="composer-tool-btn btn-reset" data-not-in-scenario
+                            aria-label="Lampirkan foto">
+                            <span class="material-symbols-outlined icon-xs" aria-hidden="true">photo_camera</span>
+                        </button>
+                        <button type="button" class="composer-tool-btn btn-reset" data-not-in-scenario
+                            aria-label="Kutip">
+                            <span class="material-symbols-outlined icon-xs" aria-hidden="true">format_quote</span>
+                        </button>
+                        <button type="button" class="composer-tool-btn btn-reset" data-not-in-scenario
+                            aria-label="Sebelumnya">
+                            <span class="material-symbols-outlined icon-xs" aria-hidden="true">chevron_left</span>
+                        </button>
+                        <button type="button" class="composer-tool-btn btn-reset" data-not-in-scenario
+                            aria-label="Selanjutnya">
+                            <span class="material-symbols-outlined icon-xs" aria-hidden="true">chevron_right</span>
+                        </button>
+                        <button type="button" class="composer-submit-btn btn-reset" id="submitCommentBtn">Balas</button>
+                    </div>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- ============ DELETE COMMENT POP-UP (same pemanasan-overlay pattern used across the app) ============ -->
+    <div class="pemanasan-overlay" id="commentDeleteOverlay" role="dialog" aria-modal="true"
+        aria-labelledby="commentDeleteTitle">
+        <div class="pemanasan-card">
+            <div class="pemanasan-header">
+                <span class="pemanasan-title" id="commentDeleteTitle">Hapus Komentar</span>
+                <button type="button" class="pemanasan-close btn-reset" id="commentDeleteCloseBtn"
+                    aria-label="Tutup">
+                    <span class="material-symbols-outlined" aria-hidden="true">close</span>
+                </button>
+            </div>
+            <div class="pemanasan-body">
+                <p class="pemanasan-text">Apakah kamu yakin ingin menghapus komentar ini?</p>
+            </div>
+            <div class="pemanasan-footer">
+                <button type="button" class="pemanasan-skip btn-reset" id="commentDeleteCancelBtn">Kembali</button>
+                <button type="button" class="pemanasan-cta btn-reset" id="commentDeleteConfirmBtn">Ya, Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/skulworld-data.js"></script>
+    <script src="./scripts/post.js"></script>
+</body>
+
+</html>

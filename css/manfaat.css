@@ -1,0 +1,195 @@
+.device-frame {
+    background: linear-gradient(180deg,
+            rgba(7, 178, 255, 1) 0%,
+            rgba(0, 146, 212, 1) 100%);
+}
+
+.imagine {
+    background: linear-gradient(180deg,
+            rgba(7, 178, 255, 1) 0%,
+            rgba(0, 146, 212, 1) 100%);
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.imagine .dengan-belajar-rutin {
+    width: auto;
+    max-width: 480px;
+    align-self: center;
+    margin-top: 62px;
+    margin-right: 15px;
+    margin-left: 15px;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    color: var(--variable-collection-white);
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 26.4px;
+}
+
+.imagine .benefit-list {
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 390px);
+    height: auto;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: stretch;
+    gap: 10px;
+    padding: 0px 30px calc(100px + env(safe-area-inset-bottom));
+    list-style: none;
+    position: relative;
+}
+
+@media (max-width: 389px) {
+    .imagine .benefit-list {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+}
+
+.imagine .text-wrapper,
+.imagine .text-wrapper-2 {
+    position: relative;
+    flex: 0 0 auto;
+    width: fit-content;
+    margin: 0;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    color: var(--variable-collection-body);
+    font-size: clamp(56px, 13vw, 100px);
+    letter-spacing: 0;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+    .imagine .benefit-list {
+        gap: 16px;
+    }
+}
+
+.device-frame>.navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    width: 100%;
+    max-width: 390px;
+    margin: 0 auto;
+    height: auto;
+    min-height: 80px;
+    align-items: center;
+    padding: 12px 30px calc(30px + env(safe-area-inset-bottom));
+    z-index: 10;
+}
+
+.imagine~.navbar .streak-wrapper {
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    flex-grow: 1;
+    display: flex;
+    position: relative;
+}
+
+.imagine~.navbar .streak {
+    padding: 14px 10px;
+    flex: 1;
+    flex-grow: 1;
+    border: 1px solid var(--variable-collection-white);
+    background: var(--variable-collection-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    border-radius: var(--btn-border-radius-sm);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.imagine~.navbar .streak:focus-visible {
+    outline: 1px solid var(--variable-collection-body);
+    outline-offset: 0px;
+}
+
+.imagine~.navbar .text-wrapper-4 {
+    width: fit-content;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    color: var(--variable-collection-accent);
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.imagine::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+
+.imagine .icon {
+    flex: 0 0 auto;
+    width: clamp(32px, 6vw, 52px);
+    height: clamp(32px, 6vw, 52px);
+    object-fit: contain;
+}
+
+.imagine .p,
+.imagine .text-wrapper-3 {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    color: var(--variable-collection-body);
+    font-size: clamp(12px, 2.6vw, 14px);
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 1.2;
+    font-size: 16px;
+}
+
+.imagine .benefit-item {
+    display: flex;
+    width: 100%;
+    min-height: 76px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 14px 18px;
+    position: relative;
+    flex: none;
+    border-radius: var(--btn-border-radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--variable-collection-stroke);
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.75) 0%,
+            rgba(255, 255, 255, 1) 100%);
+}
+
+@media (max-width: 480px) {
+    .imagine .icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .imagine .benefit-item {
+        min-height: 68px;
+        gap: 12px;
+        padding: 12px 16px;
+        border-radius: 5px;
+    }
+}
+

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skuling: Profile</title>
+    <link rel="stylesheet" href="./css/globals.css">
+    <link rel="stylesheet" href="./css/guide.css">
+    <link rel="stylesheet" href="./css/profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0"
+        rel="stylesheet">
+</head>
+
+<body data-page="profile">
+    <div class="device-frame">
+        <main class="profile">
+
+            <header class="app-top-bar app-top-bar--simple">
+                <div class="app-top-bar-row">
+                    <div class="app-top-bar-left">
+                        <h1 class="page-title" id="profileUsername">@responden</h1>
+                    </div>
+                    <div class="profile-header-actions">
+                        <button class="profile-icon-btn btn-reset" type="button" id="addFriendTopBtn"
+                            aria-label="Tambah teman">
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">person_add</span>
+                        </button>
+                        <button class="profile-icon-btn btn-reset" type="button" id="settingsBtn"
+                            aria-label="Pengaturan" data-not-in-scenario>
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">settings</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <section class="profile-card" aria-label="Info profil">
+                <span class="profile-avatar" id="profileAvatar" aria-hidden="true">R</span>
+                <div class="profile-card-info">
+                    <h2 class="profile-name" id="profileName">Responden</h2>
+                    <p class="profile-school" id="profileSchool">SMA LAB UNDIKSHA</p>
+                    <div class="profile-stats">
+                        <button type="button" class="profile-stat btn-reset" id="friendCountBtn">
+                            <span class="profile-stat-value">0</span>
+                            <span class="profile-stat-label">Teman</span>
+                        </button>
+                        <span class="profile-stat">
+                            <span class="profile-stat-value">Jul 2026</span>
+                            <span class="profile-stat-label">Bergabung</span>
+                        </span>
+                        <button type="button" class="profile-stat btn-reset" data-not-in-scenario>
+                            <span class="profile-stat-value">#280178 <span
+                                    class="material-symbols-outlined icon-xxs" aria-hidden="true">help</span></span>
+                            <span class="profile-stat-label">Global Rank</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="profile-mid-row" aria-label="Rank dan badges">
+                <button type="button" class="profile-rank-card btn-reset" data-not-in-scenario>
+                    <span class="profile-rank-label">Rank</span>
+                    <span class="profile-rank-value">Rookie</span>
+                    <img class="profile-rank-mascot" src="./img/rank-rookie.png" alt="">
+                    <span class="profile-rank-footer">Lihat Semua Rank</span>
+                </button>
+
+                <div class="profile-badges-card">
+                    <div class="profile-badges-header">
+                        <span>Badges</span>
+                        <span>0/20</span>
+                    </div>
+                    <div class="profile-badges-body">
+                        <p>Gunakan fitur Freestyle, Battle, dan SkulWorld untuk mendapatkan badge</p>
+                    </div>
+                    <button type="button" class="profile-badges-footer btn-reset" data-not-in-scenario>Lihat Semua
+                        Badges</button>
+                </div>
+            </section>
+
+            <section class="profile-kampus-card" aria-label="Kampus tujuan">
+                <div class="profile-kampus-header">
+                    <span>Kampus Tujuan</span>
+                    <button type="button" class="btn-reset profile-kampus-edit" data-not-in-scenario>Edit</button>
+                </div>
+                <button type="button" class="profile-kampus-body btn-reset" data-not-in-scenario>
+                    <img class="profile-kampus-logo" src="./img/undiksha.png" alt="">
+                    <span class="profile-kampus-info">
+                        <span class="profile-kampus-name">Universitas Pendidikan Ganesha</span>
+                        <span class="profile-kampus-jurusan">Sistem Informasi</span>
+                    </span>
+                </button>
+            </section>
+
+            <section class="profile-statistik" aria-label="Statistik">
+                <h2 class="profile-statistik-title">Statistik</h2>
+
+                <div class="profile-stat-group">
+                    <div class="profile-stat-group-title">Try Out</div>
+                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                        <span>Try Out Diselesaikan</span>
+                        <span>0</span>
+                    </button>
+                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                        <span>Rata-Rata 4 TO Terakhir</span>
+                        <span>0</span>
+                    </button>
+                </div>
+
+                <div class="profile-stat-group">
+                    <div class="profile-stat-group-title">Freestyle</div>
+                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                        <span>Best Survival Streak</span>
+                        <span>0</span>
+                    </button>
+                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                        <span>Soal Dikerjakan</span>
+                        <span>0</span>
+                    </button>
+                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                        <span>Benar/Salah</span>
+                        <span>0</span>
+                    </button>
+                </div>
+
+                <div class="profile-stat-group">
+                    <div class="profile-stat-group-title">Battle</div>
+                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                        <span>Total Battle</span>
+                        <span>1</span>
+                    </button>
+                    <button type="button" class="profile-stat-row btn-reset" data-not-in-scenario>
+                        <span>Win/Lose/Draw</span>
+                        <span>1/0/0</span>
+                    </button>
+                </div>
+            </section>
+
+            <div id="navbarPlaceholder"></div>
+
+        </main>
+    </div>
+
+    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/profile.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skuling: Pembahasan</title>
+    <link rel="stylesheet" href="./css/globals.css">
+    <link rel="stylesheet" href="./css/guide.css">
+    <link rel="stylesheet" href="./css/pembahasan-review.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0"
+        rel="stylesheet">
+</head>
+
+<body data-page="pembahasan">
+    <div class="device-frame">
+        <main class="pembahasan">
+
+            <header class="pmb-top-bar">
+                <button class="back-btn btn-reset" type="button" aria-label="Kembali" onclick="history.back()">
+                    <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_back</span>
+                </button>
+                <h1 class="pmb-title">Pembahasan</h1>
+                <div class="pmb-top-pills">
+                    <a class="pmb-pill" href="battle-hasil.html">
+                        <span>Hasil Battle</span>
+                    </a>
+                    <button type="button" class="pmb-pill" data-not-in-scenario>
+                        <img src="./img/mascot-skully-icon.png" alt="">
+                        <span>Tanya Skully</span>
+                    </button>
+                </div>
+            </header>
+
+            <h2 class="pmb-section-label">Soal</h2>
+
+            <div class="pmb-card" id="pmbCard">
+                <div class="pmb-card__header" id="pmbCardHeader">
+                    <span class="pmb-card__badge" id="pmbCardBadge">
+                        <span class="material-symbols-outlined" aria-hidden="true" id="pmbCardBadgeIcon">check</span>
+                    </span>
+                    <span class="pmb-card__title" id="pmbSubtest">Penalaran Umum</span>
+                    <span class="pmb-card__number" id="pmbNumber">#1</span>
+                </div>
+                <div class="pmb-card__body">
+                    <div class="pmb-question-text" id="pmbQuestionText">
+                        <p>X memperbaiki radio yang rusak apabila tidak menonton pertandingan sepak bola di
+                            televisi.</p>
+                        <p>Apabila memperbaiki kandang ayam di belakang rumah, X tidak mencari rumput di
+                            pekarangan.</p>
+                        <p>Apabila X tidak memperbaiki radio yang rusak atau mencari rumput di pekarangan, manakah
+                            simpulan berikut yang BENAR?</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="pmb-choices" id="pmbChoiceForm" aria-label="Pilihan jawaban">
+                <fieldset id="pmbChoiceFieldset">
+                    <legend class="sr-only">Jawaban</legend>
+                    <div class="pmb-choice" id="pmbChoiceA">
+                        <span class="pmb-choice__letter">A</span>
+                        <span class="pmb-choice__text">X menonton pertandingan sepak bola di televisi dan X tidak
+                            memperbaiki kandang ayam di belakang rumah.</span>
+                    </div>
+                    <div class="pmb-choice" id="pmbChoiceB">
+                        <span class="pmb-choice__letter">B</span>
+                        <span class="pmb-choice__text">X tidak menonton pertandingan sepak bola di televisi atau X
+                            memperbaiki kandang ayam di belakang rumah.</span>
+                    </div>
+                    <div class="pmb-choice" id="pmbChoiceC">
+                        <span class="pmb-choice__letter">C</span>
+                        <span class="pmb-choice__text">X tidak menonton pertandingan sepak bola di televisi dan X
+                            memperbaiki kandang ayam di belakang rumah.</span>
+                    </div>
+                    <div class="pmb-choice pmb-choice--correct" id="pmbChoiceD">
+                        <span class="pmb-choice__letter">D</span>
+                        <span class="pmb-choice__text">X tidak menonton pertandingan sepak bola di televisi, tetapi X
+                            memperbaiki kandang ayam di belakang rumah.</span>
+                    </div>
+                    <div class="pmb-choice" id="pmbChoiceE">
+                        <span class="pmb-choice__letter">E</span>
+                        <span class="pmb-choice__text">X menonton pertandingan sepak bola di televisi atau X tidak
+                            memperbaiki kandang ayam di belakang rumah.</span>
+                    </div>
+                </fieldset>
+            </form>
+
+            <h2 class="pmb-section-label">Pembahasan</h2>
+            <div class="pmb-explanation" id="pmbExplanation">
+                Ubah "X tidak menonton TV apabila memperbaiki radio" menjadi "jika memperbaiki radio, maka tidak
+                menonton TV". Premis kedua: "jika memperbaiki kandang ayam, maka tidak mencari rumput". Karena soal
+                menyatakan "X tidak memperbaiki radio ATAU mencari rumput", ambil kontraposisi dari masing-masing
+                implikasi: kontraposisi pertama adalah "jika menonton TV, maka tidak memperbaiki radio" dan
+                kontraposisi kedua adalah "jika mencari rumput, maka tidak memperbaiki kandang ayam". Menggabungkan
+                keduanya melalui disjungsi menghasilkan simpulan D: X tidak menonton TV, tetapi X memperbaiki kandang
+                ayam.
+            </div>
+
+            <footer class="pmb-navbar">
+                <button type="button" class="pmb-nav-arrow" id="pmbPrevBtn" aria-label="Soal sebelumnya" disabled>
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+                </button>
+                <div class="pmb-nav-numbers">
+                    <button type="button" class="pmb-nav-number pmb-nav-number--active" id="pmbNav1">1</button>
+                    <button type="button" class="pmb-nav-number" id="pmbNav2">2</button>
+                    <button type="button" class="pmb-nav-number" id="pmbNav3">3</button>
+                    <button type="button" class="pmb-nav-number" id="pmbNav4">4</button>
+                    <button type="button" class="pmb-nav-number" id="pmbNav5">5</button>
+                    <button type="button" class="pmb-nav-number pmb-nav-number--ellipsis" id="pmbNavMore">&hellip;</button>
+                </div>
+                <button type="button" class="pmb-nav-arrow pmb-nav-arrow--accent" id="pmbNextBtn"
+                    aria-label="Soal selanjutnya">
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                </button>
+            </footer>
+
+            <!-- ============ SKULINGPRO NOTICE (paywall) ============ -->
+            <div class="pemanasan-overlay" id="pro-overlay" role="dialog" aria-modal="true" aria-labelledby="pro-title">
+                <div class="pemanasan-card">
+                    <div class="pemanasan-header">
+                        <span id="pro-title" class="pemanasan-title">Notice</span>
+                        <button class="pemanasan-close btn-reset" type="button" id="pro-close-x" aria-label="Tutup">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+                    <div class="pemanasan-body">
+                        <p class="pemanasan-text">Free user hanya bisa melihat pembahasan 1 soal. Ingin melihat
+                            pembahasan soal tanpa batas?</p>
+                    </div>
+                    <div class="pemanasan-footer">
+                        <button class="pemanasan-cta pemanasan-cta--full btn-reset" type="button"
+                            data-not-in-scenario>Upgrade ke SkulingPro</button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/pembahasan-review.js"></script>
+</body>
+
+</html>

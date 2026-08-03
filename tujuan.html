@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/globals.css">
+    <link rel="stylesheet" href="./css/guide.css">
+    <link rel="stylesheet" href="./css/tujuan.css">
+    <title>Skuling: Daftar</title>
+</head>
+
+<body>
+    <div class="device-frame">
+        <main class="misi-besar">
+            <h1 class="text-wrapper">Misi besarmu tahun ini apa?</h1>
+            <form>
+                <fieldset class="misi-grid">
+                    <legend>Pilih misi besar tahun ini</legend>
+                    <label class="misi-option-1">
+                        <input type="radio" name="misi" value="kedinasan">
+                        <img class="icon" src="./img/kedinasan.png" alt="" aria-hidden="true">
+                        <span class="text-wrapper-3">Masuk Kedinasan</span>
+                    </label>
+                    <label class="misi-option-2">
+                        <input type="radio" name="misi" value="utbk-snbt" checked>
+                        <img class="icon" src="./img/utbk.png" alt="" aria-hidden="true">
+                        <span class="lolos-UTBK-SNBT">Lolos <br>UTBK–SNBT</span>
+                    </label>
+                    <label class="misi-option-3">
+                        <input type="radio" name="misi" value="sekolah-tka">
+                        <img class="icon" src="./img/sekolah.png" alt="" aria-hidden="true">
+                        <span class="text-wrapper-5">Naik nilai di Sekolah / TKA</span>
+                    </label>
+                    <label class="misi-option-4">
+                        <input type="radio" name="misi" value="ujian-mandiri">
+                        <img class="icon" src="./img/mandiri.png" alt="" aria-hidden="true">
+                        <span class="text-wrapper-5">Tembus Ujian Mandiri</span>
+                    </label>
+                </fieldset>
+                <footer class="navbar">
+                    <div class="streak-wrapper">
+                        <button id="btn-lanjutkan" class="streak" type="submit">
+                            <span class="text-wrapper-6">Lanjutkan</span>
+                        </button>
+                    </div>
+                </footer>
+            </form>
+        </main>
+    </div>
+</body>
+<script>
+    document.getElementById('btn-lanjutkan').addEventListener('click', function (e) {
+        e.preventDefault();
+        window.location.href = 'impian.html';
+    });
+</script>
+
+</html>

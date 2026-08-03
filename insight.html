@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skuling: Insight</title>
+    <link rel="stylesheet" href="./css/globals.css">
+    <link rel="stylesheet" href="./css/guide.css">
+    <link rel="stylesheet" href="./css/insight.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0"
+        rel="stylesheet">
+</head>
+
+<body data-page="insight" data-home-tab="history" data-home-navbar="insight-navbar">
+    <div class="device-frame">
+        <main class="insight">
+
+            <div id="topbarPlaceholder"></div>
+
+            <div id="homeNavbarPlaceholder"></div>
+
+            <section class="insight-filters" aria-label="Filter riwayat">
+                <button type="button" class="insight-filter" data-not-in-scenario>
+                    <span><strong>Tipe</strong> History</span>
+                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">expand_more</span>
+                </button>
+                <button type="button" class="insight-filter" data-not-in-scenario>
+                    <span><strong>Fitur</strong> Battle</span>
+                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">expand_more</span>
+                </button>
+            </section>
+
+            <p class="insight-banner">
+                <span class="material-symbols-outlined icon-xs" aria-hidden="true">info</span>
+                Statistik lengkap akan muncul setelah 5 kali Battle
+            </p>
+
+            <div class="insight-history" id="insightHistory" hidden>
+                <div class="insight-history-head">
+                    <span>Battle Star</span>
+                    <span id="historyDate">-</span>
+                </div>
+                <div class="insight-history-row">
+                    <button type="button" class="insight-history-left" id="historyReviewBtn"
+                        aria-label="Lihat pembahasan soal">
+                        <img class="insight-history-avatar" src="./img/battle-star-kak-aji-profile.png" alt="">
+                        <span class="insight-history-info">
+                            <span class="insight-history-name-row">
+                                <span>Kak Aji</span>
+                                <span class="insight-history-rating" id="historyOpponentRating">2142</span>
+                            </span>
+                            <span class="insight-history-role">Skuling</span>
+                        </span>
+                    </button>
+                    <button type="button" class="insight-history-right" id="historyResultBtn"
+                        aria-label="Lihat hasil battle">
+                        <span class="insight-history-outcome" id="historyOutcome">WIN</span>
+                        <span class="insight-history-rating-change" id="historyRatingChange">1610 (+110)</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="navbarPlaceholder"></div>
+
+        </main>
+    </div>
+
+    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/insight.js"></script>
+</body>
+
+</html>

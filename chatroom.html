@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skuling: Chatroom</title>
+    <link rel="stylesheet" href="./css/globals.css">
+    <link rel="stylesheet" href="./css/guide.css">
+    <link rel="stylesheet" href="./css/chatroom.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0"
+        rel="stylesheet">
+</head>
+
+<body data-page="chat">
+    <div class="device-frame">
+        <main class="chatroom">
+
+            <header class="app-top-bar app-top-bar--simple">
+                <div class="app-top-bar-row">
+                    <div class="app-top-bar-left">
+                        <button class="back-btn btn-reset" type="button" aria-label="Kembali ke beranda" id="chatroomBackBtn">
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_back</span>
+                        </button>
+                        <span class="chatroom-avatar" aria-hidden="true">VS</span>
+                        <span class="chatroom-header-info">
+                            <span class="chatroom-header-name">
+                                <img class="chatroom-badge" src="./img/leaderboard-badge-gold.png" alt="">
+                                Veda Suputra
+                            </span>
+                            <span class="chatroom-header-school">SMAN 1 DENPASAR</span>
+                        </span>
+                    </div>
+                </div>
+            </header>
+
+            <section class="chatroom-body" id="chatroomBody" aria-live="polite">
+                <p class="chatroom-empty" id="chatroomEmpty">
+                    Mulai mengobrol dengan<br><strong>Veda Suputra</strong>
+                </p>
+                <div class="chatroom-messages" id="chatroomMessages"></div>
+            </section>
+
+            <footer class="chatroom-input-bar">
+                <button class="chatroom-attach-btn btn-reset" type="button" aria-label="Lampirkan file"
+                    data-not-in-scenario>
+                    <span class="material-symbols-outlined icon-sm" aria-hidden="true">attach_file</span>
+                </button>
+                <input class="chatroom-input" type="text" id="chatroomInput" placeholder="Tuliskan pesanmu di sini"
+                    autocomplete="off" aria-label="Tuliskan pesanmu di sini">
+                <button class="chatroom-send-btn btn-reset" type="button" id="chatroomSendBtn" aria-label="Kirim pesan">
+                    <span class="material-symbols-outlined icon-sm" aria-hidden="true">send</span>
+                </button>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/chatroom.js"></script>
+</body>
+
+</html>

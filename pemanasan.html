@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#07b2ff">
+    <title>Skuling: Daftar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/globals.css">
+    <link rel="stylesheet" href="./css/guide.css">
+    <link rel="stylesheet" href="./css/pemanasan.css">
+</head>
+
+<body>
+    <div class="device-frame">
+        <main class="trial-freestyle" id="app">
+
+            <h1 class="pem-title">Pemanasan dulu, yuk!</h1>
+
+            <section class="pem-powerups" aria-label="Bantuan soal">
+                <button class="pem-powerup pem-powerup--hint" type="button" aria-label="Gunakan hint, tersisa 1"
+                    id="btn-hint">
+                    <span class="pem-powerup__inner">
+                        <img class="pem-powerup__icon"
+                            src="https://assets.skuling.id/static/images/feature/power-up/potion/hint.png" alt="">
+                        <span class="pem-powerup__label">Hint</span>
+                    </span>
+                    <span class="pem-powerup__count" aria-hidden="true">1</span>
+                </button>
+                <button class="pem-powerup pem-powerup--fifty" type="button"
+                    aria-label="Gunakan bantuan 50:50, tersisa 1" id="btn-fifty">
+                    <span class="pem-powerup__inner">
+                        <img class="pem-powerup__icon"
+                            src="https://assets.skuling.id/static/images/feature/power-up/potion/50-50.png"
+                            alt="">
+                        <span class="pem-powerup__label">50:50</span>
+                    </span>
+                    <span class="pem-powerup__count" aria-hidden="true">1</span>
+                </button>
+                <button class="pem-powerup pem-powerup--skip" type="button" aria-label="Lewati soal, tersisa 1"
+                    id="btn-skip">
+                    <span class="pem-powerup__inner">
+                        <img class="pem-powerup__icon"
+                            src="https://assets.skuling.id/static/images/feature/power-up/potion/skip.png" alt="">
+                        <span class="pem-powerup__label">Skip</span>
+                    </span>
+                    <span class="pem-powerup__count" aria-hidden="true">1</span>
+                </button>
+                <button class="pem-powerup pem-powerup--help" type="button" aria-label="Bantuan" id="btn-help">
+                    <span class="material-symbols-outlined">help</span>
+                </button>
+            </section>
+
+            <section class="pem-question-area" id="soal-1" aria-labelledby="question-title-1">
+                <article class="pem-card">
+                    <header class="pem-card__header">
+                        <div class="pem-card__label">
+                            <h2 class="pem-card__title" id="question-title-1">Soal UTBK 2024</h2>
+                        </div>
+                        <nav class="pem-card__nav" aria-label="Navigasi soal">
+                            <button class="pem-nav-btn pem-nav-btn--active" type="button" aria-current="true"
+                                aria-label="Soal 1" id="nav-btn-1">1</button>
+                            <button class="pem-nav-btn" type="button" aria-label="Soal 2" id="nav-btn-2">2</button>
+                        </nav>
+                    </header>
+                    <div class="pem-card__body">
+                        <div class="pem-question-text">
+                            <p>X memperbaiki radio yang rusak apabila tidak menonton pertandingan sepak bola di
+                                televisi.</p>
+                            <p>Apabila memperbaiki kandang ayam di belakang rumah, X tidak mencari rumput di pekarangan.
+                            </p>
+                            <p>Apabila X tidak memperbaiki radio yang rusak atau mencari rumput di pekarangan, manakah
+                                simpulan berikut yang BENAR?</p>
+                            <p class="pem-hint-text" id="hint-text-1" hidden></p>
+                        </div>
+                    </div>
+                </article>
+
+                <form class="pem-choices" id="form-soal-1" aria-label="Pilihan jawaban soal 1">
+                    <fieldset>
+                        <legend class="sr-only">Pilih jawaban yang benar</legend>
+                        <label class="pem-choice">
+                            <input type="radio" name="jawaban-1" value="A">
+                            <span class="pem-choice__letter" aria-hidden="true">A</span>
+                            <span class="pem-choice__text">X menonton pertandingan sepak bola di televisi dan X tidak
+                                memperbaiki kandang ayam di belakang rumah.</span>
+                        </label>
+                        <label class="pem-choice">
+                            <input type="radio" name="jawaban-1" value="B">
+                            <span class="pem-choice__letter" aria-hidden="true">B</span>
+                            <span class="pem-choice__text">X tidak menonton pertandingan sepak bola di televisi atau X
+                                memperbaiki kandang ayam di belakang rumah.</span>
+                        </label>
+                        <label class="pem-choice">
+                            <input type="radio" name="jawaban-1" value="C">
+                            <span class="pem-choice__letter" aria-hidden="true">C</span>
+                            <span class="pem-choice__text">X tidak menonton pertandingan sepak bola di televisi dan X
+                                memperbaiki kandang ayam di belakang rumah.</span>
+                        </label>
+                        <label class="pem-choice">
+                            <input type="radio" name="jawaban-1" value="D">
+                            <span class="pem-choice__letter" aria-hidden="true">D</span>
+                            <span class="pem-choice__text">X tidak menonton pertandingan sepak bola di televisi, tetapi
+                                X memperbaiki kandang ayam di belakang rumah.</span>
+                        </label>
+                        <label class="pem-choice">
+                            <input type="radio" name="jawaban-1" value="E">
+                            <span class="pem-choice__letter" aria-hidden="true">E</span>
+                            <span class="pem-choice__text">X menonton pertandingan sepak bola di televisi atau X tidak
+                                memperbaiki kandang ayam di belakang rumah.</span>
+                        </label>
+                    </fieldset>
+                </form>
+            </section>
+
+            <section class="pem-question-area" id="soal-2" aria-labelledby="question-title-2" hidden>
+                <article class="pem-card">
+                    <header class="pem-card__header">
+                        <div class="pem-card__label">
+                            <h2 class="pem-card__title" id="question-title-2">Soal UTBK 2024</h2>
+                        </div>
+                        <nav class="pem-card__nav" aria-label="Navigasi soal">
+                            <button class="pem-nav-btn" type="button" aria-label="Soal 1"
+                                id="nav-btn-1-s2"></button>
+                            <button class="pem-nav-btn pem-nav-btn--active" type="button" aria-current="true"
+                                aria-label="Soal 2" id="nav-btn-2-s2">2</button>
+                        </nav>
+                    </header>
+                    <div class="pem-card__body">
+                        <div class="pem-question-text">
+                            <p>Apabila hari Senin cerah, upacara bendera akan diadakan di Sekolah X. Jika upacara
+                                bendera diadakan, seluruh siswa wajib memakai topi dan dasi.</p>
+                            <p>Diketahui saat ini adalah hari Senin yang cerah dan Andi adalah siswa di Sekolah X.</p>
+                            <p>Manakah kesimpulan berikut ini yang BENAR?</p>
+                            <p class="pem-hint-text" id="hint-text-2" hidden></p>
+                        </div>
+                    </div>
+                </article>
+
+                <form class="pem-choices" id="form-soal-2" aria-label="Pilihan jawaban soal 2">
+                    <fieldset>
+                        <legend class="sr-only">Pilih jawaban yang benar</legend>
+                        <label class="pem-choice">
+                            <input type="radio" name="jawaban-2" value="A">
+                            <span class="pem-choice__letter" aria-hidden="true">A</span>
+                            <span class="pem-choice__text">Andi wajib memakai topi dan dasi.</span>
+                        </label>
+                        <label class="pem-choice">
+                            <input type="radio" name="jawaban-2" value="B">
+                            <span class="pem-choice__letter" aria-hidden="true">B</span>
+                            <span class="pem-choice__text">Andi tidak wajib memakai topi dan dasi karena cuaca
+                                cerah.</span>
+                        </label>
+                        <label class="pem-choice">
+                            <input type="radio" name="jawaban-2" value="C">
+                            <span class="pem-choice__letter" aria-hidden="true">C</span>
+                            <span class="pem-choice__text">Upacara bendera tidak diadakan meskipun hari Senin
+                                cerah.</span>
+                        </label>
+                        <label class="pem-choice">
+                            <input type="radio" name="jawaban-2" value="D">
+                            <span class="pem-choice__letter" aria-hidden="true">D</span>
+                            <span class="pem-choice__text">Andi memakai topi dan dasi agar upacara bendera
+                                diadakan.</span>
+                        </label>
+                        <label class="pem-choice">
+                            <input type="radio" name="jawaban-2" value="E">
+                            <span class="pem-choice__letter" aria-hidden="true">E</span>
+                            <span class="pem-choice__text">Andi hanya wajib memakai topi, tetapi tidak wajib memakai
+                                dasi.</span>
+                        </label>
+                    </fieldset>
+                </form>
+            </section>
+
+            <footer class="navbar-fixed pem-navbar">
+                <div class="pem-navbar__inner">
+                    <button class="pem-btn-lanjut" type="button" id="btn-lanjutkan" disabled>
+                        <span>Lanjutkan</span>
+                    </button>
+                </div>
+            </footer>
+            <div class="pemanasan-overlay" id="hasil-overlay" role="dialog" aria-modal="true"
+                aria-labelledby="hasil-title">
+                <div class="pemanasan-card">
+                    <div class="pemanasan-header pemanasan-header--centered">
+                        <span id="hasil-title" class="pemanasan-title">Hasil Diagnosis</span>
+                    </div>
+                    <div class="pemanasan-body hasil-body">
+                        <img class="hasil-image" src="./img/diagnosis.png" alt="Ilustrasi hasil diagnosis">
+                        <p class="hasil-score">1/2 Benar</p>
+                        <p class="pemanasan-text" style="font-size:12px!important;">
+                            Kamu punya modal berpikir yang kuat. Tinggal nutup beberapa celah kecil yang bikin jawabanmu
+                            kadang meleset. Dengan latihan yang konsisten, kamu bakal naik level lebih cepat dari yang
+                            kamu kira!
+                        </p>
+                    </div>
+                    <div class="pemanasan-footer">
+                        <button class="pemanasan-cta pemanasan-cta--full btn-reset" type="button"
+                            id="hasil-lanjut">Lanjut</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pemanasan-overlay" id="info-overlay" role="dialog" aria-modal="true"
+                aria-labelledby="info-title">
+                <div class="pemanasan-card">
+                    <div class="pemanasan-header">
+                        <span id="info-title" class="pemanasan-title">Bantuan Power-Up</span>
+                        <button class="pemanasan-close btn-reset" type="button" id="info-close-x"
+                            aria-label="Tutup">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+                    <div class="pemanasan-body info-popup-body">
+                        <div class="info-card info-card--hint">
+                            <span class="info-card__icon">
+                                <img src="https://assets.skuling.id/static/images/feature/power-up/potion/hint.png"
+                                    alt="">
+                            </span>
+                            <div class="info-card__text">
+                                <p class="info-card__title">Hint (<span id="info-count-hint">1</span>)</p>
+                                <p class="info-card__desc">Buka kisi-kisi untuk dapat jawaban tepat!</p>
+                            </div>
+                        </div>
+                        <div class="info-card info-card--skip">
+                            <span class="info-card__icon">
+                                <img src="https://assets.skuling.id/static/images/feature/power-up/potion/skip.png"
+                                    alt="">
+                            </span>
+                            <div class="info-card__text">
+                                <p class="info-card__title">Skip (<span id="info-count-skip">1</span>)</p>
+                                <p class="info-card__desc">Lompati soal sulit, ratingmu tetap aman.</p>
+                            </div>
+                        </div>
+                        <div class="info-card info-card--fifty">
+                            <span class="info-card__icon">
+                                <img src="https://assets.skuling.id/static/images/feature/power-up/potion/50-50.png"
+                                    alt="">
+                            </span>
+                            <div class="info-card__text">
+                                <p class="info-card__title">50:50 (<span id="info-count-fifty">1</span>)</p>
+                                <p class="info-card__desc">Hapus jawaban salah. Peluang benar 50%!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pemanasan-footer">
+                        <button class="pemanasan-cta pemanasan-cta--full btn-reset" type="button"
+                            id="info-close">OK</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/pemanasan.js"></script>
+</body>
+
+</html>

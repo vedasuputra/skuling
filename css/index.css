@@ -1,0 +1,219 @@
+.device-frame {
+  background: linear-gradient(180deg,
+      rgba(7, 178, 255, 1) 0%,
+      rgba(0, 146, 212, 1) 100%);
+}
+
+.welcome {
+  overflow: hidden;
+  background: linear-gradient(180deg,
+      rgba(7, 178, 255, 1) 0%,
+      rgba(0, 146, 212, 1) 100%);
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.welcome .top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 76px;
+  flex-shrink: 0;
+  padding: 10px 15px;
+  box-shadow: var(--topbar-shadow);
+  box-sizing: border-box;
+}
+
+.welcome .logo-img {
+  width: 75px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.welcome .content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  padding: 20px;
+  padding-top: 80px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 340px;
+  align-self: center;
+}
+
+.welcome .welcome-heading-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+.welcome .siap-wujudkan-kampus {
+  font-family: var(--font-family-base);
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--variable-collection-white);
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 35.2px;
+  width: 100%;
+}
+
+.welcome .text-wrapper {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--variable-collection-white);
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 18.2px;
+  width: 100%;
+}
+
+.welcome .account-actions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 6px;
+}
+
+.welcome .streak {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px;
+  background-color: var(--variable-collection-white);
+  border-radius: var(--btn-border-radius-sm);
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+
+.welcome .account-actions a {
+  display: block;
+  width: 100%;
+}
+
+.welcome .streak:focus-visible {
+  outline: 2px solid var(--variable-collection-white);
+  outline-offset: 3px;
+}
+
+.welcome .text-wrapper-2 {
+  font-family: var(--font-family-base);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--variable-collection-accent);
+  text-align: center;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.welcome .sudah-punya-akun {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--variable-collection-white);
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 25.6px;
+}
+
+.welcome .span {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--variable-collection-white);
+}
+
+.welcome .text-wrapper-3 {
+  font-family: var(--font-family-base);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--variable-collection-white);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.welcome .text-wrapper-3:focus-visible {
+  outline: 2px solid var(--variable-collection-white);
+  outline-offset: 3px;
+}
+
+.welcome .bottom-area {
+  flex-shrink: 0;
+  width: 100%;
+  height: 35dvh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.welcome .mascot {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+.welcome::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+@keyframes content-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome .welcome-heading-group,
+.welcome .account-actions,
+.welcome .sudah-punya-akun {
+  animation: content-fade-in 0.4s ease-out both;
+}
+
+.welcome .welcome-heading-group { animation-delay: 0.05s; }
+.welcome .account-actions { animation-delay: 0.15s; }
+.welcome .sudah-punya-akun { animation-delay: 0.22s; }
+
+@keyframes mascot-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome .mascot {
+  animation: mascot-rise 0.5s ease-out 0.1s both;
+}

@@ -1,0 +1,225 @@
+.device-frame {
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(243, 251, 255, 1) 100%);
+}
+
+.buat-chat-baru {
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(243, 251, 255, 1) 100%);
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    opacity: 0;
+}
+
+.device-frame.layout-ready .buat-chat-baru {
+    opacity: 1;
+    animation: page-fade-in 0.2s ease-out;
+}
+
+.buat-chat-baru::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+
+.buat-chat-baru .app-top-bar--simple {
+    align-items: flex-end;
+    gap: 8px;
+    padding-bottom: 12px;
+}
+
+/* ============ SCHOOL FILTER CHIP ============ */
+.school-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    border-radius: var(--btn-border-radius-sm);
+    border: 1px solid var(--variable-collection-stroke);
+    background: var(--variable-collection-xplain-categories-background);
+    font-family: var(--font-family-base);
+    font-weight: 500;
+    font-size: 11px;
+    color: var(--variable-collection-body);
+    white-space: nowrap;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.school-filter-btn .material-symbols-outlined {
+    color: var(--variable-collection-body);
+    font-size: 12px;
+}
+
+.school-filter-btn:hover {
+    background: var(--variable-collection-xplain-categories-stroke);
+}
+
+/* ============ SEARCH BAR ============ */
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px 15px;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--variable-collection-stroke);
+    flex-shrink: 0;
+}
+
+.search-input {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    padding: 0 24px 0 0;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--variable-collection-body);
+    letter-spacing: 0;
+}
+
+.search-input::placeholder {
+    color: var(--variable-collection-disabled);
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--variable-collection-body);
+    pointer-events: none;
+}
+
+/* ============ FRIEND LIST ============ */
+.friend-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.friend-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px 0px 0px 15px;
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid var(--variable-collection-stroke);
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    font: inherit;
+    gap: 12px;
+}
+
+.friend-row:hover {
+    background: var(--variable-collection-xplain-categories-background);
+}
+
+.friend-row-avatar {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    object-fit: cover;
+    border-radius: var(--btn-border-radius-sm);
+}
+
+.friend-row-avatar--initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg,
+            rgba(33, 186, 255, 1) 0%,
+            rgba(0, 164, 237, 1) 100%);
+    color: var(--variable-collection-white);
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.friend-row-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+}
+
+.friend-row-name-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+.friend-row-badge {
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 500px;
+}
+
+.friend-row-name {
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--variable-collection-body);
+    letter-spacing: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    margin-bottom: 2px;
+}
+
+.friend-row-school {
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.2px;
+    color: var(--variable-collection-disabled);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.friend-row-date {
+    flex-shrink: 0;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 11px;
+    color: var(--variable-collection-disabled);
+    white-space: nowrap;
+}
+
+.friend-row-empty {
+    padding: 40px 24px;
+    text-align: center;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--variable-collection-disabled);
+}
+
+.friend-row:focus-visible {
+    outline: 2px solid var(--variable-collection-body);
+    outline-offset: -2px;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skuling: Daftar</title>
+    <link rel="stylesheet" href="./css/globals.css">
+    <link rel="stylesheet" href="./css/guide.css">
+    <link rel="stylesheet" href="./css/impian.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="device-frame">
+        <main class="kampus-impian">
+            <h1 class="text-wrapper">Kampus impianmu?</h1>
+
+            <form class="kampus-form" id="kampus-form" action="#" method="post">
+                <input type="hidden" id="nama-kampus" name="nama-kampus" required>
+                <input type="hidden" id="nama-jurusan" name="nama-jurusan" required>
+
+                <div class="field-group">
+                    <label class="text-wrapper-2" for="kampusSearch">Nama Kampus</label>
+                    <div class="selected-field" id="kampusSelectedField" hidden>
+                        <span class="selected-value" id="kampusSelectedValue"></span>
+                        <button type="button" class="change-btn" id="changeKampusBtn">Ubah</button>
+                    </div>
+                    <section class="picker" id="kampusPicker">
+                        <div class="search-box">
+                            <span class="material-symbols-outlined search-icon" aria-hidden="true">search</span>
+                            <input type="text" id="kampusSearch" placeholder="Cari kampus..." autocomplete="off"
+                                autocapitalize="none" spellcheck="false" aria-label="Cari kampus">
+                        </div>
+                        <ul class="picker-list" id="kampusList" role="listbox" aria-label="Daftar kampus"></ul>
+                    </section>
+                </div>
+
+                <div class="field-group" id="jurusanSection" hidden>
+                    <label class="text-wrapper-2" for="jurusanSearch">Nama Jurusan</label>
+                    <div class="selected-field" id="jurusanSelectedField" hidden>
+                        <span class="selected-value" id="jurusanSelectedValue"></span>
+                        <button type="button" class="change-btn" id="changeJurusanBtn">Ubah</button>
+                    </div>
+                    <section class="picker" id="jurusanPicker">
+                        <div class="search-box">
+                            <span class="material-symbols-outlined search-icon" aria-hidden="true">search</span>
+                            <input type="text" id="jurusanSearch" placeholder="Cari jurusan..." autocomplete="off"
+                                autocapitalize="none" spellcheck="false" aria-label="Cari jurusan">
+                        </div>
+                        <ul class="picker-list" id="jurusanList" role="listbox" aria-label="Daftar jurusan"></ul>
+                    </section>
+                </div>
+
+                <section class="reveal-card" id="revealCard" hidden aria-labelledby="kampus-message-title">
+                    <img class="reveal-icon" src="img/undiksha.png" alt="Lambang Universitas Pendidikan Ganesha">
+                    <div class="reveal-text">
+                        <h2 class="p" id="kampus-message-title">Wah, Universitas Pendidikan Ganesha pilihan yang keren!
+                        </h2>
+                        <p class="text-wrapper-4">Itu bukan cuma mimpi, itu rencana yang akan kita wujudkan. Kita kejar
+                            almamater itu bareng, ya!</p>
+                    </div>
+                </section>
+            </form>
+        </main>
+
+        <footer class="navbar">
+            <div class="streak-wrapper">
+                <button class="continue-btn btn-reset" id="lanjutBtn" type="submit" form="kampus-form" disabled
+                    aria-label="Lanjutkan ke langkah berikutnya">
+                    <span class="text-wrapper-5">Lanjutkan</span>
+                </button>
+            </div>
+        </footer>
+    </div>
+    <script>
+        document.getElementById('lanjutBtn').addEventListener('click', function (e) {
+            e.preventDefault(); 
+            window.location.href = 'manfaat.html';
+        });
+    </script>
+
+    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/impian.js"></script>
+</body>
+
+</html>

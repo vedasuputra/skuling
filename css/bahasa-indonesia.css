@@ -1,0 +1,235 @@
+.device-frame {
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(243, 251, 255, 1) 100%);
+}
+
+.bahasa-indonesia {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(243, 251, 255, 1) 100%);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.bahasa-indonesia::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+/* ============ FILTER ROW ============ */
+.filter-row {
+  display: flex;
+  flex-shrink: 0;
+  gap: 10px;
+  width: calc(100% - 30px);
+  max-width: 480px;
+  margin: 15px auto 0;
+}
+
+.filter-pill {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 2px 8px;
+  border: 1px solid var(--variable-collection-stroke);
+  border-radius: 5px;
+  color: var(--variable-collection-body);
+}
+
+.filter-pill-label {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.filter-pill-label strong {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+/* ============ MODULE LIST ============ */
+.module-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: calc(100% - 30px);
+  max-width: 480px;
+  margin: 15px auto 0;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+}
+
+.module-card {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  padding: 0 11px 0 0;
+  background-color: var(--variable-collection-white);
+  border: 1px solid var(--variable-collection-xplain-categories-stroke);
+  border-radius: 5px;
+  text-align: left;
+}
+
+.module-card-thumb {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 82px;
+  height: 82px;
+  border: 1px solid var(--variable-collection-xplain-categories-stroke);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.module-card-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.module-card-lock {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(3px);
+}
+
+.icon-lock {
+  font-size: 21px;
+  line-height: 1;
+  color: #005d86;
+}
+
+.module-card-lock-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 5px;
+  background: linear-gradient(180deg, #d5f2ff 0%, #a1e2ff 100%);
+  border: 1px solid var(--variable-collection-body);
+  border-radius: 500px;
+  font-family: var(--font-family-base);
+  font-weight: 700;
+  font-size: 9px;
+  color: var(--variable-collection-body);
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.module-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+  padding: 11px 0;
+  align-self: stretch;
+}
+
+.module-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.module-card-title {
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--variable-collection-body);
+  letter-spacing: 0;
+  line-height: 100%;
+}
+
+.module-card-subtitle {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 10px;
+  color: var(--variable-collection-body);
+  letter-spacing: 0.2px;
+}
+
+.module-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.module-card-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.module-card-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: #00577e;
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.module-card-meta-badge .material-symbols-outlined {
+  font-size: 10px;
+  line-height: 1;
+  color: #00577e;
+}
+
+.module-card-progress {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.module-card-progress-value {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 10px;
+  color: #00577e;
+  letter-spacing: 0.2px;
+}
+
+.module-card-progress-track {
+  display: block;
+  width: 50px;
+  height: 9px;
+  background-color: var(--variable-collection-xplain-categories-stroke);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.module-card-progress-fill {
+  display: block;
+  height: 100%;
+  background-color: var(--variable-collection-accent);
+  border-radius: 2px;
+}

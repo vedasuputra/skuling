@@ -1,0 +1,381 @@
+.device-frame {
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(243, 251, 255, 1) 100%);
+}
+
+.profile {
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(243, 251, 255, 1) 100%);
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-bottom: 78px;
+    opacity: 0;
+}
+
+.device-frame.layout-ready .profile {
+    opacity: 1;
+    animation: page-fade-in 0.2s ease-out;
+}
+
+.profile::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+
+.profile>* {
+    flex-shrink: 0;
+}
+
+.profile .icon-xxs {
+    font-size: 12px;
+    line-height: 1;
+}
+
+/* ============ TOP BAR ============ */
+.profile-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.profile-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--variable-collection-body);
+}
+
+/* ============ PROFILE CARD ============ */
+.profile-card {
+    display: flex;
+    width: calc(100% - 30px);
+    max-width: 480px;
+    margin: 15px auto 0;
+    border-radius: var(--btn-border-radius-sm);
+    border: 1px solid var(--variable-collection-stroke);
+    background: var(--variable-collection-xplain-categories-background);
+    overflow: hidden;
+}
+
+.profile-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 115px;
+    height: auto;
+    background: linear-gradient(180deg,
+            rgba(33, 186, 255, 1) 0%,
+            rgba(0, 164, 237, 1) 100%);
+    color: var(--variable-collection-white);
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.profile-card-info {
+    flex: 1;
+    min-width: 0;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-name {
+    margin: 0;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--variable-collection-body);
+    letter-spacing: 0;
+    margin-bottom: 3px;
+}
+
+.profile-school {
+    margin: 0 0 10px;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 11px;
+    color: rgba(0, 40, 58, 0.6);
+    letter-spacing: 0.2px;
+}
+
+.profile-stats {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 20px;
+}
+
+.profile-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.profile-stat-value {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--variable-collection-body);
+    white-space: nowrap;
+}
+
+.profile-stat-value .material-symbols-outlined {
+    color: var(--variable-collection-disabled);
+}
+
+.profile-stat-label {
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 11px;
+    color: var(--variable-collection-disabled);
+    white-space: nowrap;
+}
+
+/* ============ RANK + BADGES ROW ============ */
+.profile-mid-row {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    width: calc(100% - 30px);
+    max-width: 480px;
+    margin: 16px auto 0;
+}
+
+.profile-rank-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    flex-shrink: 0;
+    border: 1px solid #f2d3ab;
+    border-radius: var(--btn-border-radius-sm);
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(180deg, #fff3e4 0%, #ffe8cc 100%);
+}
+
+.profile-rank-label {
+    margin-top: 12px;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--variable-collection-orange);
+}
+
+.profile-rank-value {
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--variable-collection-orange);
+}
+
+.profile-rank-mascot {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 8px 0;
+}
+
+.profile-rank-footer {
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--variable-collection-orange);
+    background: var(--variable-collection-white);
+    border-top: 1px solid #f2d3ab;
+}
+
+.profile-badges-card {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--variable-collection-stroke);
+    border-radius: var(--btn-border-radius-sm);
+    overflow: hidden;
+    background: var(--variable-collection-xplain-categories-background);
+}
+
+.profile-badges-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--variable-collection-body);
+}
+
+.profile-badges-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px 10px;
+    padding: 10px;
+    border-radius: var(--btn-border-radius-sm);
+    border: 1px solid var(--variable-collection-stroke);
+    background: var(--variable-collection-white);
+}
+
+.profile-badges-body p {
+    margin: 0;
+    text-align: center;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 11px;
+    color: rgba(0, 40, 58, 0.6);
+    line-height: 1.4;
+}
+
+.profile-badges-footer {
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--variable-collection-body);
+    background: var(--variable-collection-white);
+    border-top: 1px solid var(--variable-collection-stroke);
+}
+
+/* ============ KAMPUS TUJUAN ============ */
+.profile-kampus-card {
+    width: calc(100% - 30px);
+    max-width: 480px;
+    margin: 16px auto 0;
+    border: 1px solid var(--variable-collection-stroke);
+    border-radius: var(--btn-border-radius-sm);
+    overflow: hidden;
+}
+
+.profile-kampus-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background: var(--variable-collection-xplain-categories-background);
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--variable-collection-body);
+}
+
+.profile-kampus-edit {
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--variable-collection-accent);
+}
+
+.profile-kampus-body {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    background: var(--variable-collection-white);
+    text-align: left;
+    cursor: pointer;
+}
+
+.profile-kampus-logo {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.profile-kampus-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.profile-kampus-name {
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--variable-collection-body);
+}
+
+.profile-kampus-jurusan {
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 11px;
+    color: rgba(0, 40, 58, 0.6);
+}
+
+/* ============ STATISTIK ============ */
+.profile-statistik {
+    width: calc(100% - 30px);
+    max-width: 480px;
+    margin: 24px auto 0;
+}
+
+.profile-statistik-title {
+    margin: 0 0 12px;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--variable-collection-body);
+}
+
+.profile-stat-group {
+    border: 1px solid var(--variable-collection-stroke);
+    border-radius: var(--btn-border-radius-sm);
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.profile-stat-group-title {
+    padding: 10px 14px;
+    background: var(--variable-collection-xplain-categories-background);
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--variable-collection-body);
+}
+
+.profile-stat-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 14px;
+    box-sizing: border-box;
+    background: var(--variable-collection-white);
+    border-top: 1px solid var(--variable-collection-stroke);
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--variable-collection-body);
+}
+
+.profile-stat-row span:last-child {
+    color: var(--variable-collection-disabled);
+    font-weight: 600;
+}
