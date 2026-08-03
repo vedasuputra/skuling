@@ -1,4 +1,28 @@
+/* This page's friend row (.af-friend-row) is its OWN class, separate from
+   .friend-row in buat-chat-baru.css — the two pages' rows are structurally
+   different (this one ends in .add-friend-btn, not a date label), so they
+   must not share the same padding rules. */
+.af-friend-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 0 0 15px;
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid var(--variable-collection-stroke);
+    background: transparent;
+    text-align: left;
+    gap: 12px;
+}
 
+.af-friend-row[hidden] {
+    display: none;
+}
+
+.af-friend-row:hover {
+    background: var(--variable-collection-xplain-categories-background);
+}
 
 .add-friend-btn {
     position: relative;

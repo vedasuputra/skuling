@@ -38,7 +38,7 @@ function buildFriendRows() {
             ? `<span class="friend-row-avatar friend-row-avatar--initials">${f.initials}</span>`
             : `<img class="friend-row-avatar" src="${f.img}" alt="">`;
         return `
-        <div class="friend-row" data-username="${f.username}" data-not-in-scenario aria-label="${f.name}">
+        <div class="af-friend-row" data-username="${f.username}" data-not-in-scenario aria-label="${f.name}">
             ${avatar}
             <span class="friend-row-info">
                 <span class="friend-row-name-row">
@@ -69,7 +69,7 @@ function filterFriendList(query) {
     let anyVisible = false;
 
     FRIENDS.forEach((f) => {
-        const row = list.querySelector(`.friend-row[data-username="${f.username}"]`);
+        const row = list.querySelector(`.af-friend-row[data-username="${f.username}"]`);
         if (!row) return;
         const matches = q
             ? f.name.toLowerCase().includes(q) || f.username.toLowerCase().includes(q)

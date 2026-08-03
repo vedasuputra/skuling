@@ -451,8 +451,6 @@
     align-items: stretch;
     width: 100%;
     height: 30px;
-    border-top: 1px solid #00283a;
-    border-bottom: 1px solid #00283a;
     overflow: hidden;
 }
 
