@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#00A5EB">
     <meta name="description" content="Eksplorasi fitur-fitur belajar yang tersedia di Skuling." />
     <title>Fitur-Fitur Skuling</title>
     <link rel="stylesheet" href="./css/globals.css" />
@@ -106,6 +108,13 @@
             </nav>
         </main>
     </div>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("./sw.js").catch(() => {});
+            });
+        }
+    </script>
 </body>
 
 </html>

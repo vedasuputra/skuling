@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#00A5EB">
     <title>Skuling: Tambah Teman</title>
     <link rel="stylesheet" href="./css/globals.css">
     <link rel="stylesheet" href="./css/guide.css">
@@ -42,6 +44,13 @@
 
     <script src="./scripts/scripts.js"></script>
     <script src="./scripts/add-friends.js"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("./sw.js").catch(() => {});
+            });
+        }
+    </script>
 </body>
 
 </html>
