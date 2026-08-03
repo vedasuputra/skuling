@@ -28,7 +28,7 @@
   position: sticky;
   top: 0;
   flex-shrink: 0;
-  align-items: flex-end;
+  align-items: center;
   padding-bottom: 13px;
   gap: 10px;
   box-shadow: var(--topbar-shadow);
@@ -140,7 +140,7 @@
 
 .filter-wrap {
   position: fixed;
-  top: 81px;
+  top: 61px;
   left: 0;
   right: 0;
   width: 100%;
