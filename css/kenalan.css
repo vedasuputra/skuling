@@ -140,7 +140,7 @@
 }
 
 @media (max-width: 767px) {
-  .kenalan .streak input.text-wrapper-3 {
+  .kenalan .streak input.text-wrapper-3:focus {
     font-size: 16px !important;
   }
 }
@@ -533,7 +533,7 @@
 }
 
 @media (max-width: 767px) {
-  .sheet-search input {
+  .sheet-search input:focus {
     font-size: 16px;
   }
 }

@@ -221,7 +221,7 @@
 }
 
 @media (max-width: 767px) {
-    .chatroom-input {
+    .chatroom-input:focus {
         font-size: 16px;
     }
 }

@@ -514,7 +514,7 @@ body[data-page="battle-stars"] .toast {
 }
 
 @media (max-width: 767px) {
-  .adjust-stepper-value {
+  .adjust-stepper-value:focus {
     font-size: 16px;
   }
 }

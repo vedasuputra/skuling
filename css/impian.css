@@ -134,7 +134,7 @@
 }
 
 @media (max-width: 767px) {
-  .kampus-impian .search-box input {
+  .kampus-impian .search-box input:focus {
     font-size: 16px;
   }
 }
