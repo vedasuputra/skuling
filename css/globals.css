@@ -11,11 +11,19 @@ body {
   padding: 0;
   height: 100%;
   overscroll-behavior: none;
+  font-family: var(--font-family-base), Helvetica, Arial, sans-serif;
 }
 
 body {
   min-height: 100vh;
   background-color: #000;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
 
 .device-frame {
