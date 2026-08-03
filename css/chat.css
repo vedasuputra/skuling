@@ -80,6 +80,11 @@
     outline-offset: 2px;
 }
 
+.chat-empty[hidden],
+.chat-list[hidden] {
+    display: none;
+}
+
 .chat-empty {
     flex: 1;
     display: flex;
@@ -122,4 +127,91 @@
 
 .chat-new-btn--large .material-symbols-outlined {
     font-size: 16px;
+}
+
+/* ============ CHAT LIST (once a conversation actually exists) ============ */
+.chat-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.chat-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid var(--variable-collection-stroke);
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    font: inherit;
+}
+
+.chat-row:hover {
+    background: var(--variable-collection-xplain-categories-background);
+}
+
+.chat-row-avatar {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--btn-border-radius-sm);
+    background: linear-gradient(180deg, rgba(33, 186, 255, 1) 0%, rgba(0, 164, 237, 1) 100%);
+    color: var(--variable-collection-white);
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.chat-row-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+}
+
+.chat-row-name {
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--variable-collection-body);
+    letter-spacing: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-row-message-row {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    min-width: 0;
+}
+
+.chat-row-check {
+    flex-shrink: 0;
+    font-size: 13px;
+    color: var(--variable-collection-accent);
+}
+
+.chat-row-message {
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    color: var(--variable-collection-disabled);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
 }

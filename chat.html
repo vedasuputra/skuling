@@ -35,7 +35,7 @@
                 </div>
             </header>
 
-            <section class="chat-empty" aria-labelledby="chat-empty-title">
+            <section class="chat-empty" id="chatEmpty" aria-labelledby="chat-empty-title">
                 <img class="chat-empty-illustration" src="./img/chat-empty.png" alt="Ilustrasi chat kosong">
                 <p id="chat-empty-title" class="chat-empty-text">
                     Chat masih kosong.<br>
@@ -47,6 +47,8 @@
                     <span>Buat Chat Baru</span>
                 </button>
             </section>
+
+            <div class="chat-list" id="chatList" hidden></div>
 
         </main>
     </div>
@@ -66,6 +68,32 @@
         document.querySelector(".back-btn")?.addEventListener("click", () => {
             window.history.back();
         });
+
+        // Same "chat starts once you actually message Veda Suputra" scenario
+        // used by buat-chat-baru.js's friend list — the inbox has to reflect
+        // that too, instead of always showing the empty state underneath it.
+        const lastMessage = localStorage.getItem("skuling_chat_vedasuputra_last");
+        if (lastMessage) {
+            document.getElementById("chatEmpty").hidden = true;
+            const chatList = document.getElementById("chatList");
+            chatList.hidden = false;
+            chatList.innerHTML = `
+                <button type="button" class="chat-row" id="vedasuputraChatRow">
+                    <span class="chat-row-avatar">VS</span>
+                    <span class="chat-row-info">
+                        <span class="chat-row-name">Veda Suputra</span>
+                        <span class="chat-row-message-row">
+                            <span class="material-symbols-outlined chat-row-check" aria-hidden="true">done_all</span>
+                            <span class="chat-row-message"></span>
+                        </span>
+                    </span>
+                </button>
+            `;
+            chatList.querySelector(".chat-row-message").textContent = lastMessage;
+            document.getElementById("vedasuputraChatRow").addEventListener("click", () => {
+                window.location.href = "chatroom.html";
+            });
+        }
     </script>
     <script>
         if ("serviceWorker" in navigator) {
