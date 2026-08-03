@@ -28,7 +28,7 @@ body[data-page="battle-stars"] .toast {
 }
 
 .icon-xs {
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1;
 }
 
@@ -89,7 +89,7 @@ body[data-page="battle-stars"] .toast {
   background: linear-gradient(180deg, #d81a1a 0%, #aa1414 100%);
   font-family: var(--font-family-base);
   font-weight: 500;
-  font-size: 11px;
+  font-size: 12px;
   color: #ffffff;
   letter-spacing: 0.02em;
   cursor: pointer;
@@ -216,7 +216,7 @@ body[data-page="battle-stars"] .toast {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 1) 100%);
   font-family: var(--font-family-base);
   font-weight: 600;
-  font-size: 11px;
+  font-size: 12px;
   color: #500a0a;
   letter-spacing: 0;
   cursor: pointer;
@@ -381,7 +381,7 @@ body[data-page="battle-stars"] .toast {
   background-color: #7d1010;
   font-family: var(--font-family-base);
   font-weight: 600;
-  font-size: 10px;
+  font-size: 12px;
   color: #ffffff;
 }
 
@@ -420,7 +420,7 @@ body[data-page="battle-stars"] .toast {
 .star-profile-info-label {
   font-family: var(--font-family-base);
   font-weight: 700;
-  font-size: 10px;
+  font-size: 12px;
   color: #ffffff;
   line-height: 1.4;
 }
@@ -428,7 +428,7 @@ body[data-page="battle-stars"] .toast {
 .star-profile-info-value {
   font-family: var(--font-family-base);
   font-weight: 400;
-  font-size: 10px;
+  font-size: 12px;
   color: #ffffff;
   line-height: 1.4;
 }

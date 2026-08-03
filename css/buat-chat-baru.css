@@ -44,7 +44,7 @@
     background: var(--variable-collection-xplain-categories-background);
     font-family: var(--font-family-base);
     font-weight: 500;
-    font-size: 11px;
+    font-size: 12px;
     color: var(--variable-collection-body);
     white-space: nowrap;
     cursor: pointer;
@@ -193,7 +193,7 @@
 .friend-row-school {
     font-family: var(--font-family-base);
     font-weight: 400;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.2px;
     color: var(--variable-collection-disabled);
     white-space: nowrap;
@@ -217,7 +217,7 @@
 .friend-row-message {
     font-family: var(--font-family-base);
     font-weight: 400;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.2px;
     color: var(--variable-collection-disabled);
     white-space: nowrap;
@@ -230,7 +230,7 @@
     flex-shrink: 0;
     font-family: var(--font-family-base);
     font-weight: 400;
-    font-size: 11px;
+    font-size: 12px;
     color: var(--variable-collection-disabled);
     white-space: nowrap;
 }

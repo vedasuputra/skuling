@@ -63,7 +63,7 @@
     bottom: 16px;
     font-family: var(--font-family-base);
     font-weight: 500;
-    font-size: 11px;
+    font-size: 12px;
     color: rgba(255, 255, 255, 0.75);
 }
 
@@ -94,7 +94,7 @@
     background: linear-gradient(180deg, #d81a1a 0%, #aa1414 100%);
     font-family: var(--font-family-base);
     font-weight: 500;
-    font-size: 11px;
+    font-size: 12px;
     color: #ffffff;
     letter-spacing: 0.02em;
     cursor: pointer;
@@ -170,7 +170,7 @@
     border-radius: 500px;
     font-family: var(--font-family-base);
     font-weight: 600;
-    font-size: 10px;
+    font-size: 12px;
     color: #ffffff;
 }
 
@@ -390,12 +390,12 @@
 
 .bm-side-panel-head span:first-child {
     font-weight: 600;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .bm-side-panel-head span:last-child {
     font-weight: 400;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .bm-squares {
@@ -589,7 +589,7 @@
 .pem-question-text p {
     font-family: var(--font-family-base);
     font-weight: 400;
-    font-size: 13px;
+    font-size: 14px;
     color: var(--variable-collection-body);
     line-height: 18.2px;
     margin: 0;
@@ -878,7 +878,7 @@
 .bm-result-stat small {
     font-family: var(--font-family-base);
     font-weight: 500;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .bm-result-card--green .bm-result-stat strong {
@@ -1153,7 +1153,7 @@
     margin: 0;
     font-family: var(--font-family-base);
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.3;
     letter-spacing: 0.02em;
     color: #00283a;

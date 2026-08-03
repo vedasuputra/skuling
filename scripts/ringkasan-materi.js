@@ -118,7 +118,11 @@ function bindBackButton() {
     const backBtn = document.querySelector(".back-btn");
     if (!backBtn) return;
     backBtn.addEventListener("click", () => {
-        window.location.href = "./bahasa-indonesia.html";
+        if (document.referrer) {
+            window.history.back();
+        } else {
+            window.location.href = "./bahasa-indonesia.html";
+        }
     });
 }
 

@@ -1,5 +1,8 @@
 document.getElementById("chatroomBackBtn")?.addEventListener("click", () => {
-    window.location.href = "buat-chat-baru.html";
+    // history.back(), not a location.href redirect — a forward redirect here
+    // pushes a fresh history entry instead of popping one, which traps later
+    // back-button presses on buat-chat-baru.html into re-entering this page.
+    window.history.back();
 });
 
 const body = document.getElementById("chatroomBody");

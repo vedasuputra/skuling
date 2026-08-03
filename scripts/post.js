@@ -1,7 +1,11 @@
 document.body.dataset.page = "skulworld";
 
 document.getElementById("postBackBtn")?.addEventListener("click", () => {
-    window.location.href = "squad-page.html";
+    if (document.referrer) {
+        window.history.back();
+    } else {
+        window.location.href = "squad-page.html";
+    }
 });
 
 const respondent = getRespondent();

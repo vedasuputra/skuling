@@ -89,7 +89,7 @@
 .xplain .materi-card-subtitle {
     font-family: var(--font-family-base);
     font-weight: 400;
-    font-size: 10px;
+    font-size: 12px;
     color: var(--variable-collection-disabled);
 }
 
@@ -98,7 +98,7 @@
     align-items: center;
     gap: 3px;
     font-family: var(--font-family-base);
-    font-size: 10px;
+    font-size: 12px;
     color: var(--variable-collection-disabled);
     white-space: nowrap;
 }
@@ -118,14 +118,14 @@
 
 .xplain .materi-progress-label {
   font-family: var(--font-family-base);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--variable-collection-disabled);
   flex-shrink: 0;
 }
 
 .xplain .materi-progress-label {
     font-family: var(--font-family-base);
-    font-size: 10px;
+    font-size: 12px;
     color: var(--variable-collection-disabled);
     flex-shrink: 0;
 }
@@ -199,7 +199,7 @@
             rgba(161, 226, 255, 1) 100%);
     font-family: var(--font-family-base);
     font-weight: 700;
-    font-size: 9px;
+    font-size: 12px;
     color: var(--variable-collection-body);
     white-space: nowrap;
 }
@@ -235,7 +235,7 @@
     font-family: var(--font-family-base);
     font-weight: 600;
     color: var(--variable-collection-body);
-    font-size: 11px;
+    font-size: 12px;
     text-align: center;
     letter-spacing: 0;
     line-height: 11px;

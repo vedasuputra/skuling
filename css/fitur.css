@@ -223,7 +223,7 @@
   font-family: var(--font-family-base);
   font-weight: 400;
   color: var(--variable-collection-body);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0;
   line-height: 14px;
 }
@@ -316,7 +316,7 @@
   font-family: var(--font-family-base);
   font-weight: 500;
   color: var(--variable-collection-orange);
-  font-size: 8px;
+  font-size: 12px;
   text-align: center;
   letter-spacing: 0;
   line-height: 9.6px;
