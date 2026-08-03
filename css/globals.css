@@ -10,6 +10,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  overscroll-behavior: none;
 }
 
 body {
@@ -23,6 +24,11 @@ body {
   height: 100%;
   position: relative;
   background-color: #fff;
+  overscroll-behavior: contain;
+}
+
+.device-frame > main {
+  overscroll-behavior: contain;
 }
 
 .device-frame > * {
