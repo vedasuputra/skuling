@@ -220,12 +220,6 @@
     color: var(--variable-collection-body);
 }
 
-@media (max-width: 767px) {
-    .chatroom-input:focus {
-        font-size: 16px;
-    }
-}
-
 .chatroom-input::placeholder {
     color: var(--variable-collection-disabled);
 }

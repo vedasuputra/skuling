@@ -513,12 +513,6 @@ body[data-page="battle-stars"] .toast {
   outline: none;
 }
 
-@media (max-width: 767px) {
-  .adjust-stepper-value:focus {
-    font-size: 16px;
-  }
-}
-
 .adjust-stepper-value::-webkit-outer-spin-button,
 .adjust-stepper-value::-webkit-inner-spin-button {
   -webkit-appearance: none;

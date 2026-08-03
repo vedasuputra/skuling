@@ -86,12 +86,6 @@
     letter-spacing: 0;
 }
 
-@media (max-width: 767px) {
-    .search-input:focus {
-        font-size: 16px;
-    }
-}
-
 .search-input::placeholder {
     color: var(--variable-collection-disabled);
 }

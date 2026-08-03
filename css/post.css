@@ -210,13 +210,6 @@
 .comment-composer-input::placeholder {
     color: var(--variable-collection-disabled);
 }
-
-@media (max-width: 767px) {
-    .comment-composer-input:focus {
-        font-size: 16px;
-    }
-}
-
 .comment-composer-input:focus {
     outline: none;
 }

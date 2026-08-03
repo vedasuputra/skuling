@@ -139,12 +139,6 @@
   opacity: 1;
 }
 
-@media (max-width: 767px) {
-  .kenalan .streak input.text-wrapper-3:focus {
-    font-size: 16px !important;
-  }
-}
-
 .kenalan .text-wrapper-3 {
   position: relative;
   flex: 1;
@@ -531,13 +525,6 @@
 .sheet-search input::placeholder {
   color: var(--variable-collection-disabled);
 }
-
-@media (max-width: 767px) {
-  .sheet-search input:focus {
-    font-size: 16px;
-  }
-}
-
 .kenalan .sheet-list {
   overflow-y: auto;
   padding: 8px 0;
