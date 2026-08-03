@@ -86,6 +86,12 @@
     letter-spacing: 0;
 }
 
+@media (max-width: 767px) {
+    .search-input {
+        font-size: 16px;
+    }
+}
+
 .search-input::placeholder {
     color: var(--variable-collection-disabled);
 }
