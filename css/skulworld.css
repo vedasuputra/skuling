@@ -116,8 +116,8 @@
 
 .squad-row[data-squad="undiksha"] .squad-row-avatar,
 .squad-detail-identity .squad-row-avatar {
-    width: 56px;
-    height: 56px;
+    width: 46px;
+    height: 46px;
     box-sizing: border-box;
     padding: 8px;
     object-fit: contain;
@@ -138,14 +138,8 @@
 }
 
 .squad-row-main .squad-row-avatar {
-    width: 56px;
-    height: 56px;
-}
-
-.squad-row--mysquad .squad-row-avatar {
-    box-sizing: border-box;
-    padding: 8px;
-    background: var(--variable-collection-white);
+    width: 46px;
+    height: 46px;
 }
 
 .squad-row-main .squad-row-name {
@@ -219,7 +213,7 @@
     font-size: 12px;
     width: 61px;
     color: var(--variable-collection-white);
-    height: 56px;
+    height: 46px;
     cursor: pointer;
 }
 
@@ -372,10 +366,6 @@
     border-top: 1px solid var(--variable-collection-stroke);
     box-shadow: var(--topbar-shadow);
     z-index: 10;
-}
-
-.skulboard-empty-actions[hidden] {
-    display: none;
 }
 
 @media (min-width: 431px) {
