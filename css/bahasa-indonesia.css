@@ -152,7 +152,6 @@
 .module-card-top {
   display: flex;
   flex-direction: column;
-  gap: 4px;
 }
 
 .module-card-title {
