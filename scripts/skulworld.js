@@ -83,6 +83,15 @@ lanjutkanBtn?.addEventListener("click", () => {
                 tab.removeAttribute("aria-current");
             }
         });
+
+        const lihatSquadBtn = document.getElementById("lihatSquadDiikutiBtn");
+        if (lihatSquadBtn) {
+            if (TABS[index] === "mysquad") {
+                lihatSquadBtn.setAttribute("aria-current", "page");
+            } else {
+                lihatSquadBtn.removeAttribute("aria-current");
+            }
+        }
     }
 
     window.goToSkulworldTab = function (index, animate = true) {
