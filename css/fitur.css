@@ -156,8 +156,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   opacity: 0;
   transition: opacity 0.25s ease;
+}
+
+.perkenalan-fitur .feature-card-battle .feature-card-img {
+  object-position: top;
 }
 
 .perkenalan-fitur .feature-img-wrap.is-loaded .feature-card-img {
