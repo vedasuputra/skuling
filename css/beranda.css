@@ -63,9 +63,10 @@
 
 .xplain .materi-card {
     display: flex;
-    align-items: top;
+    align-items: stretch;
     gap: 0;
     width: 100%;
+    padding: 0;
     background: var(--variable-collection-white);
     border: 1px solid var(--variable-collection-xplain-categories-stroke);
     border-radius: var(--btn-border-radius-sm);
@@ -147,7 +148,8 @@
 
 .xplain .materi-card-img {
   width: 84px;
-  height: 84px;
+  height: 100%;
+  min-height: 84px;
   flex-shrink: 0;
   object-fit: cover;
   border: 0;
@@ -156,7 +158,8 @@
 
 .xplain .materi-card-thumb {
   width: 84px;
-  height: 84px;
+  height: 100%;
+  min-height: 84px;
   flex-shrink: 0;
   position: relative;
   overflow: hidden;

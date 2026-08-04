@@ -22,7 +22,7 @@ function renderSelesaiContent() {
                 </div>
                 <div class="selesai-badge selesai-badge--rookie">
                     <span class="selesai-badge-icon">
-                        <img src="./img/icon-book-outline.png" alt="">
+                        <img src="./img/badge-rookie.png" alt="">
                     </span>
                     <span class="selesai-badge-body">
                         <span class="selesai-badge-title">Kamu telah menjadi Rookie!</span>
