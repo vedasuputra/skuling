@@ -51,3 +51,12 @@ sendBtn?.addEventListener("click", sendMessage);
 input?.addEventListener("keydown", (e) => {
     if (e.key === "Enter") sendMessage();
 });
+
+if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", () => {
+        window.scrollTo(0, 0);
+    });
+}
+input?.addEventListener("blur", () => {
+    window.scrollTo(0, 0);
+});
