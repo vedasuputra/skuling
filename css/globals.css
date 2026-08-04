@@ -10,6 +10,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  height: 100dvh;
   overscroll-behavior: none;
   overscroll-behavior-x: none;
   font-family: var(--font-family-base), Helvetica, Arial, sans-serif;
