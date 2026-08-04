@@ -138,14 +138,14 @@
     flex-shrink: 0;
     width: calc(100% - 30px);
     max-width: 480px;
-    margin: 14px auto 0;
+    margin: 22px auto 0;
 }
 
 .bdg-category-head {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
     font-family: var(--font-family-base);
     font-weight: 600;
     font-size: 12px;
@@ -180,7 +180,7 @@
     aspect-ratio: 1;
     object-fit: contain;
     flex-shrink: 0;
-    margin: 14px auto 10px;
+    margin: 0 auto 0px;
 }
 
 .bdg-card span {
@@ -189,13 +189,13 @@
     width: 100%;
     align-items: center;
     justify-content: center;
-    padding: 10px 8px;
+    padding: 8px 6px;
     box-sizing: border-box;
     border-top: 1px solid var(--variable-collection-stroke);
     background-color: var(--variable-collection-white);
     font-family: var(--font-family-base);
     font-weight: 500;
-    font-size: 13px;
+    font-size: 12px;
     color: var(--variable-collection-body);
     text-align: center;
     line-height: 1.3;
