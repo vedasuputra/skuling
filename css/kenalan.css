@@ -85,7 +85,7 @@
   width: 100%;
   flex: 0 0 auto;
   background-color: var(--variable-collection-white);
-  border: 1px solid var(--variable-collection-stroke);
+  border: 1.5px solid var(--variable-collection-stroke);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -419,7 +419,6 @@
 
 .kenalan .streak.invalid {
   border-color: var(--variable-collection-red-stroke);
-  border-width: 1.5px;
 }
 
 .kenalan .streak-3:not(:disabled) {

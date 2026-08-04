@@ -72,13 +72,23 @@ function validateField(id) {
     return isValid;
 }
 
+function isFieldValid(id) {
+    const input = document.getElementById(id);
+    return validators[id].test(input.value);
+}
+
 function checkFormValidity() {
-    const allValid = Object.keys(validators).every(id => validateField(id));
+    const allValid = Object.keys(validators).every(id => isFieldValid(id));
     const otherRequired = Array.from(form.querySelectorAll("[required]"))
         .filter(el => !(el.id in validators))
         .every(el => el.value.trim().length > 0);
 
     submitBtn.disabled = !(allValid && otherRequired);
+}
+
+function checkFormValidityAndRenderAll() {
+    Object.keys(validators).forEach(id => validateField(id));
+    checkFormValidity();
 }
 
 Object.keys(validators).forEach(id => {

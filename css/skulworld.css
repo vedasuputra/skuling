@@ -17,7 +17,7 @@
     flex-direction: column;
     box-sizing: border-box;
     padding-top: 56px;
-    padding-bottom: calc(78px + env(safe-area-inset-bottom));
+    padding-bottom: calc(140px + env(safe-area-inset-bottom));
     opacity: 0;
 }
 
@@ -60,7 +60,7 @@
     width: calc(100% - 50px);
     max-width: 460px;
     margin: 0 auto;
-    padding: 15px 0 calc(80px + env(safe-area-inset-bottom));
+    padding: 15px 0 calc(142px + env(safe-area-inset-bottom));
     padding-top: 100px;
 }
 
@@ -211,12 +211,12 @@
 
 .skulworld-lanjutkan {
     width: 100%;
-    padding: 18px 18px calc(18px + env(safe-area-inset-bottom));
+    padding: 18px;
     box-sizing: border-box;
     position: fixed;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: calc(80px + env(safe-area-inset-bottom));
     margin: 0 auto;
     background: linear-gradient(180deg, #004c6f 0%, #003b56 100%);
     font-family: var(--font-family-base);
