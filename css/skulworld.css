@@ -60,7 +60,7 @@
     width: calc(100% - 50px);
     max-width: 460px;
     margin: 0 auto;
-    padding: 15px 0;
+    padding: 15px 0 calc(80px + env(safe-area-inset-bottom));
     padding-top: 100px;
 }
 
@@ -211,15 +211,26 @@
 
 .skulworld-lanjutkan {
     width: 100%;
-    padding: 18px;
+    padding: 18px 18px calc(18px + env(safe-area-inset-bottom));
     box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
     background: linear-gradient(180deg, #004c6f 0%, #003b56 100%);
     font-family: var(--font-family-base);
     font-weight: 700;
     font-size: 14px;
     color: var(--variable-collection-white-80);
     cursor: pointer;
-    flex-shrink: 0;
+    z-index: 10;
+}
+
+@media (min-width: 431px) {
+    .skulworld-lanjutkan {
+        max-width: 390px;
+    }
 }
 
 .skulworld-lanjutkan:disabled {

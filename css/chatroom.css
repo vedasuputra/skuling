@@ -96,7 +96,7 @@
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    padding: 16px 15px;
+    padding: 16px 15px calc(70px + env(safe-area-inset-bottom));
     box-sizing: border-box;
 }
 
@@ -181,9 +181,20 @@
     width: 100%;
     padding: 12px 15px calc(12px + env(safe-area-inset-bottom));
     box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
     background: var(--variable-collection-white);
     border-top: 1px solid var(--variable-collection-stroke);
-    flex-shrink: 0;
+    z-index: 10;
+}
+
+@media (min-width: 431px) {
+    .chatroom-input-bar {
+        max-width: 390px;
+    }
 }
 
 .chatroom-attach-btn {

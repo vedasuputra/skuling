@@ -10,6 +10,8 @@
     min-height: 0;
     overflow-y: auto;
     overflow-x: hidden;
+    padding-bottom: calc(70px + env(safe-area-inset-bottom));
+    box-sizing: border-box;
 }
 
 .post-scroll::-webkit-scrollbar {
@@ -162,9 +164,20 @@
     width: 100%;
     padding: 10px 15px max(10px, env(safe-area-inset-bottom));
     box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
     background: var(--variable-collection-white);
     border-top: 1px solid var(--variable-collection-stroke);
-    flex-shrink: 0;
+    z-index: 10;
+}
+
+@media (min-width: 431px) {
+    .comment-composer {
+        max-width: 390px;
+    }
 }
 
 .comment-composer-avatar {
