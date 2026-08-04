@@ -147,7 +147,7 @@
     gap: 10px;
     width: calc(100% - 30px);
     max-width: 480px;
-    margin: 12px auto 0;
+    margin: 8px auto 0;
 }
 
 .rp-add-friend {
@@ -156,7 +156,7 @@
     justify-content: center;
     gap: 8px;
     flex: 1;
-    padding: 8px;
+    padding: 10px;
     border-radius: var(--btn-border-radius-sm);
     background: linear-gradient(180deg, rgba(33, 186, 255, 1) 0%, rgba(0, 164, 237, 1) 100%);
     font-family: var(--font-family-base);
@@ -171,7 +171,7 @@
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    width: 46px;
+    aspect-ratio: 1 / 1;
     border-radius: var(--btn-border-radius-sm);
     border: 1px solid var(--variable-collection-stroke);
     background-color: var(--variable-collection-xplain-categories-background);
