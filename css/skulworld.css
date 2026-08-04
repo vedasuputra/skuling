@@ -452,7 +452,7 @@
     height: 25px;
     border-radius: var(--btn-border-radius-sm);
     border: 1px solid var(--variable-collection-stroke);
-    background: var(--variable-collection-white);
+    background: var(--variable-collection-xplain-categories-background);
     color: var(--variable-collection-body);
     cursor: pointer;
     flex-shrink: 0;
@@ -490,7 +490,7 @@
 }
 
 .squad-detail-identity .squad-row-name {
-    margin-bottom: 2px;
+    margin-bottom: 1px;
 }
 
 .squad-detail-section {
