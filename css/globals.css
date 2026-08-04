@@ -515,6 +515,10 @@ a {
   color: var(--variable-collection-body);
 }
 
+.back-btn .material-symbols-outlined {
+  font-size: 18px;
+}
+
 button.filter-bar {
   display: flex;
   align-items: center;
