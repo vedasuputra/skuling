@@ -296,7 +296,7 @@
     align-items: center;
     gap: 12px;
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     box-sizing: border-box;
     background: var(--variable-collection-white);
     text-align: left;
@@ -305,8 +305,8 @@
 
 .profile-kampus-logo {
     flex-shrink: 0;
-    width: 42px;
-    height: 42px;
+    width: 34px;
+    height: 34px;
     object-fit: contain;
 }
 

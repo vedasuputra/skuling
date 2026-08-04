@@ -263,24 +263,35 @@
 
 .rp-badges-preview {
     flex: 1;
+    position: relative;
     display: flex;
     align-items: stretch;
-    justify-content: center;
     gap: 6px;
     margin: 0 10px 10px;
-    padding: 10px 6px;
+    padding: 6px 0 6px 6px;
     box-sizing: border-box;
-    border: 0;
     background: #fff;
     border-radius: 4px;
     border: 1px solid var(--variable-collection-stroke);
+    overflow: hidden;
 }
 
 .rp-badges-preview img {
-    flex: 1;
-    min-width: 0;
+    flex: 0 0 auto;
     height: 100%;
+    width: auto;
     object-fit: contain;
+}
+
+.rp-badges-preview::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 28px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    pointer-events: none;
 }
 
 .profile-badges-footer {
@@ -324,7 +335,7 @@
     align-items: center;
     gap: 12px;
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     box-sizing: border-box;
     background: var(--variable-collection-white);
     border-top: 1px solid var(--variable-collection-stroke);
@@ -334,8 +345,8 @@
 
 .profile-kampus-logo {
     flex-shrink: 0;
-    width: 42px;
-    height: 42px;
+    width: 34px;
+    height: 34px;
     object-fit: contain;
 }
 
