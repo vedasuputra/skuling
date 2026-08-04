@@ -170,6 +170,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-weight: 600;
 }
 
 .squad-row-meta {
@@ -514,9 +515,9 @@
     width: 46px;
     height: 46px;
     box-sizing: border-box;
-    padding: 8px;
+    padding: 0;
     object-fit: contain;
-    background: var(--variable-collection-xplain-categories-background);
+    background: var(--variable-collection-white);
     border-right: 1px solid var(--variable-collection-stroke);
 }
 
@@ -531,7 +532,7 @@
     align-items: center;
     gap: 4px;
     font-family: var(--font-family-base);
-    font-weight: 700;
+    font-weight: 600;
     font-size: 14px;
     color: var(--variable-collection-body);
     margin-bottom: 2px;
