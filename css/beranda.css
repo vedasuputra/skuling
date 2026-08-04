@@ -63,7 +63,7 @@
 
 .xplain .materi-card {
     display: flex;
-    align-items: center;
+    align-items: top;
     gap: 0;
     width: 100%;
     padding: 0;
