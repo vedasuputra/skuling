@@ -139,6 +139,11 @@
     color: var(--variable-collection-disabled);
 }
 
+.profile-stat-help {
+    font-size: 12px;
+    line-height: 1;
+}
+
 .profile-stat-label {
     font-family: var(--font-family-base);
     font-weight: 400;
