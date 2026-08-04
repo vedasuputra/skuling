@@ -488,7 +488,7 @@
 .squad-detail-rules {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 1px;
     list-style: disc inside;
     margin: 0;
     padding-left: 0;
@@ -517,8 +517,8 @@
 
 .squad-captain-avatar {
     flex-shrink: 0;
-    width: 46px;
-    height: 46px;
+    width: 50px;
+    height: 50px;
     box-sizing: border-box;
     padding: 0;
     object-fit: contain;
@@ -550,7 +550,7 @@
 .squad-captain-org {
     font-family: var(--font-family-base);
     font-weight: 400;
-    font-size: 12px;
+    font-size: 11px;
     color: var(--variable-collection-disabled);
 }
 
