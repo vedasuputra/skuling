@@ -94,9 +94,11 @@ commentInput?.addEventListener("focus", () => {
     composerToolbar.hidden = false;
 });
 
+const COMPOSER_EXPANDED_HEIGHT = 72;
+
 commentInput?.addEventListener("input", () => {
     commentInput.style.height = "auto";
-    commentInput.style.height = `${commentInput.scrollHeight}px`;
+    commentInput.style.height = `${Math.max(COMPOSER_EXPANDED_HEIGHT, commentInput.scrollHeight)}px`;
 });
 
 document.getElementById("submitCommentBtn")?.addEventListener("click", () => {
