@@ -246,7 +246,7 @@
   flex-direction: column;
   gap: 12px;
   width: 100%;
-  padding: 15px 20px 20px;
+  padding: 20px 20px 20px;
   box-sizing: border-box;
 }
 
@@ -289,7 +289,7 @@
   font-weight: 600;
   font-size: 12px;
   color: var(--variable-collection-white);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   letter-spacing: 0;
 }
 
