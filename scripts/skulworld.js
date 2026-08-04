@@ -84,13 +84,9 @@ lanjutkanBtn?.addEventListener("click", () => {
             }
         });
 
-        const lihatSquadBtn = document.getElementById("lihatSquadDiikutiBtn");
-        if (lihatSquadBtn) {
-            if (TABS[index] === "mysquad") {
-                lihatSquadBtn.setAttribute("aria-current", "page");
-            } else {
-                lihatSquadBtn.removeAttribute("aria-current");
-            }
+        const emptyActions = document.getElementById("skulboardEmptyActions");
+        if (emptyActions) {
+            emptyActions.hidden = TABS[index] !== "skulboard";
         }
     }
 
