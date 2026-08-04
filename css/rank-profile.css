@@ -229,6 +229,7 @@
 .profile-rank-footer {
     display: block;
     width: 100%;
+    margin-top: auto;
     padding: 8px;
     box-sizing: border-box;
     text-align: center;
