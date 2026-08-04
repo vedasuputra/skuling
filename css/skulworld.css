@@ -114,7 +114,8 @@
     margin-top: 18px;
 }
 
-.squad-row[data-squad="undiksha"] .squad-row-avatar {
+.squad-row[data-squad="undiksha"] .squad-row-avatar,
+.squad-detail-identity .squad-row-avatar {
     width: 46px;
     height: 46px;
     box-sizing: border-box;
@@ -451,7 +452,7 @@
 }
 
 .squad-detail-identity .squad-row-name {
-    margin-bottom: 6px;
+    margin-bottom: 2px;
 }
 
 .squad-detail-section {
@@ -502,17 +503,21 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 8px 10px;
+    padding: 0 10px 0 0;
     border: 1px solid var(--variable-collection-stroke);
     border-radius: var(--btn-border-radius-sm);
+    overflow: hidden;
 }
 
 .squad-captain-avatar {
-    width: 36px;
-    height: 36px;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    box-sizing: border-box;
+    padding: 8px;
     object-fit: contain;
-    border-radius: var(--btn-border-radius-sm);
     background: var(--variable-collection-xplain-categories-background);
+    border-right: 1px solid var(--variable-collection-stroke);
 }
 
 .squad-captain-info {
@@ -529,6 +534,7 @@
     font-weight: 700;
     font-size: 14px;
     color: var(--variable-collection-body);
+    margin-bottom: 2px;
 }
 
 .squad-captain-verified {
