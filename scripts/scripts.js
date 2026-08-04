@@ -340,7 +340,7 @@ document.addEventListener("dragstart", (e) => {
 
         try { localStorage.setItem(BATTLE_HISTORY_KEY, JSON.stringify(record)); } catch (e) {  }
         try { localStorage.setItem(BATTLE_RESULT_READY_KEY, "1"); } catch (e) {  }
-        renderBattleResultNotice();
+        renderBattleProgressToast();
     }
 
     function advancePendingBattle() {

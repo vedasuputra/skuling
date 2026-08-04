@@ -903,12 +903,6 @@
     color: #003b56;
 }
 
-@keyframes bm-waiting-spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 .bm-result-cta {
     display: flex;
     align-items: center;
@@ -1111,23 +1105,14 @@
     text-align: center;
 }
 
-.bm-waiting-modal-spinner {
-    width: 32px;
-    height: 32px;
-    flex-shrink: 0;
-    border-radius: 500px;
-    border: 3px solid rgba(171, 20, 20, 0.2);
-    border-top-color: #ab1414;
-    animation: bm-waiting-spin 0.8s linear infinite;
-}
-
 .bm-waiting-modal-title {
     font-weight: 700 !important;
     font-size: 16px !important;
 }
 
 .bm-waiting-modal-note {
-    color: #500a0a !important;
+    font-size: 12px !important;
+    color: var(--variable-collection-disabled) !important;
 }
 
 .bm-outcome-body strong.bm-good {
