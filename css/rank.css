@@ -25,6 +25,38 @@
     display: none;
 }
 
+.rk-loading-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(243, 251, 255, 1) 100%);
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+.rk-loading-overlay.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.rk-loading-spinner {
+    width: 36px;
+    height: 36px;
+    border-radius: 500px;
+    border: 3px solid rgba(0, 165, 235, 0.2);
+    border-top-color: var(--variable-collection-accent);
+    animation: rk-loading-spin 0.8s linear infinite;
+}
+
+@keyframes rk-loading-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .rk-top-bar {
     position: sticky;
     top: 0;
