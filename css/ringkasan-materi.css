@@ -248,7 +248,7 @@
   align-items: center;
   gap: 15px;
   width: 100%;
-  padding: 30px 0 15px;
+  padding: 15px 0 15px;
   box-sizing: border-box;
 }
 
@@ -279,7 +279,7 @@
   margin: 0;
   font-family: var(--font-family-base);
   font-weight: 500;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--variable-collection-body);
   letter-spacing: 0;
 }
@@ -287,7 +287,7 @@
 .summary-card-number {
   font-family: var(--font-family-base);
   font-weight: 400;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--variable-collection-body);
   letter-spacing: 0;
   flex-shrink: 0;
@@ -340,7 +340,7 @@
 .summary-bullets li strong {
   font-family: var(--font-family-base);
   font-weight: 700;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--variable-collection-body);
   letter-spacing: 0;
   line-height: 1.4;
@@ -349,7 +349,7 @@
 .summary-bullets li span {
   font-family: var(--font-family-base);
   font-weight: 400;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--variable-collection-body);
   letter-spacing: 0;
   line-height: 1.4;
