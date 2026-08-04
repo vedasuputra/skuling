@@ -154,7 +154,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 8px 15px;
+  padding: 12px 15px;
   box-sizing: border-box;
   background-color: var(--variable-collection-white);
   border-bottom: 1px solid var(--variable-collection-stroke);
@@ -172,6 +172,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.filter-bar .material-symbols-outlined {
+  font-size: 14px;
 }
 
 .section-breadcrumb-index {

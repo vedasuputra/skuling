@@ -69,7 +69,7 @@
   position: relative;
   align-self: stretch;
   height: 17px;
-  margin-top: -1px;
+  margin-top: 1px;
   font-family: var(--font-family-base);
   font-weight: 500;
   color: var(--variable-collection-white);

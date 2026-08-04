@@ -521,7 +521,7 @@ button.filter-bar {
   justify-content: space-between;
   width: 100%;
   gap: 6px;
-  padding: 8px 15px;
+  padding: 12px 15px;
   box-sizing: border-box;
   border: 0;
   background: none;
@@ -539,6 +539,10 @@ button.filter-bar {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+}
+
+button.filter-bar .material-symbols-outlined {
+  font-size: 14px;
 }
 
 .filter-bar--sticky {
