@@ -52,11 +52,23 @@ input?.addEventListener("keydown", (e) => {
     if (e.key === "Enter") sendMessage();
 });
 
+const inputBar = document.querySelector(".chatroom-input-bar");
+
+function syncInputBarPosition() {
+    if (!window.visualViewport || !inputBar) return;
+    const vv = window.visualViewport;
+    const offset = window.innerHeight - vv.height - vv.offsetTop;
+    inputBar.style.transform = offset > 0 ? `translateY(-${offset}px)` : "";
+}
+
 if (window.visualViewport) {
     window.visualViewport.addEventListener("resize", () => {
         window.scrollTo(0, 0);
+        syncInputBarPosition();
     });
+    window.visualViewport.addEventListener("scroll", syncInputBarPosition);
 }
 input?.addEventListener("blur", () => {
     window.scrollTo(0, 0);
+    syncInputBarPosition();
 });

@@ -78,6 +78,17 @@ renderComments();
 
 const commentInput = document.getElementById("commentInput");
 const composerToolbar = document.getElementById("composerToolbar");
+const commentComposer = document.querySelector(".comment-composer");
+
+if (commentComposer && window.ResizeObserver) {
+    const syncComposerHeight = () => {
+        document.documentElement.style.setProperty(
+            "--comment-composer-height",
+            `${commentComposer.offsetHeight}px`
+        );
+    };
+    new ResizeObserver(syncComposerHeight).observe(commentComposer);
+}
 
 commentInput?.addEventListener("focus", () => {
     composerToolbar.hidden = false;

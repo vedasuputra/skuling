@@ -723,7 +723,7 @@
     padding: 16px;
     box-sizing: border-box;
     border: 0;
-    border-radius: var(--btn-border-radius-sm);
+    border-radius: 0;
     background: linear-gradient(180deg, #d81a1a 0%, #aa1414 100%);
     font-family: var(--font-family-base);
     font-weight: 700;
@@ -1053,6 +1053,8 @@
 .info-card__text {
     display: flex;
     flex-direction: column;
+    flex: 1;
+    min-width: 0;
     gap: 2px;
 }
 
