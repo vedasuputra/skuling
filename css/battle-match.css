@@ -1106,7 +1106,7 @@
 }
 
 .bm-waiting-overlay {
-    background: linear-gradient(180deg, #07b2ff 0%, #0092d4 100%) !important;
+    background: linear-gradient(180deg, rgba(7, 178, 255, 0.82) 0%, rgba(0, 146, 212, 0.82) 100%) !important;
 }
 
 .bm-waiting-modal-note {
