@@ -206,7 +206,7 @@
     font-weight: 600;
     font-size: 12px;
     color: var(--variable-collection-orange);
-    background: var(--variable-collection-white);
+    background: rgba(255, 208, 24, 0.2);
     border-top: 1px solid #f2d3ab;
 }
 
