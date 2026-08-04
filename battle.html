@@ -150,16 +150,27 @@
                 </footer>
             </section>
 
-            <section class="bm-waiting" id="screenWaiting" hidden>
-                <header class="bm-top-bar bm-top-bar--result">
-                    <span class="bm-top-bar-title">Menunggu Lawan</span>
-                </header>
-                <span class="bm-waiting-spinner" aria-hidden="true"></span>
-                <h1 class="bm-waiting-title">Soal kamu sudah selesai!</h1>
-                <p class="bm-waiting-text">Kak Aji masih mengerjakan soalnya. Hasil Battle baru bisa keluar setelah
-                    dia selesai atau hasilnya sudah pasti.</p>
-                <button class="bm-waiting-minimize btn-reset" type="button" id="btnMinimizeBattle">Minimize Battle</button>
-            </section>
+            <div class="bm-outcome-overlay" id="screenWaiting" role="dialog" aria-modal="true"
+                aria-labelledby="waiting-title">
+                <div class="bm-outcome-card is-lose">
+                    <div class="bm-outcome-header">
+                        <span id="waiting-title">Menunggu Lawan</span>
+                    </div>
+                    <div class="bm-outcome-body">
+                        <span class="bm-waiting-modal-spinner" aria-hidden="true"></span>
+                        <p class="bm-waiting-modal-title">Soal kamu sudah selesai!</p>
+                        <p>Kak Aji masih mengerjakan soalnya. Hasil Battle baru bisa keluar setelah dia selesai atau
+                            hasilnya sudah pasti.</p>
+                        <p class="bm-waiting-modal-note">Tenang, minimize battle nggak akan menghilangkan progress
+                            kamu — battle-nya tetap jalan di background, jadi kamu bisa eksplor fitur lain dulu
+                            sambil menunggu.</p>
+                    </div>
+                    <div class="bm-outcome-footer">
+                        <button class="bm-outcome-btn bm-outcome-btn--solid" type="button"
+                            id="btnMinimizeBattle">Minimize Battle</button>
+                    </div>
+                </div>
+            </div>
 
             <section class="bm-result" id="screenResult" hidden>
                 <header class="bm-top-bar bm-top-bar--result">

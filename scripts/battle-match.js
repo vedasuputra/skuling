@@ -310,7 +310,7 @@ function isOpponentDone() {
 
 function showWaitingScreen() {
     screenQuiz.setAttribute("hidden", "");
-    screenWaiting.removeAttribute("hidden");
+    showOverlay(screenWaiting);
 }
 
 function tryResolveWhileWaiting() {
@@ -510,13 +510,12 @@ function finishBattle() {
     clearInterval(state.timerInterval);
     if (state.opponentTimeoutId) clearTimeout(state.opponentTimeoutId);
 
-    [outcomeOverlay, infoOverlay].forEach(o => {
+    [outcomeOverlay, infoOverlay, screenWaiting].forEach(o => {
         o.classList.remove("visible", "hiding");
         o.style.display = "none";
     });
 
     screenQuiz.setAttribute("hidden", "");
-    screenWaiting.setAttribute("hidden", "");
     screenResult.removeAttribute("hidden");
     renderResult();
     saveBattleState();

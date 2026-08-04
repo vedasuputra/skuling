@@ -377,36 +377,76 @@ document.addEventListener("dragstart", (e) => {
         }
     }
 
-    function renderBattleResultNotice() {
-        const page = document.body.dataset.page;
-        if (page === "battle" || page === "battle-hasil") return;
+    function removeBattleProgressToast() {
+        const toast = document.querySelector(".battle-progress-toast");
+        if (toast) toast.remove();
+    }
 
-        let notice = document.querySelector(".battle-result-notice");
-        if (localStorage.getItem(BATTLE_RESULT_READY_KEY) !== "1") {
-            if (notice) notice.remove();
+    function renderBattleProgressToast() {
+        const page = document.body.dataset.page;
+        if (page === "battle" || page === "battle-hasil") {
+            removeBattleProgressToast();
             return;
         }
-        if (notice) return;
 
-        notice = document.createElement("button");
-        notice.type = "button";
-        notice.className = "battle-result-notice";
-        notice.innerHTML =
-            '<span class="material-symbols-outlined" aria-hidden="true">emoji_events</span>' +
-            '<span>Hasil Battle sudah keluar! Ketuk untuk lihat.</span>';
-        notice.addEventListener("click", () => {
-            try { localStorage.removeItem(BATTLE_RESULT_READY_KEY); } catch (e) {  }
-            window.location.href = "battle-hasil.html";
-        });
-        document.body.appendChild(notice);
+        const isReady = localStorage.getItem(BATTLE_RESULT_READY_KEY) === "1";
+        const state = isReady ? null : loadPendingBattleState();
+        const isWaiting = !isReady && state && !state.finished &&
+            isDone(state.userResults) && !isDone(state.opponentResults);
+
+        if (!isReady && !isWaiting) {
+            removeBattleProgressToast();
+            return;
+        }
+
+        let toast = document.querySelector(".battle-progress-toast");
+        if (!toast) {
+            toast = document.createElement("button");
+            toast.type = "button";
+            toast.className = "battle-progress-toast";
+            toast.innerHTML =
+                '<span class="battle-progress-toast-left">' +
+                '<span class="material-symbols-outlined battle-progress-toast-icon" aria-hidden="true"></span>' +
+                '<span class="battle-progress-toast-label"></span>' +
+                '</span>' +
+                '<span class="battle-progress-toast-count"></span>';
+            document.body.appendChild(toast);
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => toast.classList.add("visible"));
+            });
+        }
+
+        const icon = toast.querySelector(".battle-progress-toast-icon");
+        const label = toast.querySelector(".battle-progress-toast-label");
+        const count = toast.querySelector(".battle-progress-toast-count");
+
+        if (isReady) {
+            toast.classList.add("is-done");
+            icon.textContent = "check_circle";
+            label.textContent = "Battle done!";
+            count.textContent = "View Results";
+            toast.onclick = () => {
+                try { localStorage.removeItem(BATTLE_RESULT_READY_KEY); } catch (e) {  }
+                removeBattleProgressToast();
+                window.location.href = "battle-hasil.html";
+            };
+        } else {
+            const total = state.opponentResults.length;
+            const answered = state.opponentResults.filter(r => r !== null).length;
+            toast.classList.remove("is-done");
+            icon.textContent = "progress_activity";
+            label.textContent = "Battle in progress...";
+            count.textContent = `${answered}/${total}`;
+            toast.onclick = null;
+        }
     }
 
     document.addEventListener("DOMContentLoaded", () => {
         advancePendingBattle();
-        renderBattleResultNotice();
+        renderBattleProgressToast();
         setInterval(() => {
             advancePendingBattle();
-            renderBattleResultNotice();
+            renderBattleProgressToast();
         }, 7000);
     });
 })();
