@@ -165,7 +165,7 @@
 .squad-row-name {
     font-family: var(--font-family-base);
     font-weight: 500;
-    font-size: 15px;
+    font-size: 14px;
     color: var(--variable-collection-body);
     white-space: nowrap;
     overflow: hidden;
@@ -179,14 +179,14 @@
     gap: 3px;
     font-family: var(--font-family-base);
     font-weight: 400;
-    font-size: 12px;
+    font-size: 11px;
     color: var(--variable-collection-disabled);
     white-space: nowrap;
 }
 
 .squad-row-meta .material-symbols-outlined {
     color: var(--variable-collection-disabled);
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .squad-join-btn {
