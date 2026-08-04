@@ -1105,9 +1105,8 @@
     text-align: center;
 }
 
-.bm-waiting-modal-title {
-    font-weight: 700 !important;
-    font-size: 16px !important;
+.bm-waiting-overlay {
+    background: linear-gradient(180deg, #07b2ff 0%, #0092d4 100%) !important;
 }
 
 .bm-waiting-modal-note {
