@@ -513,6 +513,7 @@
     border: 1px solid var(--variable-collection-stroke);
     border-radius: var(--btn-border-radius-sm);
     overflow: hidden;
+    margin-top: 12px;
 }
 
 .squad-captain-avatar {
@@ -534,7 +535,7 @@
 .squad-captain-name {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 3px;
     font-family: var(--font-family-base);
     font-weight: 600;
     font-size: 14px;
@@ -544,7 +545,7 @@
 
 .squad-captain-verified {
     color: var(--variable-collection-green-accent);
-    font-size: 16px !important;
+    font-size: 14px !important;
 }
 
 .squad-captain-org {
