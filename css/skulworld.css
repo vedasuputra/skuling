@@ -56,7 +56,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
     width: calc(100% - 50px);
     max-width: 460px;
     margin: 0 auto;
@@ -103,7 +103,7 @@
     justify-content: space-between;
     gap: 10px;
     width: 100%;
-    padding:  0px;
+    padding: 0px;
     box-sizing: border-box;
     border: 1px solid var(--variable-collection-stroke);
     border-radius: var(--btn-border-radius-sm);
@@ -111,7 +111,7 @@
 }
 
 .skulworld-join-inner .squad-row[data-squad="undiksha"] {
-    margin-top: 28px;
+    margin-top: 18px;
 }
 
 .squad-row[data-squad="undiksha"] .squad-row-avatar {
@@ -120,7 +120,7 @@
     box-sizing: border-box;
     padding: 8px;
     object-fit: contain;
-    background: var(--variable-collection-white);
+    background: var(--variable-collection-xplain-categories-background);
 }
 
 .squad-row-main {
@@ -190,7 +190,7 @@
 .squad-join-btn {
     flex-shrink: 0;
     padding: 4px 12px;
-    border-radius: var(--btn-border-radius-sm);
+    border-radius: 0px 5px 5px 0px;
     border-left: 1px solid var(--variable-collection-stroke);
     background: linear-gradient(180deg, rgba(33, 186, 255, 1) 0%, rgba(0, 164, 237, 1) 100%);
     font-family: var(--font-family-base);
@@ -269,9 +269,9 @@
     gap: 2px;
     padding: 12px 0;
     background: linear-gradient(180deg,
-        rgba(161, 226, 255, 0.3) 0%,
-        rgba(161, 226, 255, 0.1) 25%,
-        rgba(161, 226, 255, 0) 50%);
+            rgba(161, 226, 255, 0.3) 0%,
+            rgba(161, 226, 255, 0.1) 25%,
+            rgba(161, 226, 255, 0) 50%);
     cursor: pointer;
 }
 
@@ -299,8 +299,8 @@
     min-height: 0;
 }
 
-.home-swipe-track > .skulboard-panel,
-.home-swipe-track > .mysquad-panel {
+.home-swipe-track>.skulboard-panel,
+.home-swipe-track>.mysquad-panel {
     width: 50%;
     height: 100%;
     flex-shrink: 0;
@@ -469,7 +469,7 @@
     font-weight: 600;
     font-size: 13px;
     color: var(--variable-collection-body);
-    margin-bottom: 10px!important;
+    margin-bottom: 10px !important;
 }
 
 .squad-detail-text {
@@ -533,7 +533,7 @@
 
 .squad-captain-verified {
     color: var(--variable-collection-green-accent);
-    font-size: 16px!important;
+    font-size: 16px !important;
 }
 
 .squad-captain-org {
