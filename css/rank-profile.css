@@ -180,7 +180,8 @@
 }
 
 .profile-mid-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: 120px 1fr;
     align-items: stretch;
     gap: 10px;
     width: calc(100% - 30px);
@@ -315,7 +316,7 @@
 .profile-kampus-card {
     width: calc(100% - 30px);
     max-width: 480px;
-    margin: 16px auto 0;
+    margin: 10px auto 0;
     border: 1px solid var(--variable-collection-stroke);
     border-radius: var(--btn-border-radius-sm);
     overflow: hidden;
