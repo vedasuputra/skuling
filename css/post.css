@@ -200,9 +200,7 @@
     min-width: 0;
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--variable-collection-stroke);
-    border-radius: var(--btn-border-radius-sm);
-    overflow: hidden;
+    gap: 8px;
 }
 
 .comment-composer-input {
@@ -211,7 +209,8 @@
     max-height: 120px;
     padding: 10px 12px;
     box-sizing: border-box;
-    border: 0;
+    border: 1px solid var(--variable-collection-stroke);
+    border-radius: var(--btn-border-radius-sm);
     resize: none;
     font-family: var(--font-family-base);
     font-weight: 400;
@@ -224,30 +223,35 @@
 }
 .comment-composer-input:focus {
     outline: none;
+    border-color: var(--variable-collection-accent);
 }
 
 .comment-composer-toolbar {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 6px 8px;
-    border-top: 1px solid var(--variable-collection-stroke);
-    background: var(--variable-collection-xplain-categories-background);
+    gap: 14px;
+    padding: 0;
+    border-top: 0;
+    background: none;
 }
 
 .composer-tool-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
     color: var(--variable-collection-accent);
     cursor: pointer;
 }
 
+.composer-tool-btn .material-symbols-outlined {
+    font-size: 22px;
+}
+
 .composer-submit-btn {
     margin-left: auto;
-    padding: 6px 16px;
+    padding: 7px 18px;
     border-radius: var(--btn-border-radius-sm);
     background: linear-gradient(180deg, rgba(33, 186, 255, 1) 0%, rgba(0, 164, 237, 1) 100%);
     font-family: var(--font-family-base);

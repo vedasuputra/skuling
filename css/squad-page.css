@@ -61,7 +61,7 @@
 
 .squad-page-name {
     font-family: var(--font-family-base);
-    font-weight: 700;
+    font-weight: 600;
     font-size: 14px;
     color: var(--variable-collection-body);
     white-space: nowrap;
@@ -179,7 +179,7 @@
     align-items: center;
     gap: 4px;
     font-family: var(--font-family-base);
-    font-weight: 700;
+    font-weight: 600;
     font-size: 14px;
     color: var(--variable-collection-body);
     margin-bottom: 2px;
@@ -206,7 +206,7 @@
 .squad-post-body {
     display: block;
     width: 100%;
-    padding: 14px;
+    padding: 20px;
     box-sizing: border-box;
     background: var(--variable-collection-white);
     text-align: left;
