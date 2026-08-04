@@ -33,33 +33,40 @@
 
 .comments-empty {
     display: flex;
-    align-items: center;
-    gap: 12px;
+    align-items: stretch;
+    gap: 0;
     margin: 0;
-    padding: 14px;
+    padding: 0;
     border: 1px solid var(--variable-collection-stroke);
     border-radius: var(--btn-border-radius-sm);
     background: var(--variable-collection-xplain-categories-background);
+    overflow: hidden;
 }
 
 .comments-empty-mascot {
     flex-shrink: 0;
-    width: 44px;
-    height: 44px;
+    width: 100px;
+    height: 120px;
     object-fit: contain;
     background: var(--variable-collection-white);
-    border-radius: var(--btn-border-radius-sm);
-    border: 1px solid var(--variable-collection-stroke);
-    padding: 4px;
+    border-right: 1px solid var(--variable-collection-stroke);
+    padding: 10px;
     box-sizing: border-box;
 }
 
 .comments-empty span {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    box-sizing: border-box;
+    text-align: center;
     font-family: var(--font-family-base);
     font-weight: 400;
-    font-size: 13px;
+    font-size: 14px;
     color: var(--variable-collection-body);
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 .comments-list {
