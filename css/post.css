@@ -121,7 +121,7 @@
     align-items: center;
     gap: 4px;
     font-family: var(--font-family-base);
-    font-weight: 700;
+    font-weight: 600;
     font-size: 14px;
     color: var(--variable-collection-body);
     margin-bottom: 2px;
@@ -275,6 +275,7 @@
 .comment-composer-input::placeholder {
     color: var(--variable-collection-disabled);
 }
+
 .comment-composer-input:focus {
     height: 72px;
     padding: 8px 12px;
@@ -320,4 +321,3 @@
     color: var(--variable-collection-white);
     cursor: pointer;
 }
-
