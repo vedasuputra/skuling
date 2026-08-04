@@ -374,6 +374,10 @@
     z-index: 10;
 }
 
+.skulboard-empty-actions[hidden] {
+    display: none;
+}
+
 @media (min-width: 431px) {
     .skulboard-empty-actions {
         max-width: 390px;
