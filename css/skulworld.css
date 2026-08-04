@@ -17,7 +17,7 @@
     flex-direction: column;
     box-sizing: border-box;
     padding-top: 56px;
-    padding-bottom: calc(140px + env(safe-area-inset-bottom));
+    padding-bottom: calc(134px + env(safe-area-inset-bottom));
     opacity: 0;
 }
 
@@ -44,6 +44,8 @@
 .skulworld-join {
     flex: 1;
     display: flex;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(180deg, #f1fbff 0%, #d5f2ff 100%);
     box-sizing: border-box;
 }
@@ -60,8 +62,6 @@
     width: calc(100% - 50px);
     max-width: 460px;
     margin: 0 auto;
-    padding: 15px 0 calc(142px + env(safe-area-inset-bottom));
-    padding-top: 100px;
 }
 
 .skulworld-join-mascot {
