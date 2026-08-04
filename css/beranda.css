@@ -66,7 +66,6 @@
     align-items: top;
     gap: 0;
     width: 100%;
-    padding-top: 10px;
     background: var(--variable-collection-white);
     border: 1px solid var(--variable-collection-xplain-categories-stroke);
     border-radius: var(--btn-border-radius-sm);
@@ -84,6 +83,7 @@
     font-size: 14px;
     color: var(--variable-collection-body);
     line-height: 1.3;
+    padding-top: 8px;
 }
 
 .xplain .materi-card-subtitle {
