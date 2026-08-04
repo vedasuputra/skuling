@@ -30,7 +30,7 @@
   flex-shrink: 0;
   align-items: center;
   padding-bottom: 13px;
-  gap: 10px;
+  gap: 8px;
   box-shadow: var(--topbar-shadow);
   z-index: 10;
 }
@@ -40,8 +40,8 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   color: var(--variable-collection-body);
 }
 

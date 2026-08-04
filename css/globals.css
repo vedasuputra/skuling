@@ -501,7 +501,7 @@ a {
   flex-shrink: 0;
   justify-content: flex-start;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   box-shadow: var(--topbar-shadow);
   z-index: 10;
 }
@@ -510,8 +510,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 12px;
+  width: 18px;
+  height: 18px;
   color: var(--variable-collection-body);
 }
 

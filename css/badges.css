@@ -38,7 +38,7 @@
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     width: 100%;
     height: 52px;
     padding: 0 15px;
@@ -52,8 +52,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
     color: var(--variable-collection-body);
     flex-shrink: 0;
 }
