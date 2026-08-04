@@ -66,7 +66,7 @@
     align-items: top;
     gap: 0;
     width: 100%;
-    padding: 0;
+    padding-top: 10px;
     background: var(--variable-collection-white);
     border: 1px solid var(--variable-collection-xplain-categories-stroke);
     border-radius: var(--btn-border-radius-sm);
