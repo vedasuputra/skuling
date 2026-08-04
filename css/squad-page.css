@@ -206,7 +206,7 @@
 .squad-post-body {
     display: block;
     width: 100%;
-    padding: 20px;
+    padding: 16px;
     box-sizing: border-box;
     background: var(--variable-collection-white);
     text-align: left;
