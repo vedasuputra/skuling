@@ -158,13 +158,12 @@
 
 .squad-post-author-avatar {
     flex-shrink: 0;
-    width: 46px;
-    height: 46px;
+    width: 56px;
+    height: 56px;
     box-sizing: border-box;
     padding: 0;
     object-fit: contain;
     background: var(--variable-collection-white);
-    border-right: 1px solid var(--variable-collection-stroke);
 }
 
 .squad-post-author-info {

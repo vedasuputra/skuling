@@ -463,6 +463,12 @@
     cursor: pointer;
 }
 
+.squad-row--mysquad .squad-row-avatar {
+    box-sizing: border-box;
+    padding: 8px;
+    background: var(--variable-collection-white);
+}
+
 .squad-detail-card {
     width: min(340px, 92vw);
     max-height: 80vh;
