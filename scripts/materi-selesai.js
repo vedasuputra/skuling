@@ -35,7 +35,7 @@ function renderSelesaiContent() {
                     </span>
                     <span class="selesai-badge-body">
                         <span class="selesai-badge-title">&ldquo;Menyelesaikan Modul Xplain 50%&rdquo; selesai!</span>
-                        <span class="selesai-badge-desc">Yuk, klaim hadiah misi ini dari menu Missions</span>
+                        <span class="selesai-badge-desc">Yuk, klaim hadiah misi ini dari Missions</span>
                     </span>
                 </div>
             </div>
