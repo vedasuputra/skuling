@@ -142,6 +142,12 @@
     height: 56px;
 }
 
+.squad-row--mysquad .squad-row-avatar {
+    box-sizing: border-box;
+    padding: 8px;
+    background: var(--variable-collection-white);
+}
+
 .squad-row-main .squad-row-name {
     margin-bottom: 2px;
 }
