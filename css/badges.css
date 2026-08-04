@@ -164,12 +164,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    padding: 10px 6px;
+    gap: 0;
+    padding: 0;
     box-sizing: border-box;
     border: 1px solid var(--variable-collection-stroke);
     border-radius: var(--btn-border-radius-sm);
     background-color: var(--variable-collection-xplain-categories-background);
+    overflow: hidden;
     cursor: pointer;
 }
 
@@ -178,12 +179,19 @@
     max-width: 90px;
     aspect-ratio: 1;
     object-fit: contain;
+    margin: 14px auto 10px;
 }
 
 .bdg-card span {
+    display: block;
+    width: 100%;
+    padding: 10px 8px;
+    box-sizing: border-box;
+    border-top: 1px solid var(--variable-collection-stroke);
+    background-color: var(--variable-collection-white);
     font-family: var(--font-family-base);
-    font-weight: 500;
-    font-size: 12px;
+    font-weight: 600;
+    font-size: 13px;
     color: var(--variable-collection-body);
     text-align: center;
     line-height: 1.3;
