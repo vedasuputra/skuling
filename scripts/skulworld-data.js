@@ -38,7 +38,7 @@ function getComments() {
 
 function addComment(text) {
     const comments = getComments();
-    comments.push({ text });
+    comments.push({ text, dateISO: new Date().toISOString() });
     localStorage.setItem(SKULWORLD_POST_COMMENTS_KEY, JSON.stringify(comments));
     return comments;
 }

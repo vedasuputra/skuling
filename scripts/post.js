@@ -35,6 +35,17 @@ const postCommentCount = document.getElementById("postCommentCount");
 let pendingDeleteIndex = null;
 const deleteOverlay = document.getElementById("commentDeleteOverlay");
 
+const INDO_MONTHS = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
+
+function formatCommentDate(dateISO) {
+    if (!dateISO) return "";
+    const d = new Date(dateISO);
+    const day = String(d.getDate()).padStart(2, "0");
+    const hh = String(d.getHours()).padStart(2, "0");
+    const mm = String(d.getMinutes()).padStart(2, "0");
+    return `${day} ${INDO_MONTHS[d.getMonth()]} ${d.getFullYear()}, ${hh}:${mm} WITA`;
+}
+
 function renderComments() {
     const comments = getComments();
 
@@ -44,22 +55,34 @@ function renderComments() {
 
     commentsList.innerHTML = comments.map((c, i) => `
         <div class="comment-card" data-index="${i}">
-            <span class="comment-card-avatar" aria-hidden="true">${initial}</span>
-            <div class="comment-card-main">
-                <div class="comment-card-header">
-                    <span class="comment-card-identity">
-                        <span class="comment-card-name">
-                            <img class="comment-card-badge" src="./img/badge-rookie.png" alt="">
-                            ${respondent.name}
-                        </span>
-                        <span class="comment-card-school">${respondent.school}</span>
+            <div class="comment-card-header">
+                <span class="comment-card-avatar" aria-hidden="true">${initial}</span>
+                <span class="comment-card-identity">
+                    <span class="comment-card-name">
+                        <img class="comment-card-badge" src="./img/badge-rookie.png" alt="">
+                        ${respondent.name}
                     </span>
-                    <button type="button" class="comment-card-delete btn-reset" data-delete-index="${i}"
-                        aria-label="Hapus komentar">
-                        <span class="material-symbols-outlined" aria-hidden="true">delete</span>
-                    </button>
-                </div>
-                <p class="comment-card-text">${c.text}</p>
+                    <span class="comment-card-school">${respondent.school}</span>
+                </span>
+                <button type="button" class="comment-card-delete btn-reset" data-delete-index="${i}"
+                    aria-label="Hapus komentar">
+                    <span class="material-symbols-outlined" aria-hidden="true">delete</span>
+                </button>
+            </div>
+            <p class="comment-card-text">${c.text}</p>
+            <div class="comment-card-footer">
+                <span class="comment-card-action" aria-label="Suka komentar">
+                    <span class="material-symbols-outlined" aria-hidden="true">thumb_up</span>
+                    <span>16</span>
+                </span>
+                <span class="comment-card-action" aria-label="Balas komentar">
+                    <span class="material-symbols-outlined" aria-hidden="true">chat_bubble</span>
+                    <span>0 Replies</span>
+                </span>
+                <span class="comment-card-date">${formatCommentDate(c.dateISO)}</span>
+                <span class="comment-card-share" aria-label="Bagikan">
+                    <span class="material-symbols-outlined" aria-hidden="true">ios_share</span>
+                </span>
             </div>
         </div>
     `).join("");
