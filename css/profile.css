@@ -211,6 +211,8 @@
 .profile-badges-card {
     flex: 1;
     min-width: 0;
+    min-height: 0;
+    align-self: stretch;
     display: flex;
     flex-direction: column;
     border: 1px solid var(--variable-collection-stroke);
@@ -232,6 +234,7 @@
 
 .profile-badges-body {
     flex: 1;
+    min-height: 0;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -185,7 +185,7 @@
     gap: 10px;
     width: calc(100% - 30px);
     max-width: 480px;
-    margin: 16px auto 0;
+    margin: 10px auto 0;
 }
 
 .rp-rank-card {
@@ -242,6 +242,8 @@
 .profile-badges-card {
     flex: 1;
     min-width: 0;
+    min-height: 0;
+    align-self: stretch;
     display: flex;
     flex-direction: column;
     border: 1px solid var(--variable-collection-stroke);
@@ -263,6 +265,7 @@
 
 .rp-badges-preview {
     flex: 1;
+    min-height: 0;
     position: relative;
     display: flex;
     align-items: stretch;
