@@ -487,6 +487,34 @@ a {
 .pemanasan-header--centered {
   justify-content: center;
 }
+
+.pemanasan-card--danger {
+  border-color: #f5adad;
+  background: linear-gradient(180deg, #fff1f1 0%, #fbdbdb 100%);
+}
+
+.pemanasan-card--danger .pemanasan-header {
+  background-color: #fbdbdb;
+  border-bottom-color: #f5adad;
+}
+
+.pemanasan-card--danger .pemanasan-title {
+  color: #500a0a;
+}
+
+.pemanasan-card--danger .pemanasan-close {
+  color: #500a0a;
+}
+
+.pemanasan-card--danger .pemanasan-footer {
+  border-top-color: #f5adad;
+}
+
+.pemanasan-card--danger .pemanasan-skip {
+  color: #941313;
+  background-color: #fbdbdb;
+  border-right-color: #f5adad;
+}
 .upgrade-skulingpro-text {
   font-family: var(--font-family-base);
   font-weight: 500;
