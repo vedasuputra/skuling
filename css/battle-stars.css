@@ -111,7 +111,7 @@ body[data-page="battle-stars"] .toast {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   width: calc(100% - 30px);
   margin: 0 auto 15px;
 }
@@ -121,7 +121,7 @@ body[data-page="battle-stars"] .toast {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 10px;
+  padding: 8px 10px;
   box-sizing: border-box;
   border: 0;
   border-radius: 5px;
@@ -269,7 +269,7 @@ body[data-page="battle-stars"] .toast {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 8px 15px;
+  padding: 12px 15px;
   background-color: #ab1616;
 }
 
@@ -286,7 +286,13 @@ body[data-page="battle-stars"] .toast {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 18px;
+  height: 18px;
   color: #ffffff;
+}
+
+.battlestars-modal-close .material-symbols-outlined {
+  font-size: 22px;
 }
 
 .battlestars-cta {
@@ -376,7 +382,7 @@ body[data-page="battle-stars"] .toast {
 .star-profile-rating {
   display: inline-flex;
   align-items: center;
-  padding: 4px 8px;
+  padding: 3px 8px;
   border-radius: 500px;
   border: 1px solid #931313;
   background-color: #7d1010;
@@ -405,7 +411,7 @@ body[data-page="battle-stars"] .toast {
 .star-profile-info-col {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 0px;
   flex: 1 1 0;
   min-width: 0;
 }
@@ -429,7 +435,7 @@ body[data-page="battle-stars"] .toast {
 .star-profile-info-value {
   font-family: var(--font-family-base);
   font-weight: 400;
-  font-size: 12px;
+  font-size: 10px;
   color: #ffffff;
   line-height: 1.4;
 }

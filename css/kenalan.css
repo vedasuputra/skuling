@@ -491,9 +491,17 @@
   border: 0;
   background: transparent;
   cursor: pointer;
-  padding: 2px;
+  padding: 0;
+  width: 18px;
+  height: 18px;
   display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--variable-collection-disabled);
+}
+
+.sheet-close .material-symbols-outlined {
+  font-size: 22px;
 }
 
 .sheet-search {

@@ -827,7 +827,7 @@ button.filter-bar .material-symbols-outlined {
   display: flex;
   width: calc(100% - 30px);
   max-width: 480px;
-  margin: 8px auto 0;
+  margin: 15px auto 0;
   align-items: center;
   justify-content: space-between;
   padding: 2px 8px;

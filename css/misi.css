@@ -140,7 +140,7 @@
   display: block;
   font-family: var(--font-family-base);
   font-weight: 400;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.2;
   letter-spacing: 0.2px;
 }
@@ -368,7 +368,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 18px;
+  height: 18px;
   color: var(--variable-collection-body);
+}
+
+.misi-modal-close .material-symbols-outlined {
+  font-size: 22px;
 }
 
 .spin-grid {
