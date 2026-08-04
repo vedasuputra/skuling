@@ -145,7 +145,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
     font-family: var(--font-family-base);
     font-weight: 600;
     font-size: 12px;
@@ -179,18 +179,22 @@
     max-width: 90px;
     aspect-ratio: 1;
     object-fit: contain;
+    flex-shrink: 0;
     margin: 14px auto 10px;
 }
 
 .bdg-card span {
-    display: block;
+    display: flex;
+    flex: 1;
     width: 100%;
+    align-items: center;
+    justify-content: center;
     padding: 10px 8px;
     box-sizing: border-box;
     border-top: 1px solid var(--variable-collection-stroke);
     background-color: var(--variable-collection-white);
     font-family: var(--font-family-base);
-    font-weight: 600;
+    font-weight: 500;
     font-size: 13px;
     color: var(--variable-collection-body);
     text-align: center;
