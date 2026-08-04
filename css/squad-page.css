@@ -44,6 +44,8 @@
     flex-shrink: 0;
     width: 32px;
     height: 32px;
+    box-sizing: border-box;
+    padding: 5px;
     object-fit: contain;
     border-radius: 4px;
     border: 1px solid var(--variable-collection-stroke);
@@ -53,7 +55,7 @@
 .squad-page-info {
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: 0px;
     min-width: 0;
 }
 
@@ -89,6 +91,10 @@
     color: var(--variable-collection-body);
     cursor: pointer;
     flex-shrink: 0;
+}
+
+.squad-page-menu-btn .material-symbols-outlined {
+    font-size: 18px;
 }
 
 .squad-page-tabs {
@@ -142,7 +148,7 @@
     align-items: center;
     gap: 10px;
     width: 100%;
-    padding: 12px;
+    padding: 0 12px 0 0;
     box-sizing: border-box;
     background: var(--variable-collection-xplain-categories-background);
     border-bottom: 1px solid var(--variable-collection-stroke);
@@ -152,11 +158,13 @@
 
 .squad-post-author-avatar {
     flex-shrink: 0;
-    width: 34px;
-    height: 34px;
+    width: 46px;
+    height: 46px;
+    box-sizing: border-box;
+    padding: 0;
     object-fit: contain;
-    border-radius: var(--btn-border-radius-sm);
     background: var(--variable-collection-white);
+    border-right: 1px solid var(--variable-collection-stroke);
 }
 
 .squad-post-author-info {
@@ -193,6 +201,7 @@
 .squad-post-more {
     flex-shrink: 0;
     color: var(--variable-collection-disabled);
+    font-size: 18px !important;
 }
 
 .squad-post-body {
