@@ -73,7 +73,6 @@
     color: var(--variable-collection-body);
     flex: 1;
     min-width: 0;
-    padding-bottom: 6px;
 }
 
 .pmb-top-pills {
