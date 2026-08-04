@@ -179,7 +179,7 @@ a {
   width: auto;
   padding: 12px 14px;
   box-sizing: border-box;
-  background: linear-gradient(180deg, #d81c1c 0%, #c11919 100%);
+  background: linear-gradient(180deg, #d81a1a 0%, #aa1414 100%);
   border: 1px solid #941212;
   border-radius: 5px;
   box-shadow: 0 8px 24px rgba(0, 40, 58, 0.35);
@@ -220,7 +220,7 @@ a {
 
 .battle-progress-toast.is-done .battle-progress-toast-icon {
   animation: none;
-  color: #ffd66b;
+  color: #ffffff;
 }
 
 @keyframes battle-progress-spin {
@@ -250,8 +250,7 @@ a {
 }
 
 .battle-progress-toast.is-done .battle-progress-toast-count {
-  color: #ffd66b;
-  text-decoration: underline;
+  color: #ffffff;
 }
 
 .toast-container {
