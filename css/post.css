@@ -124,6 +124,7 @@
     font-weight: 700;
     font-size: 14px;
     color: var(--variable-collection-body);
+    margin-bottom: 2px;
 }
 
 .comment-card-badge {
@@ -136,7 +137,7 @@
     font-family: var(--font-family-base);
     font-weight: 400;
     font-size: 12px;
-    color: var(--variable-collection-orange);
+    color: var(--variable-collection-disabled);
 }
 
 .comment-card-delete {
