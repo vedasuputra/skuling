@@ -30,7 +30,7 @@
   gap: 10px;
   width: calc(100% - 30px);
   max-width: 480px;
-  margin: 15px auto 0;
+  margin: 12px auto 0;
 }
 
 .filter-pill {
@@ -65,7 +65,7 @@
   gap: 12px;
   width: calc(100% - 30px);
   max-width: 480px;
-  margin: 20px auto 0;
+  margin: 12px auto 0;
   padding-bottom: 40px;
   box-sizing: border-box;
 }
