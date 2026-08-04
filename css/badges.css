@@ -175,18 +175,20 @@
 }
 
 .bdg-card img {
+    display: block;
     width: 100%;
-    max-width: 90px;
     aspect-ratio: 1;
     object-fit: contain;
     flex-shrink: 0;
-    margin: 0 auto 0px;
+    margin: 0;
+    padding: 0;
 }
 
 .bdg-card span {
     display: flex;
     flex: 1;
     width: 100%;
+    min-height: 52px;
     align-items: center;
     justify-content: center;
     padding: 8px 6px;
