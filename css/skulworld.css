@@ -282,14 +282,14 @@
     font-family: var(--font-family-base);
     font-weight: 600;
     font-size: 14px;
-    color: var(--variable-collection-disabled);
+    color: var(--variable-collection-body);
 }
 
 .skulworld-tab-subtitle {
     font-family: var(--font-family-base);
     font-weight: 400;
     font-size: 12px;
-    color: var(--variable-collection-disabled);
+    color: var(--variable-collection-body);
 }
 
 .skulworld-tab[aria-current="page"] .skulworld-tab-title,
