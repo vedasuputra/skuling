@@ -17,12 +17,12 @@ function renderSelesaiContent() {
                     </span>
                     <span class="selesai-badge-body">
                         <span class="selesai-badge-title">Streak aktif!</span>
-                        <span class="selesai-badge-desc">Lanjutkan streak dengan pakai Skuling tiap hari</span>
+                        <span class="selesai-badge-desc">Lanjutkan dengan pakai Skuling tiap hari</span>
                     </span>
                 </div>
                 <div class="selesai-badge selesai-badge--rookie">
                     <span class="selesai-badge-icon">
-                        <img src="./img/badge-rookie.png" alt="">
+                        <img src="./img/rank-rookie.png" alt="">
                     </span>
                     <span class="selesai-badge-body">
                         <span class="selesai-badge-title">Kamu telah menjadi Rookie!</span>
