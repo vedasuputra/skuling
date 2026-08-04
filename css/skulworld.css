@@ -165,7 +165,7 @@
 .squad-row-name {
     font-family: var(--font-family-base);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 15px;
     color: var(--variable-collection-body);
     white-space: nowrap;
     overflow: hidden;
