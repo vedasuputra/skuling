@@ -46,11 +46,11 @@
 .comments-empty-mascot {
     flex-shrink: 0;
     width: 100px;
-    height: 120px;
+    height: auto;
     object-fit: contain;
     background: var(--variable-collection-white);
     border-right: 1px solid var(--variable-collection-stroke);
-    padding: 10px;
+    padding: 0;
     box-sizing: border-box;
 }
 
