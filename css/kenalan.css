@@ -454,7 +454,7 @@
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  max-height: 80vh;
+  max-height: 60vh;
   overflow: hidden;
   animation: sheet-pop-in 0.15s ease-out;
 }

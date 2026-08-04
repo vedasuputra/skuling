@@ -14,7 +14,7 @@
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
-    padding-bottom: 92px;
+    padding-bottom: calc(92px + env(safe-area-inset-bottom));
     box-sizing: border-box;
 }
 

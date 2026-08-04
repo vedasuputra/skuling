@@ -17,7 +17,7 @@
     flex-direction: column;
     box-sizing: border-box;
     padding-top: 99px;
-    padding-bottom: 100px;
+    padding-bottom: calc(100px + env(safe-area-inset-bottom));
     opacity: 0;
     animation: none;
 }

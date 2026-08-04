@@ -75,7 +75,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 15px;
-  padding: 0px 0px 110px;
+  padding: 0px 0px calc(110px + env(safe-area-inset-bottom));
 }
 
 .perkenalan-fitur .feature-grid {

@@ -336,7 +336,7 @@
     flex-direction: column;
     flex: 1;
     gap: 12px;
-    padding-bottom: 88px;
+    padding-bottom: calc(88px + env(safe-area-inset-bottom));
     background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(243, 251, 255, 1) 100%);
     animation: bmResultFadeIn 0.5s ease both;
 }
