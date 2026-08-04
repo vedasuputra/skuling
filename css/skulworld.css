@@ -130,8 +130,20 @@
     gap: 10px;
     flex: 1;
     min-width: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--variable-collection-stroke);
+    border-radius: var(--btn-border-radius-sm);
     text-align: left;
     cursor: pointer;
+}
+
+.squad-row-main .squad-row-avatar {
+    width: 56px;
+    height: 56px;
+}
+
+.squad-row-main .squad-row-name {
+    margin-bottom: 2px;
 }
 
 .squad-row-avatar {
@@ -288,8 +300,8 @@
 .skulworld-tab-subtitle {
     font-family: var(--font-family-base);
     font-weight: 400;
-    font-size: 12px;
-    color: var(--variable-collection-body);
+    font-size: 11px;
+    color: var(--variable-collection-disabled);
 }
 
 .skulworld-tab[aria-current="page"] .skulworld-tab-title,
@@ -418,12 +430,12 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
-    height: 30px;
-    padding: 0 10px;
+    height: 25px;
+    padding: 6px 8px;
     box-sizing: border-box;
     border-radius: var(--btn-border-radius-sm);
     border: 1px solid var(--variable-collection-stroke);
-    background: var(--variable-collection-white);
+    background: var(--variable-collection-xplain-categories-background);
     font-family: var(--font-family-base);
     font-weight: 400;
     font-size: 12px;
@@ -436,8 +448,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     border-radius: var(--btn-border-radius-sm);
     border: 1px solid var(--variable-collection-stroke);
     background: var(--variable-collection-white);
